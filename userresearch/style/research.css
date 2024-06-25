@@ -1,0 +1,20 @@
+/* Add CSS styles for the User Research section */
+#user-research {
+    margin-top: 50px; /* Adjust margin as needed */
+}
+
+#user-research h2 {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.persona {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.persona img {
+    max-width: 100%; /* Ensure the image does not exceed its container */
+}
+
+.persona h3 {
+    margin-top: 10px; /* Adjust margin as needed */
+}
