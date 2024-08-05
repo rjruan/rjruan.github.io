@@ -3,61 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruby's Portfolio</title>
+    <title>Ruby's UX Haven</title>
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="./images/Ruby_Ruan_Adobe_Resúme.pdf">resume</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="https://www.linkedin.com/in/rubyyyy/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.behance.net/rubyruan1" target="_blank">Behance</a></li>
-                <li><a href="https://rubyruansportfolio.framer.website/" target="_blank">Framer</a></li>
-                <li><a href="#userresearch">User Research</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="btn-login">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <img class="hero-img" src="#" alt="Hero Image">
-        </section>
-        <section id="about">
-            <h1>About Me</h1>
-            <p>As a User Interface/User Experience major at Brigham Young University-Idaho with a minor in Web Development, I am passionate about creating intuitive and impactful digital experiences. Born in Taiwan, my multicultural background enriches my approach to design and user interaction.<br>
+    <section id="home" class="hero">
+        <h1>Welcome to Ruby's UX Haven</h1>
+        <p>Explore Ruby's latest projects showcasing her expertise in UX design, user research, front-end development, and graphic design.</p>
+        <div class="buttons">
+            <a href="#contact" class="btn-primary">Contact Ruby</a>
+            <a href="#projects" class="btn-secondary">Join More</a>
+        </div>
+        <div class="hero-images">
+            <img src="image1.jpg" alt="Project Image 1">
+            <img src="image2.jpg" alt="Project Image 2">
+            <img src="image3.jpg" alt="Project Image 3">
+        </div>
+    </section>
 
-                My academic journey is driven by a core belief: beyond meeting user requirements, it's essential to uncover and address their deeper, often unspoken needs. This philosophy fuels my high communication skills and my dedication to truly understanding and engaging with users.<br>
-                
-                In addition to my studies, I have honed my organizational and leadership abilities through my role as a school program assistant, where I effectively coordinated group projects and facilitated teamwork.<br>
-                
-                I am excited to apply my skills and knowledge to create solutions that not only meet user expectations but also exceed them by discovering their true potential needs.</p>
-        </section>
-
-        <section id="portfolio">
-            <h1>My Work</h1>
-            <div class="portfolio-item">
-                <h2>Project 1</h2>
-                <p>Description of Project 1.</p>
+    <section id="portfolio" class="portfolio">
+        <h2>Delivering Exceptional UX Design and Development</h2>
+        <div class="portfolio-categories">
+            <button>UX Design</button>
+            <button>Graphic Design</button>
+            <button>Front-End Development</button>
+        </div>
+        <div class="portfolio-items">
+            <div class="item">
+                <img src="project1.jpg" alt="Project 1">
+                <p>UX Design Project</p>
             </div>
-            <div class="portfolio-item">
-                <h2>Project 2</h2>
-                <p>Description of Project 2.</p>
+            <div class="item">
+                <img src="project2.jpg" alt="Project 2">
+                <p>Wireframe & Prototyping</p>
             </div>
-            <!-- Add more portfolio items as needed -->
-        </section>
+            <div class="item">
+                <img src="project3.jpg" alt="Project 3">
+                <p>Usability Testing</p>
+            </div>
+            <div class="item">
+                <img src="project4.jpg" alt="Project 4">
+                <p>Graphic Design Project</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h1>Contact Me</h1>
-            <p>Feel free to reach out to me at <a href="rjruan2000@gmail.com">rjruan2000@gmail.com</a>.</p>
-        </section>
-    </main>
+    <section id="testimonials" class="testimonials">
+        <h2>What Clients Say</h2>
+        <div class="testimonial-items">
+            <div class="testimonial">
+                <img src="client1.jpg" alt="Client 1">
+                <p>"Ruby's design workshop transformed our vision into reality." - Dianne Russell</p>
+            </div>
+            <div class="testimonial">
+                <img src="client2.jpg" alt="Client 2">
+                <p>"Her creativity and attention to detail are unmatched." - Theresa Webb</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Connect with Ruby</h2>
+        <p>Ready to elevate your user experience? Get in touch with Ruby and start your project today.</p>
+        <a href="mailto:ruby@example.com" class="btn-primary">Get Started</a>
+        <a href="#more" class="btn-secondary">Discover More</a>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Ruby. All rights reserved.</p>
+        <p>&copy; 2024 Ruby's UX Haven</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms & Conditions</a></li>
+            </ul>
+        </nav>
     </footer>
+
+    <script src="base.js"></script>
 </body>
 </html>
