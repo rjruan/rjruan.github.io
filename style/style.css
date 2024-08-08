@@ -1,7 +1,9 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+/* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'League Spartan', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,40 +15,73 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav ul {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-between;
 }
 
-nav ul li {
+.nav-left ul li {
     margin: 0 10px;
 }
 
-nav ul li a {
+.nav-left ul li a {
     text-decoration: none;
     color: #333;
     padding: 10px 20px;
 }
 
-nav ul li a.btn-login {
+.nav-logo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-logo img {
+    height: 40px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    padding: 10px 20px;
     background-color: #00aaff;
     color: #fff;
     border-radius: 4px;
 }
 
+/* Additional CSS to move .hero-content lower */
+
+/* Increase the padding-top or add margin-top to move content down */
 .hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: url('hero-background.jpg') no-repeat center center/cover;
-    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 120px 20px 60px 20px; /* Adjust padding-top value */
+    background-color: #fff;
+    color: #333;
 }
+
+.hero-content {
+    flex: 1;
+    max-width: 40%;
+    margin-top: 400px; /* Add margin-top to move content lower */
+    margin-left: 30px;
+}
+
 
 .hero h1 {
     font-size: 3em;
-    margin: 0;
+    margin: 0 0 20px 0;
 }
 
 .hero p {
@@ -54,11 +89,18 @@ nav ul li a.btn-login {
     margin: 20px 0;
 }
 
-.hero .buttons a {
+.hero-icons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.hero-buttons a {
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 4px;
-    margin: 10px;
+    border-radius: 20px;
+    margin: 10px 10px 10px 0;
+    display: inline-block;
 }
 
 .hero .btn-primary {
@@ -69,122 +111,27 @@ nav ul li a.btn-login {
 .hero .btn-secondary {
     background-color: #fff;
     color: #00aaff;
+    border: 1px solid #00aaff;
 }
 
-.hero-images {
+.hero-carousel {
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    transition: transform 1s ease;
 }
 
-.hero-images img {
-    width: 30%;
-    margin: 0 10px;
-    border-radius: 10px;
+.slide {
+    min-width: 100%;
+    transition: opacity 1s ease;
 }
 
-.portfolio {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.portfolio h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.portfolio-categories button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    background-color: #00aaff;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.portfolio-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.portfolio-items .item {
-    width: 45%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-.portfolio-items .item img {
+.slide img {
     width: 100%;
     border-radius: 10px;
-}
-
-.testimonials {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.testimonial-items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.testimonial {
-    width: 45%;
-    margin: 10px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.testimonial img {
-    width: 50px;
-    border-radius: 50%;
-    float: left;
-    margin-right: 20px;
-}
-
-.contact {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer nav ul {
-    display: flex;
-    justify-content: center;
-}
-
-footer nav ul li {
-    margin: 0 10px;
-}
-
-footer nav ul li a {
-    color: #fff;
-    text-decoration: none;
 }

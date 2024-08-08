@@ -4,31 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruby's Portfolio Haven</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#login" class="btn-login">Login</a></li>
-            </ul>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-logo">
+                <a href="#home"><img src="logo.png" alt="Logo"></a>
+            </div>
+            <div class="nav-right">
+                <a href="#contact" class="btn-login">Contact us</a>
+            </div>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <h1>Welcome to Ruby's Portfolio Haven</h1>
-        <p>Explore Ruby's latest projects showcasing her expertise in UX design, user research, front-end development, and graphic design.</p>
-        <div class="buttons">
-            <a href="#contact" class="btn-primary">Contact Ruby</a>
-            <a href="#projects" class="btn-secondary">Learn More</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Ruby's UX Haven</h1>
+            <p>Explore Ruby Ruan's portfolio showcasing her expertise in UX design, user research, front-end development, and graphic design.</p>
+            <div class="hero-icons">
+                <div>
+                    <i class="fa-solid fa-users"></i>
+                    <span>USER-CENTRIC DESIGN</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>INNOVATIVE SOLUTIONS</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>TECHNICAL EXPERTISE</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">CONTACT RUBY</a>
+                <a href="#learn-more" class="btn-secondary">LEARN MORE</a>
+            </div>
         </div>
-        <div class="hero-images">
-            <img src="image1.jpg" alt="Project Image 1">
-            <img src="image2.jpg" alt="Project Image 2">
-            <img src="image3.jpg" alt="Project Image 3">
+        <div class="hero-carousel">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://plus.unsplash.com/premium_photo-1691259539671-5e6829125f4c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1465153690352-10c1b29577f8?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1618373329657-84b9de5ed20f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -76,7 +108,7 @@
     <section id="contact" class="contact">
         <h2>Connect with Ruby</h2>
         <p>Ready to elevate your user experience? Get in touch with Ruby and start your project today.</p>
-        <a href="mailto:ruby@example.com" class="btn-primary">Get Started</a>
+        <a href="rjruan2000@gmail.com" class="btn-primary">Get Started</a>
         <a href="#more" class="btn-secondary">Discover More</a>
     </section>
 
@@ -89,10 +121,11 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#privacy">Privacy Policy</a></li>
                 <li><a href="#terms">Terms & Conditions</a></li>
+                <li><a href="https://www.linkedin.com/in/rubyyyy/" class="linkedin">Linekedin</a></li>
             </ul>
         </nav>
     </footer>
 
-    <script src="./script/base.js"></script>
+    <script src="./script/home.js"></script>
 </body>
 </html>
