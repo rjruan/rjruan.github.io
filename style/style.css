@@ -74,7 +74,7 @@ nav {
 .hero-content {
     flex: 1;
     max-width: 40%;
-    margin-top: 400px; /* Add margin-top to move content lower */
+    margin-top: 150px; /* Add margin-top to move content lower */
     margin-left: 30px;
 }
 
@@ -134,4 +134,108 @@ nav {
 .slide img {
     width: 100%;
     border-radius: 10px;
+}
+
+/* the expertise */
+h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+
+}
+h3{
+    text-align: center;
+    color: #00aaff;
+}
+/* icons */
+.fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp-solid, .fa-solid, .fab, .far, .fas {
+    color: #005f8e;
+}
+/* Container for the entire section */
+.section-container {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styling for the icons and text above the cards */
+.section-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.section-icons span {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Tags or categories above the cards */
+.category-tags {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+.category-tags .tag {
+    margin: 0 10px;
+    padding: 8px 15px;
+    border: 2px solid #00BFFF;
+    border-radius: 20px;
+    color: #00BFFF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-tags .tag:hover {
+    background-color: #00BFFF;
+    color: white;
+}
+
+/* Grid for the cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card .card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Optional: Style adjustments for mobile */
+@media (max-width: 768px) {
+    .section-icons {
+        flex-direction: column;
+    }
+    .category-tags {
+        flex-direction: column;
+    }
 }
