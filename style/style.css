@@ -151,6 +151,11 @@ h3{
 .fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp-solid, .fa-solid, .fab, .far, .fas {
     color: #005f8e;
 }
+
+.fa-brands, .fab{
+    color: black;
+}
+
 /* Container for the entire section */
 .section-container {
     padding: 20px;
@@ -229,6 +234,60 @@ h3{
     padding: 10px;
     border-radius: 5px;
 }
+/* Footer styles */
+.site-footer {
+    background-color: #E5F4F7; /* Light blue background */
+    padding: 20px;
+    text-align: center;
+    font-family: 'League Spartan', sans-serif;
+    color: #333; /* Dark text color */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-nav {
+    margin-bottom: 15px;
+}
+
+.footer-nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.footer-nav a:hover {
+    color: #00BFFF; /* Change text color on hover */
+}
+
+.footer-copyright {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666; /* Lighter text color */
+}
+
+.footer-social a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 20px;
+}
+
+.footer-social a:hover {
+    color: #00BFFF; /* Change icon color on hover */
+}
+
+/* Optional: Style adjustments for mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 
 /* Optional: Style adjustments for mobile */
 @media (max-width: 768px) {
