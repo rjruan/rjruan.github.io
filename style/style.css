@@ -234,72 +234,154 @@ h3{
     padding: 10px;
     border-radius: 5px;
 }
-/* Footer styles */
-.site-footer {
-    background-color: #E5F4F7; /* Light blue background */
-    padding: 20px;
+
+/* Expertise Section */
+.expertise-section {
+    padding: 60px 20px;
+    background-color: #E3F4FA;
     text-align: center;
-    font-family: 'League Spartan', sans-serif;
-    color: #333; /* Dark text color */
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.footer-nav {
-    margin-bottom: 15px;
-}
-
-.footer-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
+.section-title {
+    font-size: 32px;
+    color: #212529;
+    margin-bottom: 40px;
     font-weight: bold;
 }
 
-.footer-nav a:hover {
-    color: #00BFFF; /* Change text color on hover */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.footer-copyright {
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #666; /* Lighter text color */
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-.footer-social a {
-    margin: 0 10px;
-    color: #333;
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-card h3 {
     font-size: 20px;
+    color: #212529;
+    margin: 15px 0 5px;
 }
 
+.project-card p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.view-all-projects {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-all-projects:hover {
+    color: #0056b3;
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #E3F4FA;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00bfff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
 .footer-social a:hover {
-    color: #00BFFF; /* Change icon color on hover */
+    display: flex;
+    gap: 15px;
 }
 
-/* what does clients say */
-
-.testimonial-img{
-    aspect-ratio: 16/9;
-    height: auto;
-    border-radius: .5rem;
-    vertical-align: middle;
+.footer-social a img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
 }
 
-/* Optional: Style adjustments for mobile */
+.footer-social a:hover img {
+    opacity: 0.7;
+}
+
+.fab fa-linkedin, fab fa-twitter, fa-brands fa-square-facebook align-self a:hover{
+    color: #00aaff;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
-}
-
-
-/* Optional: Style adjustments for mobile */
-@media (max-width: 768px) {
     .section-icons {
         flex-direction: column;
     }
@@ -307,3 +389,5 @@ h3{
         flex-direction: column;
     }
 }
+
+

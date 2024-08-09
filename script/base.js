@@ -17,3 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(showNextSlide, 5000); // Change slide every 5 seconds
 });
+// Smooth Scroll for Footer Links
+document.querySelectorAll('.footer-links a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
