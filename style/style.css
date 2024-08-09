@@ -280,6 +280,15 @@ h3{
     color: #00BFFF; /* Change icon color on hover */
 }
 
+/* what does clients say */
+
+.testimonial-img{
+    aspect-ratio: 16/9;
+    height: auto;
+    border-radius: .5rem;
+    vertical-align: middle;
+}
+
 /* Optional: Style adjustments for mobile */
 @media (max-width: 768px) {
     .footer-content {
