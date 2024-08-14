@@ -5,94 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruby's Portfolio Haven</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href=".https://raw.githubusercontent.com/rjruan/wdd230/master/week02/favicon.ico">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#login" class="btn-login">Login</a></li>
-            </ul>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-logo">
+                <a href="./index.html"><img src="logo.png" alt="Logo"></a>
+            </div>
+            <div class="nav-right">
+                <a href="#contact" class="btn-login">Contact us</a>
+            </div>
         </nav>
     </header>
-
-    <section id="home" class="hero">
-        <h1>Welcome to Ruby's Portfolio Haven</h1>
-        <p>Explore Ruby's latest projects showcasing her expertise in UX design, user research, front-end development, and graphic design.</p>
-        <div class="buttons">
-            <a href="#contact" class="btn-primary">Contact Ruby</a>
-            <a href="#projects" class="btn-secondary">Learn More</a>
+ 
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Ruby's UX Portfolio</h1>
+            <p>Explore Ruby Ruan's portfolio showcasing her expertise in UX design, user research, front-end development, and graphic design.</p>
+            <div class="hero-icons">
+                <div>
+                    <i class="fa-solid fa-users"></i>
+                    <span>USER-CENTRIC DESIGN</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>INNOVATIVE SOLUTIONS</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>TECHNICAL EXPERTISE</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="rjruan2000@gmail.com" class="btn-primary">CONTACT RUBY</a>
+                <a href="#learn-more" class="btn-secondary">LEARN MORE</a>
+            </div>
         </div>
-        <div class="hero-images">
-            <img src="image1.jpg" alt="Project Image 1">
-            <img src="image2.jpg" alt="Project Image 2">
-            <img src="image3.jpg" alt="Project Image 3">
+        <div class="hero-carousel">
+            <div class="slides">
+                <div class="slide">
+                    <img src="./images/phone.png" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="./images/map.png" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="./images/hub.png" alt="Image 3">
+                </div>
+            </div>
         </div>
     </section>
-
+ 
     <section id="portfolio" class="portfolio">
+        <h3>Ruby's Expertise</h3>
         <h2>Delivering Exceptional UX Design and Development</h2>
-        <div class="portfolio-categories">
-            <button>Comprehensive UX Research</button>
-            <button>Graphic Design</button>
-            <button>Front-End Development</button>
+        <div class="section-container">
+            <div class="section-icons">
+                <span><i class="fa fa-search"></i> Comprehensive User Research</span>
+                <span><i class="fa-solid fa-laptop-code"></i> Front-End Development</span>
+                <span><i class="fa-solid fa-palette"></i> Graphic Design</span>
+            </div>
+        
+            <div class="category-tags">
+                <div class="tag">UX Design</div>
+                <div class="tag">Graphic Design</div>
+                <div class="tag">Front-End Development</div>
+            </div>
+        
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1630852722758-effe28684b0a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User Experience Project">
+                    <div class="card-title">User Experience Project <span class="tag">UX</span></div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1680016661694-1cd3faf31c3a?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wireframing Sessions">
+                    <div class="card-title">Wireframing Sessions <span class="tag">Wireframe</span></div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1585624882829-f92c2d4cd89d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Usability Testing">
+                    <div class="card-title">Usability Testing <span class="tag">Testing</span></div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?q=80&w=1801&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User Interface Design">
+                    <div class="card-title">User Interface Design <span class="tag">UI</span></div>
+                </div>
+            </div>
         </div>
-        <div class="portfolio-items">
-            <div class="item">
-                <img src="project1.jpg" alt="Project 1">
-                <p>UX Design Project</p>
-            </div>
-            <div class="item">
-                <img src="project2.jpg" alt="Project 2">
-                <p>Wireframe & Prototyping</p>
-            </div>
-            <div class="item">
-                <img src="project3.jpg" alt="Project 3">
-                <p>Usability Testing</p>
-            </div>
-            <div class="item">
-                <img src="project4.jpg" alt="Project 4">
-                <p>Graphic Design Project</p>
-            </div>
-        </div>
+        
     </section>
-
+ 
     <section id="testimonials" class="testimonials">
         <h2>What Clients Say</h2>
         <div class="testimonial-items">
             <div class="testimonial">
-                <img src="client1.jpg" alt="Client 1">
                 <p>"Ruby's design workshop transformed our vision into reality." - Dianne Russell</p>
+                <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client 1">
             </div>
             <div class="testimonial">
-                <img src="client2.jpg" alt="Client 2">
                 <p>"Her creativity and attention to detail are unmatched." - Theresa Webb</p>
+                <img src="https://images.unsplash.com/uploads/14110635637836178f553/dcc2ccd9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client 2">
             </div>
         </div>
     </section>
-
+ 
     <section id="contact" class="contact">
         <h2>Connect with Ruby</h2>
         <p>Ready to elevate your user experience? Get in touch with Ruby and start your project today.</p>
-        <a href="mailto:ruby@example.com" class="btn-primary">Get Started</a>
+        <a href="rjruan2000@gmail.com" class="btn-primary">Get Started</a>
         <a href="#more" class="btn-secondary">Discover More</a>
     </section>
-
-    <footer>
-        <p>&copy; 2024 Ruby's UX Haven</p>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#terms">Terms & Conditions</a></li>
-            </ul>
-        </nav>
+ 
+    <section class="expertise-section">
+        <div class="container">
+            <h2 class="section-title">Discover Ruby’s Expertise</h2><a href="#" class="view-all-projects">View All Projects →</a>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="UX Design">
+                    <h3>UX Design</h3>
+                    <p>Crafting seamless user experiences</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="UX Research">
+                    <h3>UX Research</h3>
+                    <p>In-depth research for user insights</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Front-End Development">
+                    <h3>Front-End Development</h3>
+                    <p>Building responsive and interactive interfaces</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Graphic Design">
+                    <h3>Graphic Design</h3>
+                    <p>Creating visually appealing designs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <p>&copy; 2024 Ruby's UX Haven</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            </div>
+        </div>
     </footer>
-
     <script src="./script/base.js"></script>
 </body>
 </html>
