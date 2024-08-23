@@ -313,7 +313,11 @@ h3{
 .view-all-projects:hover {
     color: #0056b3;
 }
- 
+ /* client section */
+ .testimonial{
+    max-width: 50px;
+    height: auto;
+ }
  
 /* Footer Styling */
 .footer {
