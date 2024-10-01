@@ -62,6 +62,10 @@ nav {
     color: #fff;
     border-radius: 4px;
 }
+/* portfolio */
+.portfolio{
+    text-align: center;
+}
  
 /* Additional CSS to move .hero-content lower */
  
@@ -127,9 +131,7 @@ nav {
     max-width: 50%;
     overflow: hidden;
     position: relative;
-}
- 
- 
+} 
  
 .slides {
     display: flex;
@@ -213,8 +215,9 @@ h3{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+    align-content: center;
 }
- 
+
 .card {
     position: relative;
     overflow: hidden;
@@ -227,6 +230,7 @@ h3{
     width: 100%;
     height: auto;
     transition: transform 0.3s ease;
+    align-items: center;
 }
  
 .card:hover {
