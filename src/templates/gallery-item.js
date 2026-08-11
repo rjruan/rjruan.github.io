@@ -23,8 +23,7 @@ function renderGalleryTemplate(item, escapeHtml) {
       <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.caption)}</p>
       <p class="meta-text">Role: ${escapeHtml(item.role)}</p>
-      ${detailLink}
-    </div>
+      ${detailLink}</div>
   </article>`;
 }
 
