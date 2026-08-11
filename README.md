@@ -2,6 +2,8 @@
 
 Portfolio Skeleton v0.1 is a dependency-free static site for Ruby Ruan's UX portfolio. It uses structured content, reusable templates, and generated route folders so GitHub Pages can load every primary route directly.
 
+The current development work adds the complete FamilyPulse deep case study and an iOS/iPadOS 26-inspired web component system. See `docs/ios26-inspired-web-system.md` for the component inventory, responsive behavior, accessibility fallbacks, and FamilyPulse asset map.
+
 ## Run Locally
 
 ```bash
@@ -90,6 +92,8 @@ Add a project object to the `projects` array in `src/content/site-data.js` with:
   - Open questions or next steps
 
 Run `npm run build` after editing. The build script creates the detail page automatically.
+
+FamilyPulse uses the richer `caseStudy` data shape and the featured renderer in `src/templates/deep-case-study.js`. New graduate-school-facing cases can reuse that structure when they need decisions, flows, evidence boundaries, system models, figures, and next-step research questions.
 
 ## Add a Medium Project
 
