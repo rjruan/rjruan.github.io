@@ -37,6 +37,37 @@ function check() {
 
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
+    const relativeFile = path.relative(root, file);
+    const ids = new Set();
+    const duplicateIds = new Set();
+    const idPattern = /\sid="([^"]+)"/g;
+
+    for (const match of html.matchAll(idPattern)) {
+      if (ids.has(match[1])) {
+        duplicateIds.add(match[1]);
+      }
+      ids.add(match[1]);
+    }
+
+    for (const id of duplicateIds) {
+      failures.push(`${relativeFile} contains duplicate id "${id}"`);
+    }
+
+    const h1Count = (html.match(/<h1(?:\s|>)/g) || []).length;
+    if (h1Count !== 1) {
+      failures.push(`${relativeFile} contains ${h1Count} h1 elements; expected exactly 1`);
+    }
+
+    if (!/<main id="main">/.test(html)) {
+      failures.push(`${relativeFile} is missing the main#main landmark`);
+    }
+
+    for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+      if (!/\salt="[^"]*"/.test(image[0])) {
+        failures.push(`${relativeFile} contains an image without alt text`);
+      }
+    }
+
     for (const match of html.matchAll(hrefPattern)) {
       const href = match[1];
       if (!href || href === "#") {
@@ -52,6 +83,9 @@ function check() {
         continue;
       }
       if (href.startsWith("#")) {
+        if (!ids.has(href.slice(1))) {
+          failures.push(`${relativeFile} links to missing page fragment ${href}`);
+        }
         continue;
       }
       if (href.startsWith("/") && !targetExists(href)) {
