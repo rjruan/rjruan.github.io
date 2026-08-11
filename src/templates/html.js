@@ -43,7 +43,7 @@ function navMarkup(currentPath) {
 
 function renderPage({ path, title, description, main, bodyClass = "" }) {
   const classes = bodyClass ? ` class="${bodyClass}"` : "";
-  return `<!doctype html>
+  return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,16 +54,20 @@ function renderPage({ path, title, description, main, bodyClass = "" }) {
     <meta property="og:description" content="${escapeHtml(description || site.description)}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${site.url}${path === "/" ? "/" : path}">
+    <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${site.url}${path === "/" ? "/" : path}">
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
   <body${classes}>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
-      <div class="site-header-inner">
+      <div class="site-header-inner glass-surface">
         <a class="site-mark" href="/" aria-label="Ruby Ruan portfolio home">
-          <span class="site-mark-kicker">Field Notes</span>
-          <span>${escapeHtml(site.name)}</span>
+          <span class="site-mark-dot" aria-hidden="true"></span>
+          <span>
+            <span class="site-mark-kicker">Field Notes</span>
+            <span>${escapeHtml(site.name)}</span>
+          </span>
         </a>
         <nav class="primary-nav" aria-label="Primary navigation">
           ${navMarkup(path)}
@@ -145,11 +149,7 @@ function projectCard(project, options = {}) {
     ? `<a class="text-link" href="${project.detailPath}">Open case study</a>`
     : `<span class="muted">${escapeHtml(project.availability)}</span>`;
   const content = `<article class="project-card${compact}">
-    <div class="project-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <span>${escapeHtml(project.visualLabel)}</span>
-    </div>
+    ${renderProjectVisual(project)}
     <div class="project-card-body">
       <div class="meta-row">
         <span>${escapeHtml(project.type)}</span>
@@ -173,6 +173,22 @@ function projectCard(project, options = {}) {
   </article>`;
 
   return content;
+}
+
+function renderProjectVisual(project) {
+  if (project.visualStyle === "family-pulse") {
+    return `<div class="project-visual family-pulse-visual" role="img" aria-label="${escapeHtml(
+      project.visualLabel
+    )}">
+      <div class="mini-phone"><span>82</span></div>
+      <div class="mini-watch"><span>SOS</span></div>
+      <p>${escapeHtml(project.visualLabel)}</p>
+    </div>`;
+  }
+
+  return `<div class="project-visual" role="img" aria-label="${escapeHtml(
+    project.visualLabel
+  )}"><span>${escapeHtml(project.visualLabel)}</span></div>`;
 }
 
 function renderSelectedExpeditions() {
