@@ -27,6 +27,50 @@ function pageTitle(title) {
   return title === site.name ? site.title : `${title} | ${site.name}`;
 }
 
+function renderContactLinks() {
+  const links = [];
+  if (typeof site.contact.email === "string" && site.contact.email.includes("@")) {
+    links.push(
+      `<a href="mailto:${escapeHtml(site.contact.email)}"><span>${escapeHtml(
+        site.contact.email
+      )}</span><span aria-hidden="true">↗</span></a>`
+    );
+  }
+  if (
+    typeof site.contact.linkedin === "string" &&
+    /^https?:\/\//.test(site.contact.linkedin)
+  ) {
+    links.push(
+      `<a href="${escapeHtml(site.contact.linkedin)}" target="_blank" rel="noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>`
+    );
+  }
+  if (
+    typeof site.contact.github === "string" &&
+    /^https?:\/\//.test(site.contact.github)
+  ) {
+    links.push(
+      `<a href="${escapeHtml(site.contact.github)}" target="_blank" rel="noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>`
+    );
+  }
+  return links.length
+    ? links.join("\n")
+    : `<p class="meta-text">Contact details available on request.</p>`;
+}
+
+function renderResumeLink() {
+  if (
+    typeof site.contact.resumePdf !== "string" ||
+    !site.contact.resumePdf.trim()
+  ) {
+    return `<p class="meta-text">Resume PDF available on request.</p>`;
+  }
+  return `<a class="resume-download" href="${escapeHtml(
+    site.contact.resumePdf
+  )}" download>
+              <span>Download PDF resume</span><span aria-hidden="true">↓</span>
+            </a>`;
+}
+
 function navMarkup(currentPath) {
   return navigation
     .map((item) => {
@@ -43,7 +87,7 @@ function navMarkup(currentPath) {
 
 function renderPage({ path, title, description, main, bodyClass = "" }) {
   const classes = bodyClass ? ` class="${bodyClass}"` : "";
-  return `<!doctype html>
+  return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,16 +98,20 @@ function renderPage({ path, title, description, main, bodyClass = "" }) {
     <meta property="og:description" content="${escapeHtml(description || site.description)}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${site.url}${path === "/" ? "/" : path}">
+    <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${site.url}${path === "/" ? "/" : path}">
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260905-why-blue-2">
   </head>
   <body${classes}>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
-      <div class="site-header-inner">
+      <div class="site-header-inner glass-surface">
         <a class="site-mark" href="/" aria-label="Ruby Ruan portfolio home">
-          <span class="site-mark-kicker">Field Notes</span>
-          <span>${escapeHtml(site.name)}</span>
+          <span class="site-mark-dot" aria-hidden="true"></span>
+          <span>
+            <span class="site-mark-kicker">Field Notes</span>
+            <span>${escapeHtml(site.name)}</span>
+          </span>
         </a>
         <nav class="primary-nav" aria-label="Primary navigation">
           ${navMarkup(path)}
@@ -82,16 +130,15 @@ function renderPage({ path, title, description, main, bodyClass = "" }) {
 function renderFooter() {
   return `<footer class="site-footer">
     <div class="section-inner footer-grid">
-      <div>
+      <div class="footer-intro">
         <p class="eyebrow">Ongoing record</p>
         <p>${escapeHtml(
           "Designed as an extensible coded portfolio for projects, research notes, visual work, and future case studies."
         )}</p>
       </div>
-      <div>
+      <div class="footer-contact">
         <p class="eyebrow">Contact</p>
-        <p>Email: ${escapeHtml(site.contact.email)}</p>
-        <p>LinkedIn: ${escapeHtml(site.contact.linkedin)}</p>
+        ${renderContactLinks()}
       </div>
     </div>
   </footer>`;
@@ -101,7 +148,7 @@ function renderHero() {
   return `<section class="hero-band">
     <div class="section-inner hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Base Camp - Home</p>
+        <p class="eyebrow">Ruby Ruan · UX Designer & Emerging Researcher</p>
         <h1>${escapeHtml(profile.positioning)}</h1>
         <p class="hero-lede">${escapeHtml(profile.supportingCopy)}</p>
         <div class="hero-actions">
@@ -109,10 +156,10 @@ function renderHero() {
           <a class="button secondary" href="/field-notes/">Read Field Notes</a>
         </div>
       </div>
-      <aside class="field-log" aria-label="Portfolio orientation notes">
+      <aside class="field-log glass-surface" aria-label="Portfolio orientation notes">
         <div class="field-log-topline">
-          <span>Observer log</span>
-          <span>v0.1</span>
+          <span>Current field log</span>
+          <span>2026</span>
         </div>
         <dl>
           <div>
@@ -120,14 +167,15 @@ function renderHero() {
             <dd>${escapeHtml(profile.currentRole)}</dd>
           </div>
           <div>
-            <dt>Lens</dt>
-            <dd>UX, HCI, Human Factors, accessibility</dd>
+            <dt>Questions I carry</dt>
+            <dd>Dignity, agency, memory, trust</dd>
           </div>
           <div>
             <dt>Mode</dt>
-            <dd>Research-oriented digital field notes</dd>
+            <dd>Observe → frame → prototype → question again</dd>
           </div>
         </dl>
+        <p class="field-log-whisper">I collect questions the way some people collect souvenirs.</p>
       </aside>
     </div>
   </section>`;
@@ -145,11 +193,7 @@ function projectCard(project, options = {}) {
     ? `<a class="text-link" href="${project.detailPath}">Open case study</a>`
     : `<span class="muted">${escapeHtml(project.availability)}</span>`;
   const content = `<article class="project-card${compact}">
-    <div class="project-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <span>${escapeHtml(project.visualLabel)}</span>
-    </div>
+    ${renderProjectVisual(project)}
     <div class="project-card-body">
       <div class="meta-row">
         <span>${escapeHtml(project.type)}</span>
@@ -175,14 +219,53 @@ function projectCard(project, options = {}) {
   return content;
 }
 
+function renderProjectVisual(project) {
+  if (project.visualStyle === "family-pulse") {
+    return `<div class="project-visual family-pulse-visual" role="img" aria-label="${escapeHtml(
+      project.visualLabel
+    )}">
+      <div class="mini-phone"><span>82</span></div>
+      <div class="mini-watch"><span>SOS</span></div>
+      <p>${escapeHtml(project.visualLabel)}</p>
+    </div>`;
+  }
+
+  if (project.visualStyle === "ssim") {
+    return `<div class="project-visual ssim-project-visual" role="img" aria-label="${escapeHtml(
+      project.visualLabel
+    )}">
+      <div class="ssim-card-wordmark">
+        <span>SSIM</span>
+        <span aria-hidden="true">MISS</span>
+      </div>
+      <p>${escapeHtml(project.visualLabel)}</p>
+    </div>`;
+  }
+
+  if (project.visualStyle === "pen-pal") {
+    return `<div class="project-visual pen-pal-visual" role="img" aria-label="${escapeHtml(
+      project.visualLabel
+    )}">
+      <div class="pen-pal-card-wordmark" aria-hidden="true">
+        <span>Echo</span><span>PenPal</span>
+      </div>
+      <p>${escapeHtml(project.visualLabel)}</p>
+    </div>`;
+  }
+
+  return `<div class="project-visual" role="img" aria-label="${escapeHtml(
+    project.visualLabel
+  )}"><span>${escapeHtml(project.visualLabel)}</span></div>`;
+}
+
 function renderSelectedExpeditions() {
   const selected = projects.slice(0, 3);
   return `<section class="content-band">
     <div class="section-inner">
       <div class="section-heading">
         <p class="eyebrow">Selected Expeditions</p>
-        <h2>Three positions for deeper case-study work.</h2>
-        <p>Each card establishes a portfolio role while protecting unknown, incomplete, or confidential details.</p>
+        <h2>Three investigations into care, memory, and complex systems.</h2>
+        <p>Two published independent studies and one protected professional case—each honest about its evidence, limits, and unfinished questions.</p>
       </div>
       <div class="project-grid">
         ${selected.map((project) => projectCard(project)).join("")}
@@ -240,8 +323,50 @@ function renderTrajectory() {
   return `<section class="content-band alternate">
     <div class="section-inner note-panel">
       <p class="eyebrow">Interdisciplinary Trajectory</p>
-      <h2>Graphic design, philosophy, and web development as one working practice.</h2>
-      <p>Ruby's portfolio should make room for visual craft, critical questioning, research curiosity, and implementation. This first skeleton uses TBD markers wherever final content still needs verification.</p>
+      <h2>Graphic design taught me to shape meaning. Philosophy taught me to question it. Code taught me to test whether it survives contact with reality.</h2>
+      <p>That combination is leading me toward HCI and Human Factors research focused on agency, accessibility, dignity, and the human consequences of emerging technology.</p>
+    </div>
+  </section>`;
+}
+
+function renderWhyHome() {
+  const homeOrder = [
+    "professional-systems-placeholder",
+    "health-monitoring",
+    "ssim"
+  ];
+  const homeProjects = homeOrder
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter(Boolean);
+
+  return `<section class="why-home" aria-labelledby="why-title">
+    <div class="section-inner why-home-inner">
+      <header class="why-intro">
+        <p class="why-word" aria-hidden="true">WHY?</p>
+        <div class="why-intro-copy">
+          <p class="eyebrow">Ruby Ruan · UX Designer & Emerging Researcher</p>
+          <h1 id="why-title">Every case study begins with a question I couldn’t leave alone.</h1>
+          <p>I follow each question through evidence, design decisions, uncertainty, and the human consequences of the systems we build.</p>
+        </div>
+      </header>
+
+      <ol class="why-project-list" aria-label="Selected case studies">
+        ${homeProjects
+          .map(
+            (project, index) => `<li class="why-project-item why-project-item--${escapeHtml(project.visualStyle || "professional")}">
+              <a class="why-project-link" href="${escapeHtml(project.detailPath)}">
+                <span class="why-project-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
+                <span class="why-project-copy">
+                  <span class="why-project-meta">${escapeHtml(project.title)} · ${escapeHtml(project.context)}</span>
+                  <span class="why-project-question">${escapeHtml(project.homeQuestion || project.inquiry)}</span>
+                  <span class="why-project-status">${escapeHtml(project.availability)}</span>
+                </span>
+                <span class="why-project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>`
+          )
+          .join("")}
+      </ol>
     </div>
   </section>`;
 }
@@ -249,10 +374,10 @@ function renderTrajectory() {
 function renderHomePage() {
   return renderPage({
     path: "/",
-    title: "Base Camp - Home",
+    title: "Why - Selected Case Studies",
     description: site.description,
     bodyClass: "home",
-    main: `${renderHero()}${renderSelectedExpeditions()}${renderWorkingMethods()}${renderInquiries()}${renderTrajectory()}`
+    main: renderWhyHome()
   });
 }
 
@@ -264,11 +389,12 @@ function renderExpeditionsPage() {
     title: "Expeditions - Projects and Case Studies",
     description:
       "Projects, case studies, experiments, and visual work from Ruby Ruan.",
+    bodyClass: "expeditions-page",
     main: `<section class="page-hero">
         <div class="section-inner">
           <p class="eyebrow">Expeditions - Projects and Case Studies</p>
-          <h1>Projects as investigations into people, systems, constraints, and designed agency.</h1>
-          <p>Expeditions replaces a conventional projects page with a hub for deep case studies, medium projects, independent experiments, and graphic-design gallery items.</p>
+          <h1>Every project begins with something I cannot stop wondering about.</h1>
+          <p>These expeditions follow questions through evidence, design decisions, prototypes, limits, and the places where certainty runs out.</p>
         </div>
       </section>
       <section class="content-band">
@@ -292,17 +418,6 @@ function renderExpeditionsPage() {
             ${medium.map((project) => projectCard(project, { compact: true })).join("")}
           </div>
         </div>
-      </section>
-      <section class="content-band">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="eyebrow">Graphic Design Gallery</p>
-            <h2>Selected visual work can be added with resilient image fields.</h2>
-          </div>
-          <div class="gallery-grid">
-            ${galleryItems.map((item) => renderGalleryTemplate(item, escapeHtml)).join("")}
-          </div>
-        </div>
       </section>`
   });
 }
@@ -313,6 +428,7 @@ function renderFieldNotesPage() {
     title: "Field Notes - Research, Process, and Experiments",
     description:
       "Research observations, design-process reflections, experiments, and emerging HCI questions from Ruby Ruan.",
+    bodyClass: "field-notes-page",
     main: `<section class="page-hero">
         <div class="section-inner">
           <p class="eyebrow">Field Notes - Research, Process, and Experiments</p>
@@ -324,11 +440,6 @@ function renderFieldNotesPage() {
         <div class="section-inner note-list">
           ${fieldNotes.map((note) => renderFieldNote(note, escapeHtml)).join("")}
         </div>
-      </section>
-      <section class="content-band alternate">
-        <div class="section-inner">
-          ${renderFieldNoteTemplate(escapeHtml)}
-        </div>
       </section>`
   });
 }
@@ -339,10 +450,11 @@ function renderAboutPage() {
     title: "About Ruby",
     description:
       "Ruby Ruan's background, interdisciplinary path, values, and future research direction.",
+    bodyClass: "about-page",
     main: `<section class="page-hero">
         <div class="section-inner">
           <p class="eyebrow">About Ruby</p>
-          <h1>A designer and emerging researcher shaped by visual craft, philosophical questioning, and web development.</h1>
+          <h1>I am an explorer who happens to carry a sketchbook, a prototype, and too many questions.</h1>
           <p>${escapeHtml(profile.supportingCopy)}</p>
         </div>
       </section>
@@ -351,7 +463,7 @@ function renderAboutPage() {
           <div class="section-heading">
             <p class="eyebrow">Working Values</p>
             <h2>Curiosity, clarity, access, and agency.</h2>
-            <p>Use this page to describe Ruby's background, values, and future research direction once final biographical content is available.</p>
+            <p>I care about people, not abstract “users.” I want to understand what a system asks of someone, what it hides, and whether the person still has room to choose.</p>
           </div>
           <div class="method-list">
             ${workingMethods
@@ -372,7 +484,7 @@ function renderAboutPage() {
         <div class="section-inner note-panel">
           <p class="eyebrow">Future Direction</p>
           <h2>Growing toward HCI, Human Factors, accessibility, XR, human-centered AI, and emerging human-centered technologies.</h2>
-          <p>Specific graduate research interests, professors, labs, readings, and collaborators are TBD and should be added only when Ruby is ready to make those connections public.</p>
+          <p>I am especially drawn to high-stakes and emerging systems where cognition, embodiment, accessibility, and human dignity meet. Graduate study is the next place I want to deepen the research methods behind those questions.</p>
         </div>
       </section>`
   });
@@ -384,6 +496,7 @@ function renderResumePage() {
     title: "Resume",
     description:
       "Education, experience, skills, and resume access for Ruby Ruan.",
+    bodyClass: "resume-page",
     main: `<section class="page-hero">
         <div class="section-inner">
           <p class="eyebrow">Resume</p>
@@ -415,8 +528,9 @@ function renderResumePage() {
             .join("")}
           <aside class="resume-access">
             <p class="eyebrow">Resume Access</p>
-            <p>PDF resume: ${escapeHtml(site.contact.resumePdf)}</p>
-            <p>Email: ${escapeHtml(site.contact.email)}</p>
+            <p>Read the structured overview on this page. A PDF resume can be shared on request.</p>
+            ${renderResumeLink()}
+            ${renderContactLinks()}
           </aside>
         </div>
       </section>`

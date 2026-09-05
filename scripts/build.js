@@ -35,6 +35,11 @@ function build() {
     path.join(dist, "assets", "styles.css")
   );
 
+  const sourceAssets = path.join(root, "src", "assets");
+  if (fs.existsSync(sourceAssets)) {
+    fs.cpSync(sourceAssets, path.join(dist, "assets"), { recursive: true });
+  }
+
   const pages = [
     ["/", templates.renderHomePage()],
     ["/expeditions/", templates.renderExpeditionsPage()],

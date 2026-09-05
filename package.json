@@ -5,10 +5,15 @@
   "description": "Static UX portfolio skeleton for Ruby Ruan.",
   "scripts": {
     "build": "node scripts/build.js",
+    "build:review": "npm run build && node scripts/build-review.js",
     "check:links": "node scripts/validate-links.js",
+    "dev": "npm run build && vite dist --config vite.config.js",
     "serve": "python3 -m http.server 4173 --directory dist"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "vite": "^8.2.1"
   }
 }
