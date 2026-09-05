@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build.js",
     "build:review": "npm run build && node scripts/build-review.js",
+    "build:pages-root": "npm run build && node scripts/sync-pages-root.js",
     "check:links": "node scripts/validate-links.js",
     "dev": "npm run build && vite dist --config vite.config.js",
     "serve": "python3 -m http.server 4173 --directory dist"

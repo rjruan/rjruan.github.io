@@ -31,6 +31,8 @@ Deployment is handled by `.github/workflows/pages.yml`. On a push to `main` or `
 3. Uploads `dist/` as the GitHub Pages artifact.
 4. Deploys the artifact to GitHub Pages.
 
+The repository currently also has GitHub's branch/Jekyll Pages workflow enabled. Before a public push, run `npm run build:pages-root` so the repository root and the workflow artifact contain the same public-safe build. This prevents the branch workflow from replacing the newer artifact with an older root page.
+
 For the `rjruan.github.io` repository, the expected public URL is `https://rjruan.github.io/`. In the repository settings, Pages should use GitHub Actions as its source.
 
 ## Where Content Lives

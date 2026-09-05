@@ -342,16 +342,18 @@ function renderSsimCaseStudy(project, renderPage, escapeHtml) {
           <section id="research" class="case-section">
             ${renderSectionHeading("03", "Looking for the forms memory already takes", escapeHtml)}
             <p>${escapeHtml(study.research.intro)}</p>
-            <p class="evidence-note">${escapeHtml(study.research.participantContext)}</p>
-            <dl class="ssim-stat-grid" aria-label="Selected questionnaire response counts">
-              ${study.research.stats
-                .map(
-                  (stat) => `<div><dt>${escapeHtml(stat.value)}</dt><dd>${escapeHtml(
-                    stat.label
-                  )}</dd></div>`
-                )
-                .join("")}
-            </dl>
+            <p class="evidence-note">${escapeHtml(study.research.publicEvidenceNote)}</p>
+${study.research.stats.length
+              ? `<dl class="ssim-stat-grid" aria-label="Selected questionnaire response counts">
+                  ${study.research.stats
+                    .map(
+                      (stat) => `<div><dt>${escapeHtml(stat.value)}</dt><dd>${escapeHtml(
+                        stat.label
+                      )}</dd></div>`
+                    )
+                    .join("")}
+                </dl>`
+              : ""}
             <div class="ssim-research-layout">
               <div>
                 <p class="eyebrow">Methods</p>
@@ -507,10 +509,16 @@ function renderSsimMedia(item, escapeHtml, options = {}) {
       </details>`
     : "";
 
+  const visual = item.src
+    ? `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" width="${escapeHtml(
+        item.width
+      )}" height="${escapeHtml(item.height)}" ${loading}>`
+    : `<div class="ssim-withheld-artifact" role="img" aria-label="${escapeHtml(
+        item.alt
+      )}"><span>Research artifact withheld</span></div>`;
+
   return `<figure class="ssim-media${captionClass}${hasNote ? " has-observation" : ""}" data-asset-id="${escapeHtml(item.id)}">
-    <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" width="${escapeHtml(
-      item.width
-    )}" height="${escapeHtml(item.height)}" ${loading}>
+    ${visual}
     ${note}
     <figcaption><strong>${escapeHtml(item.title)}</strong>${escapeHtml(item.caption)}</figcaption>
   </figure>`;

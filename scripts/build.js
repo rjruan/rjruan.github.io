@@ -40,6 +40,15 @@ function build() {
     fs.cpSync(sourceAssets, path.join(dist, "assets"), { recursive: true });
   }
 
+  // Keep participant-identifying research artifacts in the local source only.
+  // The public case study renders an explicit withheld-artifact note instead.
+  for (const privateAsset of [
+    path.join(dist, "assets", "ssim", "page-12.jpg"),
+    path.join(dist, "assets", "ssim", "page-13.jpg")
+  ]) {
+    fs.rmSync(privateAsset, { force: true });
+  }
+
   const pages = [
     ["/", templates.renderHomePage()],
     ["/expeditions/", templates.renderExpeditionsPage()],

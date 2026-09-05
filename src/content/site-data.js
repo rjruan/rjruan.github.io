@@ -136,7 +136,7 @@ const projects = [
       },
       research: {
         intro:
-          "I reviewed medical-alert products and held a small set of informal conversations, primarily with my parents and also with friends and classmates. I asked what they feared most about growing older and heard recurring concern about falling, losing physical ability, and becoming visibly dependent. I then ran several small, informal usability sessions with classmates using paper wireframes and later reviewed the final prototype with my instructor.",
+          "I reviewed medical-alert products, explored recurring concerns around aging and visible dependence, and used paper wireframes plus classroom critique to examine the concept.",
         methods: [
           "Competitive review of medical-alert products",
           "Informal conversations about aging, falls, independence, and support",
@@ -148,10 +148,10 @@ const projects = [
           "Several products in my competitive review depended on a dedicated medical-alert device rather than a familiar everyday object.",
           "The concepts I reviewed emphasized responding after an incident; they offered less context for noticing changes before someone chose to ask for help.",
           "The project exposed a design tension: family members may want clearer status context, while constant monitoring could make an older adult feel watched or dependent.",
-          "A recurring concern was stigma: visibly medical devices can make an older adult feel singled out as ‘old’ or ‘in need.’"
+          "A recurring concern was stigma: visibly medical devices can signal frailty or dependence instead of supporting everyday identity."
         ],
         limits:
-          "This was exploratory classroom work, not a clinical or statistically representative study. I did not retain exact participant counts, standardized scripts, or quantitative task measures. Older adults were not direct participants, so the case study does not claim proven usability, accessibility, or health outcomes."
+          "This was exploratory classroom work, not a clinical or statistically representative study. No individual research responses are included in this public version. Older adults were not directly involved in the research, so the case study does not claim proven usability, accessibility, or health outcomes."
       },
       audiences: [
         {
@@ -299,7 +299,7 @@ const projects = [
         after:
           "I simplified the hierarchy and shortened the main paths, aiming to make each important destination reachable within roughly two or three taps. The watch retained immediate actions while the phone handled more detailed review and communication.",
         caveat:
-          "Classmates and my instructor responded positively to the potential of the idea. Because formal study documentation and outcome measures were not retained, I treat that response as classroom critique—not proof of impact or measured improvement."
+          "The final concept was reviewed in class. Because formal study documentation and outcome measures were not retained, the case study presents design rationale—not proof of impact or measured improvement."
       },
       designSystem: {
         body:
@@ -542,21 +542,16 @@ const projects = [
       },
       research: {
         intro:
-          "I shared an exploratory questionnaire in a Taiwanese genealogy and family-history interest community and received 28 responses across Chinese and English versions. The original presentation reflected the first 22 responses I had analyzed; six more arrived later, so this case study uses the final total.",
-        participantContext:
-          "Eighteen respondents were age 21–30, five were 51+, and the remaining five were between 31 and 50. Twenty-two lived in Taiwan and six lived outside Taiwan.",
-        stats: [
-          { value: "28", label: "exploratory responses" },
-          { value: "20", label: "worried digital material could disappear" },
-          { value: "26", label: "wanted family sharing" },
-          { value: "24", label: "wanted a digital time capsule" }
-        ],
+          "I used desk research, affinity synthesis, and early prototypes to explore how family memories are stored, revisited, and shared.",
+        publicEvidenceNote:
+          "This public version contains no individual research data, quotations, or session images.",
+        stats: [],
         methods: [
-          "Exploratory questionnaire",
+          "Exploratory research",
           "Desk and competitive research",
           "Mind mapping and affinity synthesis",
           "Paper and digital prototyping",
-          "Small, informal usability sessions"
+          "Formative prototype critique"
         ],
         insights: [
           {
@@ -565,7 +560,7 @@ const projects = [
           },
           {
             title: "Memories are fragmented",
-            body: "Participants described using messaging apps, photo libraries, cloud storage, and physical objects without one dependable structure."
+            body: "Memory material can be spread across messaging apps, photo libraries, cloud storage, and physical objects without one dependable structure."
           },
           {
             title: "Voice and video carry more",
@@ -573,7 +568,7 @@ const projects = [
           },
           {
             title: "Access is part of preservation",
-            body: "Participants cared about who could see a memory and whether it belonged to a family, community, or wider public."
+            body: "Preservation also requires decisions about who can see a memory and whether it belongs to a family, community, or wider public."
           },
           {
             title: "Recording must feel approachable",
@@ -581,7 +576,7 @@ const projects = [
           }
         ],
         limits:
-          "The sample was voluntary, self-selected, and unusually familiar with genealogy tools: 22 of 28 respondents had used FamilySearch or a similar service. One respondent self-identified as Indigenous, which cannot support conclusions about Indigenous communities. These findings are directional—not representative of Taiwanese families, older adults, or cultural groups."
+          "The original research was exploratory. Because consent for public disclosure was not retained, no individual evidence is included here. Treat these themes as design directions—not representative findings about families, older adults, or cultural groups."
       },
       principles: [
         {
@@ -607,20 +602,20 @@ const projects = [
       ],
       prototype: {
         intro:
-          "I moved from device-sized paper sketches into a digital Figma prototype, using small informal task-based sessions at both stages.",
+          "I moved from device-sized paper sketches into a digital Figma prototype and used formative critique to identify unclear interaction paths.",
         testingNote:
-          "Approximately five to six people tried the paper prototype and six to eight tried the digital prototype. Because I did not retain a detailed test log, I treat these as formative observations rather than validated results.",
+          "This public version contains no individual testing data. The notes below are design issues and responses—not validated outcomes.",
         findings: [
           {
-            observed: "People did not know where or how to add a memory.",
+            observed: "Design issue: the path for adding a memory was unclear.",
             response: "I made capture paths more explicit and separated Story, Recipe, Scan, Type, and guided-assistant entry points."
           },
           {
-            observed: "The upload icon resembled sharing, and content types felt ambiguous.",
+            observed: "Design issue: the upload icon and content types were ambiguous.",
             response: "I replaced icon-only assumptions with clearer labels and step-by-step prompts."
           },
           {
-            observed: "People asked who could see memories after the owner died.",
+            observed: "Design issue: privacy and legacy access remained unresolved.",
             response: "The prototype surfaced privacy at entry level; a complete legacy-access model remained future work."
           }
         ]
@@ -685,21 +680,21 @@ const projects = [
         },
         {
           id: "paper",
-          title: "Paper prototype",
-          caption: "Device-sized sketches let me examine capture, storytelling, and navigation before visual polish.",
-          alt: "A presentation slide showing ten hand-drawn mobile screens and two small photos of paper-prototype testing.",
-          src: "/assets/ssim/page-12.jpg",
-          note: "The sketches exposed a missing doorway: people could see content, but could not see how to begin adding their own.",
+          title: "Paper-prototype artifact withheld",
+          caption: "The original classroom-process slide is not included in this public version.",
+          alt: "A private research-process artifact is intentionally omitted.",
+          src: null,
+          note: "The non-identifying takeaway remains: the capture path needed a clearer starting point.",
           width: 1920,
           height: 1080
         },
         {
           id: "digital",
-          title: "Digital prototype",
-          caption: "The digital prototype brought Home, guided capture, Feed, Scan, Memo Board, and testing together.",
-          alt: "A presentation slide showing SSIM digital prototype screens and three small testing photos.",
-          src: "/assets/ssim/page-13.jpg",
-          note: "Moving into Figma clarified the system, but polish did not remove the deeper questions about access and ownership.",
+          title: "Digital-testing artifact withheld",
+          caption: "The original classroom-process slide is not included in this public version.",
+          alt: "A private research-process artifact is intentionally omitted.",
+          src: null,
+          note: "The non-identifying takeaway remains: visual polish did not resolve access and ownership questions.",
           width: 1920,
           height: 1080
         },
@@ -835,9 +830,9 @@ const projects = [
       },
       research: {
         intro:
-          "I spoke with students at Brigham Young University–Idaho and friends about their experiences writing to pen pals and their reasons for seeking one. I also reviewed existing pen-pal platforms, compared their features, and organized the strengths and limitations I observed.",
+          "I used informal exploratory conversations and a competitive review to examine why people seek pen pals, why interest can fade, and where current platforms create friction.",
         methods: [
-          "Informal conversations with BYU–Idaho students and friends",
+          "Informal exploratory conversations",
           "Competitive review of contemporary pen-pal platforms",
           "Synthesized persona and empathy-map exploration",
           "Paper prototype and wireframe task scenarios",
@@ -846,20 +841,20 @@ const projects = [
         signals: [
           {
             title: "Awareness and continued use",
-            body: "One participant said, “I used to use it, but not anymore.”"
+            body: "Initial interest does not always turn into continued platform use."
           },
           {
             title: "Perception of older platforms",
             body:
-              "A participant described one interface as looking like a ‘dead website,’ suggesting that visual age could reduce trust or interest."
+              "An outdated interface can make a service feel inactive and reduce trust or interest."
           },
           {
             title: "Competition from instant messaging",
-            body: "One participant asked, “Why would I write letters if I can just type on the phone?”"
+            body: "A slower letter exchange needs to offer value that instant messaging does not."
           }
         ],
         limits:
-          "The original project did not retain an exact participant count, interview protocol, usability-test record, or quantitative outcomes. These signals are qualitative classroom evidence; they do not prove that the concept reduces loneliness or creates deeper relationships."
+          "The original project did not retain a detailed research log or quantitative outcomes. This public version includes no individual research evidence, and it does not claim that the concept reduces loneliness or creates deeper relationships."
       },
       competitive: {
         intro:
@@ -879,12 +874,12 @@ const projects = [
       },
       persona: {
         label: "Synthesized persona",
-        name: "Lily Chen",
+        name: "The Deep Connector",
         epithet: "The Deep Connector",
-        age: "24",
-        location: "Taipei, Taiwan",
+        age: "College-age audience",
+        location: "International context",
         background:
-          "Lily is a graduate student balancing her studies with a desire to connect with people around the world. She values thoughtful communication and wants an alternative to online interactions that feel superficial.",
+          "This synthesized persona wants to connect with people around the world through thoughtful communication and seeks an alternative to online interactions that feel superficial.",
         goals: [
           "Build authentic international relationships",
           "Improve her English through conversation",
@@ -896,7 +891,7 @@ const projects = [
           "It is difficult to judge whether a potential connection will feel meaningful"
         ],
         caveat:
-          "Lily is a design synthesis based on the college-student audience I interviewed, not a claim about one real participant."
+          "This is a design synthesis for the project’s intended audience, not a real person or a claim about an individual."
       },
       scenarios: [
         {
@@ -948,7 +943,7 @@ const projects = [
           "I created a small interface system around Inter typography, restrained neutral surfaces, a blue action color, country and language cues, and repeated navigation patterns. The system helped the matching, pen-pal list, and writing flows feel connected even though the project was still an early concept."
       },
       boundaries: [
-        "The participant count, interview protocol, and detailed usability-test record were not retained.",
+        "A detailed research and usability-test record was not retained.",
         "The competitive review identifies product patterns, but the original comparison criteria and scoring were not documented.",
         "The project did not test whether the experience reduced loneliness or produced deeper relationships over time.",
         "Identity verification, privacy, moderation, blocking, unwanted contact, translation errors, and physical-address safety were not designed or validated.",
@@ -980,10 +975,10 @@ const projects = [
         },
         {
           id: "persona",
-          title: "Lily Chen — synthesized persona",
+          title: "The Deep Connector — synthesized persona",
           caption:
-            "Lily represents the goals and frustrations I synthesized from the college-student audience I interviewed.",
-          alt: "Portrait used for the synthesized Echo PenPal persona Lily Chen.",
+            "This artifact represents the goals and frustrations synthesized for the intended audience.",
+          alt: "Portrait used for the fictional Echo PenPal persona called The Deep Connector.",
           src: "/assets/penpal/persona.jpg",
           width: 6552,
           height: 3672

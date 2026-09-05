@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rjruan.github.io/sitemap.xml

@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
 dist/
+
+# SSIM research slides that include participant photographs.
+src/assets/ssim/page-12.jpg
+src/assets/ssim/page-13.jpg
