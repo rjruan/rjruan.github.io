@@ -14,9 +14,9 @@ const site = {
 
 const navigation = [
   {
-    label: "Base Camp",
-    path: "/",
-    title: "Base Camp - Home"
+    label: "Research",
+    path: "/research/",
+    title: "Research questions, methods, and evidence"
   },
   {
     label: "Expeditions",
@@ -1131,7 +1131,7 @@ const resume = {
       items: [
         {
           heading: "Brigham Young University–Idaho",
-          meta: "B.A. Graphic Design · UX/UI emphasis · Web Development minor · 2025",
+          meta: "B.A. Graphic Design · UX/UI emphasis · Web Development minor · GPA 3.53 · 2025",
           detail: "Interdisciplinary coursework across visual communication, interaction design, research, accessibility, and front-end development."
         },
         {
