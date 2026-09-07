@@ -5704,8 +5704,25 @@ dd,
   }
 
   .family-pulse-case .case-cover h1 {
-    font-size: clamp(2.7rem, 13.5vw, 4.25rem);
-    line-height: 0.94;
+    /* FamilyPulse is one word: make it fit instead of letting the cover clip it. */
+    max-width: 100%;
+    font-size: clamp(2.35rem, 12vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
+  }
+
+  .zh-family-case .zh-case-hero-copy h1 {
+    /* Chinese can wrap between characters, but must never be cut by the hero. */
+    max-width: 100%;
+    font-size: clamp(2.25rem, 9.3vw, 4.8rem);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
   }
 
   .snapshot-wordmark {
