@@ -7229,3 +7229,40 @@ summary:focus-visible {
     background: Canvas;
   }
 }
+
+/* Final typography QA: keep every readable word intact.
+   Text may move to the next line, but never split in the middle of a word. */
+body :is(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  dt,
+  dd,
+  figcaption,
+  label,
+  .why-project-question,
+  .research-question,
+  .research-evidence,
+  .research-boundary,
+  .case-lede,
+  .case-section,
+  .section-heading,
+  .note-panel,
+  .method-item,
+  .research-work-item,
+  .research-theme,
+  .project-card,
+  .inquiry-card,
+  .field-note-card,
+  .resume-section,
+  .snapshot-wordmark
+) {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
