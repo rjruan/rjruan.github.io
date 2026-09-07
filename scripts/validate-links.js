@@ -62,9 +62,17 @@ function check() {
       failures.push(`${relativeFile} is missing the main#main landmark`);
     }
 
+    if (!/<html lang="(?:en|zh-Hant)">/.test(html)) {
+      failures.push(`${relativeFile} is missing a supported document language`);
+    }
+
     for (const image of html.matchAll(/<img\b[^>]*>/g)) {
       if (!/\salt="[^"]*"/.test(image[0])) {
         failures.push(`${relativeFile} contains an image without alt text`);
+      }
+      const source = image[0].match(/\ssrc="([^"]+)"/);
+      if (source && source[1].startsWith("/") && !targetExists(source[1])) {
+        failures.push(`${relativeFile} contains an image with missing source ${source[1]}`);
       }
     }
 

@@ -51,10 +51,17 @@ function build() {
 
   const pages = [
     ["/", templates.renderHomePage()],
+    ["/research/", templates.renderResearchPage()],
     ["/expeditions/", templates.renderExpeditionsPage()],
     ["/field-notes/", templates.renderFieldNotesPage()],
     ["/about/", templates.renderAboutPage()],
     ["/resume/", templates.renderResumePage()],
+    ["/zh/", templates.renderZhHomePage()],
+    ["/zh/research/", templates.renderZhResearchPage()],
+    ["/zh/expeditions/", templates.renderZhExpeditionsPage()],
+    ["/zh/about/", templates.renderZhAboutPage()],
+    ["/zh/resume/", templates.renderZhResumePage()],
+    ["/zh/expeditions/health-monitoring/", templates.renderZhFamilyPulsePage()],
     ["/404.html", templates.renderNotFoundPage()]
   ];
 
