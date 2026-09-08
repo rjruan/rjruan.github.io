@@ -11,11 +11,239 @@ function renderDeepCaseStudy(project, renderPage, escapeHtml) {
     return renderSnapshotCaseStudy(project, renderPage, escapeHtml);
   }
 
+  if (project.caseStudy && project.caseStudy.variant === "flood-50") {
+    return renderFlood50CaseStudy(project, renderPage, escapeHtml);
+  }
+
   if (project.caseStudy) {
     return renderFeaturedCaseStudy(project, renderPage, escapeHtml);
   }
 
   return renderScaffoldCaseStudy(project, renderPage, escapeHtml);
+}
+
+function renderFlood50CaseStudy(project, renderPage, escapeHtml) {
+  const study = project.caseStudy;
+  const media = Object.fromEntries((study.media || []).map((item) => [item.id, item]));
+  const sectionLinks = [
+    ["brief", "The brief"],
+    ["origin", "Where I entered"],
+    ["listening", "Listening"],
+    ["requirements", "Requirements"],
+    ["concepts", "Two directions"],
+    ["feedback", "Client feedback"],
+    ["identity", "Final identity"],
+    ["system", "Experience system"],
+    ["education", "Learning in use"],
+    ["outcome", "Outcome & limits"],
+    ["reflection", "Reflection"],
+    ["sources", "Source materials"]
+  ];
+
+  return renderPage({
+    path: project.detailPath,
+    title: project.title,
+    description: project.summary,
+    bodyClass: "flood-case",
+    main: `<article class="flood-case-shell">
+      <header class="flood-case-hero">
+        <div class="section-inner flood-hero-grid">
+          <div class="flood-hero-copy">
+            <p class="eyebrow">${escapeHtml(project.type)} · ${escapeHtml(project.year)}</p>
+            <h1>${escapeHtml(study.headline)}</h1>
+            <p class="case-lede">${escapeHtml(study.lede)}</p>
+            <div class="case-actions">
+              <a class="button primary" href="${escapeHtml(study.sourceLinks[0].url)}" target="_blank" rel="noreferrer">${escapeHtml(study.sourceLinks[0].label)}</a>
+              <a class="button secondary" href="#sources">Review source decks</a>
+            </div>
+          </div>
+          <div class="flood-hero-mark">${renderFigure(media["final-logo"], escapeHtml)}</div>
+          <dl class="case-fact-bar glass-surface">
+            ${renderFact("Role", project.role, escapeHtml)}
+            ${renderFact("Timeframe", project.year, escapeHtml)}
+            ${renderFact("Client", project.client || project.context, escapeHtml)}
+            ${renderFact("Scope", study.conceptLabel, escapeHtml)}
+          </dl>
+          ${project.clientUrl ? `<p class="flood-client-link"><span>Client website</span> <a href="${escapeHtml(project.clientUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.client || "Open client website")} <span aria-hidden="true">↗</span></a></p>` : ""}
+        </div>
+      </header>
+
+      <div class="section-inner case-shell flood-shell">
+        <nav class="case-nav glass-surface" aria-label="Flood 50 case study sections">
+          <p class="eyebrow">On this expedition</p>
+          <ol>
+            ${sectionLinks
+              .map(([id, label]) => `<li><a href="#${id}">${escapeHtml(label)}</a></li>`)
+              .join("")}
+          </ol>
+        </nav>
+
+        <div class="case-content flood-content">
+          <section id="brief" class="case-section flood-intro-section">
+            ${renderSectionHeading("01", "The assignment was bigger than a logo", escapeHtml)}
+            <p>${escapeHtml(study.brief.intro)}</p>
+            <ol class="flood-goal-list" aria-label="Client goals">
+              ${study.brief.goals
+                .map((goal, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><strong>${escapeHtml(goal)}</strong></li>`)
+                .join("")}
+            </ol>
+            <div class="flood-theme-line" aria-label="Themes from the client brief">
+              ${study.brief.themes.map((theme) => `<p>${escapeHtml(theme)}</p>`).join("")}
+            </div>
+          </section>
+
+          <section id="origin" class="case-section flood-origin-section">
+            ${renderSectionHeading("02", study.personalOrigin.title, escapeHtml)}
+            <div class="flood-origin-grid">
+              <div class="flood-origin-image">${renderFigure(media["personal-origin"], escapeHtml)}</div>
+              <div class="flood-origin-copy">
+                <p class="eyebrow">My relationship to the question</p>
+                <p>${escapeHtml(study.personalOrigin.body)}</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="listening" class="case-section">
+            ${renderSectionHeading("03", "We organized people by why they might care", escapeHtml)}
+            <p>${escapeHtml(study.research.intro)}</p>
+            <ul class="flood-method-list" aria-label="Research and proposal methods">
+              ${study.research.methods.map((method) => `<li>${escapeHtml(method)}</li>`).join("")}
+            </ul>
+            <div class="flood-audience-list">
+              ${study.research.audiences
+                .map(
+                  (audience, index) => `<article>
+                    <span>${String(index + 1).padStart(2, "0")}</span>
+                    <div><p class="eyebrow">${escapeHtml(audience.labels)}</p><h3>${escapeHtml(audience.name)}</h3><p>${escapeHtml(audience.need)}</p></div>
+                  </article>`
+                )
+                .join("")}
+            </div>
+          </section>
+
+          <section id="requirements" class="case-section">
+            ${renderSectionHeading("04", "The brief became a system of requirements", escapeHtml)}
+            <div class="flood-requirement-grid">
+              <div>
+                <p class="eyebrow">Must carry across the proposal</p>
+                <ul>${study.requirements.mustHave.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+              </div>
+              <div>
+                <p class="eyebrow">Experience principles</p>
+                <ul>${study.requirements.experiencePrinciples.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="concepts" class="case-section flood-concepts-section">
+            ${renderSectionHeading("05", "Two directions tested two different stories", escapeHtml)}
+            <div class="flood-concept-stack">
+              ${study.concepts
+                .map(
+                  (concept, index) => `<article class="flood-concept">
+                    <div class="flood-concept-copy">
+                      <p class="eyebrow">Direction ${String(index + 1).padStart(2, "0")}</p>
+                      <h3>${escapeHtml(concept.name)}</h3>
+                      <p class="flood-concept-tagline">${escapeHtml(concept.tagline)}</p>
+                      <p>${escapeHtml(concept.intent)}</p>
+                    </div>
+                    <div class="flood-concept-artifacts">
+                      ${concept.media.map((assetId) => renderFigure(media[assetId], escapeHtml)).join("")}
+                    </div>
+                  </article>`
+                )
+                .join("")}
+            </div>
+          </section>
+
+          <section id="feedback" class="case-section flood-feedback-section">
+            ${renderSectionHeading("06", "The useful answer was between the two concepts", escapeHtml)}
+            <p>${escapeHtml(study.feedback.intro)}</p>
+            <ol class="flood-feedback-list">
+              ${study.feedback.signals
+                .map((signal, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(signal)}</p></li>`)
+                .join("")}
+            </ol>
+            <blockquote><p>${escapeHtml(study.feedback.synthesis)}</p></blockquote>
+          </section>
+
+          <section id="identity" class="case-section flood-identity-section">
+            ${renderSectionHeading("07", "The final identity became an invitation and a toolkit", escapeHtml)}
+            <p>${escapeHtml(study.finalSystem.intro)}</p>
+            <div class="flood-identity-pair">
+              ${renderFigure(media["final-logo"], escapeHtml)}
+              ${renderFigure(media["final-pattern"], escapeHtml)}
+            </div>
+            <ol class="flood-decision-list">
+              ${study.finalSystem.decisions
+                .map((decision, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(decision)}</p></li>`)
+                .join("")}
+            </ol>
+          </section>
+
+          <section id="system" class="case-section flood-system-section">
+            ${renderSectionHeading("08", "One visual language, many ways to enter", escapeHtml)}
+            <ul class="flood-deliverable-line" aria-label="Proposed deliverables">
+              ${study.finalSystem.deliverables.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+            <div class="flood-gallery">
+              <div class="flood-gallery-wide">${renderFigure(media["event-posters"], escapeHtml)}</div>
+              ${renderFigure(media["memory-lane"], escapeHtml)}
+              ${renderFigure(media["billboard"], escapeHtml)}
+              <div class="flood-device-study flood-gallery-wide">
+                ${renderFigure(media["website-desktop"], escapeHtml)}
+                ${renderFigure(media["website-mobile"], escapeHtml)}
+              </div>
+              <div class="flood-gallery-wide">${renderFigure(media["community-mural"], escapeHtml)}</div>
+              ${renderFigure(media["event-apparel"], escapeHtml)}
+              ${renderFigure(media["postcard-kit"], escapeHtml)}
+            </div>
+          </section>
+
+          <section id="education" class="case-section flood-education-section">
+            ${renderSectionHeading("09", "A learning tool moved from proposal to use", escapeHtml)}
+            <p>${escapeHtml(study.educationEvidence.intro)}</p>
+            <div class="flood-evidence-triptych">
+              ${[media["kid-activity-1"], media["kid-activity-2"], media["kid-activity-3"]]
+                .map((item) => renderFigure(item, escapeHtml))
+                .join("")}
+            </div>
+            <p>${escapeHtml(study.educationEvidence.followUp)}</p>
+            <div class="flood-passport-pair">
+              ${renderFigure(media["passport-closed"], escapeHtml)}
+              ${renderFigure(media["passport-open"], escapeHtml)}
+            </div>
+          </section>
+
+          <section id="outcome" class="case-section flood-outcome-section">
+            ${renderSectionHeading("10", "What this work proves—and what it does not", escapeHtml)}
+            <p>${escapeHtml(study.outcome)}</p>
+            <aside class="boundary-callout prominent" aria-label="Flood 50 evidence boundaries">
+              <p class="eyebrow">Evidence boundary</p>
+              <ul>${study.boundaries.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+            </aside>
+          </section>
+
+          <section id="reflection" class="case-section flood-reflection-section">
+            ${renderSectionHeading("11", "Reflection", escapeHtml)}
+            <p>${escapeHtml(study.reflection)}</p>
+          </section>
+
+          <section id="sources" class="case-section flood-source-section">
+            <p class="eyebrow">Source materials</p>
+            <p>These links are the original materials behind the case study. They are included so the proposal, feedback, and final system can be reviewed without relying on my memory alone.</p>
+            <ul>
+              ${study.sourceLinks
+                .map(
+                  (link) => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a></li>`
+                )
+                .join("")}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </article>`
+  });
 }
 
 function renderSnapshotCaseStudy(project, renderPage, escapeHtml) {

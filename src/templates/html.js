@@ -322,6 +322,16 @@ function renderProjectVisual(project) {
     </div>`;
   }
 
+  if (project.visualStyle === "flood-50") {
+    return `<div class="project-visual flood-50-visual" role="img" aria-label="${escapeHtml(
+      project.visualLabel
+    )}">
+      <div class="flood-50-wordmark" aria-hidden="true"><span>WE ARE</span><strong>FLOOD 50</strong></div>
+      <div class="flood-50-waterline" aria-hidden="true"></div>
+      <p>${escapeHtml(project.visualLabel)}</p>
+    </div>`;
+  }
+
   return `<div class="project-visual" role="img" aria-label="${escapeHtml(
     project.visualLabel
   )}"><span>${escapeHtml(project.visualLabel)}</span></div>`;
@@ -533,6 +543,7 @@ function renderExpeditionsPage() {
     "health-monitoring",
     "ssim",
     "pen-pal",
+    "flood-50",
     "professional-systems-placeholder"
   ];
   const deep = featuredOrder

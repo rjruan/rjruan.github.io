@@ -773,6 +773,386 @@ const projects = [
     }
   },
   {
+    slug: "flood-50",
+    title: "We Are Flood 50",
+    homeQuestion:
+      "How can a community remember its history and still feel that it belongs to the future?",
+    inquiry:
+      "How might a local digital experience connect memory, heritage, and belonging in a growing college-town community?",
+    type: "Real-world proposal",
+    portfolioRole: "Community-centered visual and digital experience proposal",
+    role: "Graphic designer, website designer, project manager, and team coordinator",
+    client: "Madison County Library",
+    clientUrl: "https://www.madisonlib.org/",
+    context: "School project commissioned by Madison County Library",
+    year: "Jan–Apr 2025",
+    status: "Case study",
+    availability: "Review draft",
+    detailPath: "/expeditions/flood-50/",
+    themes: [
+      "Community memory",
+      "Heritage",
+      "Information design",
+      "Web design",
+      "Project coordination"
+    ],
+    summary:
+      "We Are Flood 50 is a proposal for a local digital experience connected to the Teton Dam Flood commemoration, exploring how memory and heritage might strengthen belonging in the Rexburg area.",
+    visualLabel: "Memory, heritage, and local belonging",
+    visualStyle: "flood-50",
+    sourceLinks: [
+      {
+        label: "View proposal design",
+        url: "https://www.figma.com/design/PIlpV5VtglkRqPDnuHjeSf/We-Are-Flood-50?node-id=934-1416&t=afAqdgtgi64DX32c-1"
+      },
+      {
+        label: "View public Flood 50 context",
+        url: "https://www.madisonlib.org/flood-50/"
+      }
+    ],
+    caseStudy: {
+      variant: "flood-50",
+      headline:
+        "How can a community remember a disaster without making its story feel trapped in the past?",
+      lede:
+        "We Are Flood 50 is a team proposal for the 50th commemoration of the Teton Dam Flood. We translated a broad community brief into an identity and experience system designed to help people learn, participate, share stories, and see themselves as part of what comes next.",
+      conceptLabel: "Team proposal — not a launched product",
+      team: "Natalie, Abby, Kelsey, William, Anna, and Ruby",
+      sourceLinks: [
+        {
+          label: "Figma proposal",
+          url: "https://www.figma.com/design/PIlpV5VtglkRqPDnuHjeSf/We-Are-Flood-50?node-id=934-1416&t=afAqdgtgi64DX32c-1"
+        },
+        {
+          label: "Client brief deck",
+          url: "https://docs.google.com/presentation/d/1yBq7_q5sdmxtNsMRHSRFlVCI0cl9xpA5_EnUCrkdA0I/edit"
+        },
+        {
+          label: "Concept proposal deck",
+          url: "https://docs.google.com/presentation/d/1KqBXzGKJ5AquEqOv1cFogRt675LsxHXPzWoa4n3BcFk/edit"
+        },
+        {
+          label: "Team final presentation",
+          url: "https://docs.google.com/presentation/d/1vjefJi81QeJTvDISuj-QGn7zwYdbDT49SUhejO-MkJA/edit"
+        },
+        {
+          label: "Public Flood 50 context",
+          url: "https://www.madisonlib.org/flood-50/"
+        },
+        {
+          label: "Client website — Madison County Library",
+          url: "https://www.madisonlib.org/"
+        }
+      ],
+      brief: {
+        intro:
+          "The client did not ask for one isolated artifact. The brief described a month-long commemoration that could educate the public, preserve stories, involve college students, and culminate around the anniversary. It needed to feel rooted in the 1970s without becoming a period piece.",
+        goals: [
+          "Rekindle the community spirit people relied on during recovery",
+          "Create a respectful commemoration that works across generations",
+          "Recognize sacrifice and loss while carrying the flood’s lessons forward"
+        ],
+        themes: [
+          "Community — the flood united people around recovery",
+          "Resilience — people persevered through loss and rebuilding",
+          "Spirit — the event changed homes, but not the community’s sense of itself"
+        ]
+      },
+      personalOrigin: {
+        title: "I began as one of the people the brief needed to include",
+        body:
+          "I was born and raised in Taiwan and arrived in Rexburg far from family and familiar language. Early on, I spent most of my time on campus and felt little reason to explore the city. Working through Flood 50 made the design question personal: how might a place invite newer residents into its memory without asking them to already feel like insiders?"
+      },
+      research: {
+        intro:
+          "We began with the client materials and stakeholder conversation, then organized the audience by the reasons people might participate—not only by age. That shifted the design problem from promoting an anniversary to creating different ways into the same history.",
+        methods: [
+          "Client brief and stakeholder interview",
+          "Audience segmentation by needs and motivations",
+          "Must-have and nice-to-have prioritization",
+          "Two-direction concept exploration",
+          "Proposal presentation and client feedback synthesis"
+        ],
+        audiences: [
+          {
+            name: "Limited time or budget",
+            labels: "Time-Starved · Bored & Broke",
+            need: "Quick, affordable ways to participate without needing deep prior knowledge."
+          },
+          {
+            name: "Learning through discovery",
+            labels: "Adventure Hunters · History Buffs · Kiddo Wranglers",
+            need: "Hands-on, safe, and credible experiences that make history easier to enter."
+          },
+          {
+            name: "Protecting community memory",
+            labels: "Community Champions · Legacy Keepers",
+            need: "Ways to preserve stories, honor service, and pass the history to another generation."
+          }
+        ]
+      },
+      requirements: {
+        mustHave: [
+          "A recognizable brand system across logo, type, color, imagery, and guidelines",
+          "A central web hub for events, schedules, stories, and participation",
+          "Signage and merchandise that could carry the commemoration into the community"
+        ],
+        experiencePrinciples: [
+          "Educate before assuming people know why the anniversary matters",
+          "Invite participation instead of speaking only to long-time residents",
+          "Use experiences that can be low-cost, interactive, and largely self-running",
+          "Commemorate the past while giving younger and newer residents a reason to care now"
+        ]
+      },
+      concepts: [
+        {
+          name: "We Are Flood 50",
+          tagline: "Coming together, stronger than ever.",
+          intent:
+            "An invitation-led direction built around shared identity: stories, service, belonging, and the idea that everyone could enter the commemoration through a role of their own.",
+          media: ["concept-we-are-shirt", "concept-we-are-buttons"]
+        },
+        {
+          name: "50 Years Strong",
+          tagline: "A tribute to hope, strength, endurance, and determination.",
+          intent:
+            "A more symbolic direction built from modular forms. The visual pieces could become water, landmarks, people, and local places while communicating endurance across fifty years.",
+          media: ["concept-strong-hats", "concept-strong-shirt"]
+        }
+      ],
+      feedback: {
+        intro:
+          "The proposal deck records feedback from four client stakeholders. They did not simply choose one direction; their comments showed what each concept was doing better.",
+        signals: [
+          "Keep the invitation and relatability of “We Are.”",
+          "Make “Flood 50” faster to recognize in the identity.",
+          "Use the modular pattern because it is distinctive and flexible.",
+          "Bring in brighter color, clearer blue or teal, and a stronger sense of the flood.",
+          "Develop applications such as murals, storybooks, activity materials, and event graphics."
+        ],
+        synthesis:
+          "The final direction became a synthesis: the inclusive language of We Are, a clearer Flood 50 mark, and a modular visual vocabulary that could represent water, places, people, and activities. This is documented design iteration—not a claim of measured user impact."
+      },
+      finalSystem: {
+        intro:
+          "The team’s final presentation expanded the identity into a community-wide system. The same pieces could shift scale and meaning while keeping a recognizable relationship across print, digital, education, and events.",
+        decisions: [
+          "A teal-led wordmark makes Flood 50 the fastest thing to read.",
+          "Orange, pink, rust, and teal keep the system energetic and contemporary.",
+          "Individual shapes assemble into one mark, echoing the way communities rebuilt together.",
+          "Each shape can stand alone, repeat as a pattern, or recombine across applications.",
+          "The shapes reference water, mountains, fields, buildings, and collective effort without reducing the history to one literal symbol.",
+          "The “We Are” structure lets different groups locate themselves inside the commemoration."
+        ],
+        deliverables: [
+          "Identity and modular pattern",
+          "Event posters and public signage",
+          "Responsive web hub and social media system",
+          "History, timeline, and story publication",
+          "Children’s activity materials and passport concept",
+          "Merchandise, medals, stickers, and community takeaways"
+        ]
+      },
+      educationEvidence: {
+        intro:
+          "The children’s booklet was designed to work in two ways: as an individual activity and as a prompt for conversation at home. The team documented one child working through the booklet’s stories and challenges. These photographs show the material in use; they are not evidence of a formal usability study.",
+        followUp:
+          "A passport and sticker system extended that same idea across the event, giving children a reason to visit multiple activities and keep a tangible record of where they had been."
+      },
+      outcome:
+        "The work reached a documented final team presentation after client feedback. The materials show a refined brand and a broad set of proposed applications, but they do not establish that our team’s system was selected, launched, or measured in the community. I therefore present it as a real-client proposal rather than a shipped outcome.",
+      reflection:
+        "Flood 50 taught me that community design is less about placing history behind glass and more about deciding who is invited to carry it forward. My contribution moved between graphic design, some website design, project management, and coordination. I learned to keep a complex team proposal coherent without pretending that one artifact—or one designer—owned the whole story.",
+      boundaries: [
+        "A child was photographed using the booklet, but the decks do not document a test protocol, observations, or participant count; I do not present it as formal usability testing.",
+        "The decks do not record a formal selection, launch, or post-event metric for our proposal.",
+        "The visual outputs shown here are team work; individual artifact authorship is not assigned in the source decks."
+      ],
+      media: [
+        {
+          id: "personal-origin",
+          title: "Ruby in Rexburg",
+          caption: "The project became a question about how newer residents are invited into local memory.",
+          src: "/assets/flood-50/ruby-in-rexburg.png",
+          alt: "Ruby wearing a hood indoors with a snowy Brigham Young University–Idaho campus visible through the window.",
+          width: 882,
+          height: 1190
+        },
+        {
+          id: "concept-we-are-shirt",
+          title: "We Are Flood 50",
+          caption: "The first direction treated the identity as an invitation to belong.",
+          src: "/assets/flood-50/concept-we-are-shirt.png",
+          alt: "White shirt mockup with the early We Are Flood 50 wordmark.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "concept-we-are-buttons",
+          title: "An identity people could complete",
+          caption: "Variable We Are buttons made the language personal and participatory.",
+          src: "/assets/flood-50/concept-we-are-buttons.jpg",
+          alt: "Circular We Are buttons in rust, orange, teal, pink, and white.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "concept-strong-hats",
+          title: "50 Years Strong",
+          caption: "The second direction explored a modular symbol of endurance.",
+          src: "/assets/flood-50/concept-strong-hats.png",
+          alt: "Two bucket hats carrying early 50 Years Strong identity directions.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "concept-strong-shirt",
+          title: "A system built from place",
+          caption: "The modular pattern could hold the names of communities affected by the flood.",
+          src: "/assets/flood-50/concept-strong-shirt.png",
+          alt: "White shirt carrying a colorful 50 Years Strong pattern and the place names Idaho Falls, Rexburg, Wilford, and Sugar City.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "final-logo",
+          title: "The synthesized identity",
+          caption: "A clearer Flood 50 mark paired with the inclusive We Are language.",
+          src: "/assets/flood-50/final-logo.png",
+          alt: "Final We Are Flood 50 wordmark for the Teton Dam Flood 50th Commemoration.",
+          width: 2048,
+          height: 611
+        },
+        {
+          id: "final-pattern",
+          title: "A modular visual vocabulary",
+          caption: "Shapes can suggest water, land, buildings, people, and movement.",
+          src: "/assets/flood-50/final-pattern.jpg",
+          alt: "Colorful modular Flood 50 pattern in teal, orange, pink, and rust.",
+          width: 2048,
+          height: 1254
+        },
+        {
+          id: "event-posters",
+          title: "Events become invitations",
+          caption: "The identity adapts to different participants while remaining one system.",
+          src: "/assets/flood-50/event-posters.png",
+          alt: "Flood 50 biker rally and marathon posters displayed outdoors.",
+          width: 2048,
+          height: 1536
+        },
+        {
+          id: "memory-lane",
+          title: "History placed back into the city",
+          caption: "The Memory Lane concept connected a present-day walk with the buildings and stories that preceded the flood.",
+          src: "/assets/flood-50/memory-lane.png",
+          alt: "A Walk Down Memory Lane sign displayed on a sidewalk with a historic photograph of a Rexburg drugstore.",
+          width: 2048,
+          height: 1550
+        },
+        {
+          id: "billboard",
+          title: "A public invitation",
+          caption: "A billboard reduced the message to three actions: remember, learn, and visit.",
+          src: "/assets/flood-50/billboard.png",
+          alt: "Flood 50 billboard reading Remember, Learn, Visit above a photograph of Rexburg.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "website-desktop",
+          title: "Desktop web hub",
+          caption: "The proposed site brought events, history, stories, resources, and participation into one place.",
+          src: "/assets/flood-50/website-desktop.png",
+          alt: "Flood 50 website home page displayed on a laptop.",
+          width: 988,
+          height: 734
+        },
+        {
+          id: "website-mobile",
+          title: "Mobile web hub",
+          caption: "The same entry point was proposed for a smaller, touch-first screen.",
+          src: "/assets/flood-50/website-mobile.png",
+          alt: "Flood 50 website home page displayed inside a smartphone mockup.",
+          width: 858,
+          height: 1550
+        },
+        {
+          id: "kid-activity-1",
+          title: "Activity booklet in use",
+          caption: "A child works through the booklet’s prompt grid.",
+          src: "/assets/flood-50/kid-activity-1.jpg",
+          alt: "A child in an orange shirt writing in the Flood 50 activity booklet.",
+          width: 1293,
+          height: 2048
+        },
+        {
+          id: "kid-activity-2",
+          title: "Stories and challenges",
+          caption: "The booklet paired short flood facts with drawing and reflection activities.",
+          src: "/assets/flood-50/kid-activity-2.jpg",
+          alt: "A child reading a Flood 50 booklet page while holding a green pencil.",
+          width: 1355,
+          height: 2048
+        },
+        {
+          id: "kid-activity-3",
+          title: "Individual exploration",
+          caption: "The material was designed to support self-directed use and family discussion.",
+          src: "/assets/flood-50/kid-activity-3.jpg",
+          alt: "A child drawing on a Flood 50 activity page at a wooden table.",
+          width: 1365,
+          height: 2048
+        },
+        {
+          id: "passport-closed",
+          title: "A passport for participation",
+          caption: "The passport created a physical record of the activities a visitor completed.",
+          src: "/assets/flood-50/passport-closed.png",
+          alt: "Teal Flood 50 event passport shown closed.",
+          width: 2048,
+          height: 1638
+        },
+        {
+          id: "passport-open",
+          title: "A prompt to keep exploring",
+          caption: "Inside pages connected event stops with a space to record questions.",
+          src: "/assets/flood-50/passport-open.png",
+          alt: "Open Flood 50 passport with activity locations and a writing prompt.",
+          width: 2048,
+          height: 1638
+        },
+        {
+          id: "community-mural",
+          title: "A system at community scale",
+          caption: "The modular identity could expand into a public mural without losing the mark’s logic.",
+          src: "/assets/flood-50/community-mural.png",
+          alt: "Teal brick wall mockup with a white Flood 50 logo and a large modular mural.",
+          width: 2048,
+          height: 1316
+        },
+        {
+          id: "event-apparel",
+          title: "The identity travels with participants",
+          caption: "Event apparel carried both the commemorative identity and group-specific language.",
+          src: "/assets/flood-50/event-apparel.png",
+          alt: "Front and back Flood 50 event shirt mockups.",
+          width: 2048,
+          height: 1365
+        },
+        {
+          id: "postcard-kit",
+          title: "A memory that can leave the event",
+          caption: "Postcards and stickers extended the visual system into small, shareable objects.",
+          src: "/assets/flood-50/postcard-kit.png",
+          alt: "Flood 50 postcard, envelope, and sticker sheet using the modular identity.",
+          width: 1782,
+          height: 1532
+        }
+      ]
+    }
+  },
+  {
     slug: "pen-pal",
     title: "Echo PenPal",
     homeQuestion:
