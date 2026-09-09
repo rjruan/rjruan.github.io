@@ -2125,7 +2125,8 @@ body.home {
   color: #56305e;
 }
 
-.why-intro-copy h1 {
+.why-intro-copy h1,
+.why-intro-copy h2 {
   max-width: 42rem;
   margin-bottom: 1.4rem;
   color: #171419;
@@ -2320,7 +2321,8 @@ body.home {
     font-size: clamp(7rem, 37vw, 11rem);
   }
 
-  .why-intro-copy h1 {
+  .why-intro-copy h1,
+  .why-intro-copy h2 {
     font-size: clamp(2.35rem, 12vw, 4rem);
   }
 
@@ -5732,6 +5734,7 @@ dd,
 
   .snapshot-case-copy h1,
   .why-intro-copy h1,
+  .why-intro-copy h2,
   .why-project-question {
     text-wrap: pretty;
   }
@@ -5746,6 +5749,283 @@ dd,
     min-width: 0;
     white-space: normal;
     text-align: center;
+  }
+}
+
+/* Rebrand v1 — Cinematic Research Studio */
+body.home {
+  background: #f8fbff;
+}
+
+body.home::before {
+  display: none;
+}
+
+body.home .site-header-inner {
+  padding-inline: 0.75rem;
+}
+
+.cinematic-home-hero {
+  position: relative;
+  min-height: 100svh;
+  margin-top: -4.8rem;
+  padding: 5.3rem 0 1rem;
+  overflow: hidden;
+  background: #e8f1fb;
+}
+
+.cinematic-home-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - 6.3rem);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.cinematic-home-stage::before {
+  position: absolute;
+  inset: -3rem;
+  z-index: -2;
+  content: "";
+  background: url("/assets/home/home-roadtrip-poster.jpg") center / cover no-repeat;
+  filter: blur(28px) saturate(1.15);
+  opacity: 0.38;
+  transform: scale(1.08);
+}
+
+.cinematic-home-stage::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: linear-gradient(90deg, rgba(247, 251, 255, 0.92), rgba(247, 251, 255, 0.16) 44%, rgba(247, 251, 255, 0.06));
+  pointer-events: none;
+}
+
+.cinematic-home-stage > img {
+  width: auto;
+  height: min(88svh, 62rem);
+  max-width: min(70vw, 54rem);
+  object-fit: contain;
+  box-shadow: 0 1.5rem 4rem rgba(17, 42, 76, 0.2);
+}
+
+.cinematic-home-caption {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.25rem, 7vw, 8rem);
+  top: clamp(8rem, 22vh, 15rem);
+  width: min(39rem, 44vw);
+}
+
+.cinematic-home-caption .eyebrow {
+  color: #174ea6;
+}
+
+.cinematic-home-caption h1 {
+  max-width: 9.5ch;
+  margin: 0.8rem 0 1.1rem;
+  color: #102b4e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6.6vw, 7.2rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.cinematic-home-caption > p:last-child {
+  max-width: 27rem;
+  color: #294566;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  line-height: 1.45;
+}
+
+.cinematic-home-note {
+  position: absolute;
+  right: clamp(1.25rem, 4vw, 4rem);
+  bottom: 1.6rem;
+  margin: 0;
+  color: #174ea6;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home .why-home {
+  padding-top: clamp(5rem, 11vw, 10rem);
+}
+
+.home .why-intro-copy h1,
+.home .why-intro-copy h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+
+.home .why-project-link {
+  border-radius: 0;
+  padding-inline: 0;
+}
+
+.home .why-project-link:hover,
+.home .why-project-link:focus-visible {
+  background: transparent;
+}
+
+.home .why-project-number {
+  color: rgba(11, 79, 156, 0.42);
+}
+
+@media (max-width: 900px) {
+  .cinematic-home-hero {
+    margin-top: -7.2rem;
+    padding-top: 8rem;
+  }
+
+  .cinematic-home-stage {
+    min-height: calc(100svh - 9rem);
+  }
+
+  .cinematic-home-caption {
+    left: 1.25rem;
+    top: 10rem;
+    width: min(34rem, 48vw);
+  }
+}
+
+@media (max-width: 680px) {
+  .cinematic-home-hero {
+    min-height: auto;
+    padding: 7.5rem 0 1.2rem;
+  }
+
+  .cinematic-home-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    gap: 2rem;
+    padding-inline: 1.25rem;
+  }
+
+  .cinematic-home-stage::after {
+    background: linear-gradient(180deg, rgba(247, 251, 255, 0.96), rgba(247, 251, 255, 0.35));
+  }
+
+  .cinematic-home-stage > img {
+    order: 2;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    box-shadow: 0 1rem 2.5rem rgba(17, 42, 76, 0.16);
+  }
+
+  .cinematic-home-caption {
+    position: relative;
+    inset: auto;
+    order: 1;
+    width: auto;
+    padding-top: 1rem;
+  }
+
+  .cinematic-home-caption h1 {
+    max-width: 11ch;
+    font-size: clamp(2.7rem, 12vw, 4.8rem);
+  }
+
+  .cinematic-home-note {
+    right: 1.25rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-home-stage::before {
+    filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .cinematic-home-stage::after {
+    display: none;
+  }
+}
+
+/* Recruiter scan line: five stable facts, readable before the narrative begins. */
+.case-quick-facts {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.case-quick-facts > div {
+  min-width: 0;
+}
+
+.case-quick-facts dt,
+.case-quick-facts dd {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.case-quick-facts dd {
+  line-height: 1.35;
+}
+
+.protected-quick-facts {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(16, 61, 122, 0.14);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 1180px) {
+  .case-quick-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-quick-facts > div:nth-child(3) {
+    border-right: 0;
+  }
+
+  .case-quick-facts > div:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 680px) {
+  .case-quick-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-quick-facts > div:nth-child(3) {
+    border-right: 1px solid var(--line);
+  }
+
+  .case-quick-facts > div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .case-quick-facts > div:nth-child(-n + 4) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 520px) {
+  .case-quick-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .case-quick-facts > div,
+  .case-quick-facts > div:nth-child(2n),
+  .case-quick-facts > div:nth-child(3) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .case-quick-facts > div:last-child {
+    border-bottom: 0;
   }
 }
 
@@ -6872,6 +7152,7 @@ body.lang-zh {
 }
 
 .lang-zh .why-intro-copy h1,
+.lang-zh .why-intro-copy h2,
 .lang-zh .research-hero h1,
 .lang-zh .page-hero h1 {
   line-height: 1.08;
@@ -7931,5 +8212,486 @@ body :is(
   .flood-decision-list li {
     grid-template-columns: 2.2rem minmax(0, 1fr);
     gap: 0.65rem;
+  }
+}
+
+/* Final rebrand overrides: keep the Awwwards-inspired home surface clean. */
+body.home {
+  background: #f8fbff;
+}
+
+body.home::before {
+  display: none;
+}
+
+body.home .site-header-inner {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+body.home .why-project-link {
+  border-radius: 0;
+  padding-inline: 0;
+}
+
+body.home .why-project-link:hover,
+body.home .why-project-link:focus-visible {
+  background: transparent;
+}
+
+body.home .why-project-number {
+  color: rgba(11, 79, 156, 0.42);
+}
+
+body.home h1,
+body.home h2,
+body.home h3,
+body.home p,
+body.home li,
+body.home .why-project-question {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Home media correction: use Ruby's supplied horizontal footage, never the portrait selfie. */
+body.home .cinematic-home-video {
+  display: block;
+  width: min(100vw, 120rem);
+  height: min(86svh, 68rem);
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  border: 0;
+  box-shadow: none;
+}
+
+body.home .cinematic-home-stage {
+  overflow: hidden;
+}
+
+body.home .cinematic-home-caption h1 {
+  max-width: 17ch;
+  margin-right: 0;
+  font-size: clamp(2rem, 4.2vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  overflow: visible;
+  white-space: normal;
+  text-wrap: pretty;
+}
+
+body.home .cinematic-home-caption {
+  width: min(33rem, 36vw);
+}
+
+@media (max-width: 900px) {
+  body.home .cinematic-home-video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  body.home .cinematic-home-caption {
+    width: min(30rem, 44vw);
+  }
+
+  body.home .cinematic-home-caption h1 {
+    max-width: 16ch;
+    font-size: clamp(1.9rem, 5vw, 3.5rem);
+  }
+}
+
+@media (max-width: 680px) {
+  body.home .cinematic-home-video {
+    order: 2;
+    width: 100%;
+    height: auto;
+  }
+
+  body.home .cinematic-home-caption {
+    width: auto;
+  }
+
+  body.home .cinematic-home-caption h1 {
+    max-width: 18ch;
+    font-size: clamp(1.95rem, 8.8vw, 3.2rem);
+  }
+}
+
+/* Awwwards-led rebrand correction: open index, no card wrappers. */
+.site-header-inner {
+  /* The right controls carry about 15px of internal breathing room; match that visually on the left. */
+  padding-left: calc(0.75rem + 15px);
+  padding-right: 0.75rem;
+}
+
+body.home .site-header-inner,
+body:not(.ssim-case) .site-header-inner {
+  padding-left: calc(0.75rem + 15px);
+  padding-right: 0.75rem;
+}
+
+body.home .cinematic-home-hero {
+  min-height: 100svh;
+  margin-top: -4.8rem;
+  padding-top: 4.8rem;
+  background: #edf5ff;
+}
+
+body.home .cinematic-home-stage {
+  min-height: calc(100svh - 4.8rem);
+}
+
+body.home .cinematic-home-stage > img {
+  max-width: none;
+  height: min(92svh, 68rem);
+  box-shadow: none;
+}
+
+body.home .cinematic-home-stage::before {
+  opacity: 0.52;
+  filter: blur(34px) saturate(1.18);
+}
+
+body.home .cinematic-home-caption {
+  left: clamp(1.5rem, 6vw, 7rem);
+  top: clamp(7rem, 16vh, 12rem);
+  width: min(31rem, 38vw);
+}
+
+body.home .cinematic-home-caption .eyebrow {
+  color: #102b4e;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+body.home .cinematic-home-caption h1 {
+  max-width: 8.8ch;
+  color: #102b4e;
+  font-size: clamp(3.3rem, 7vw, 8rem);
+  line-height: 0.9;
+}
+
+body.home .cinematic-home-note {
+  right: clamp(1.5rem, 5vw, 6rem);
+  bottom: 1.4rem;
+}
+
+body.home .why-home {
+  padding-top: clamp(7rem, 15vw, 13rem);
+  background: #fbfcff;
+}
+
+body.home .why-intro {
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  padding-bottom: clamp(6rem, 13vw, 12rem);
+}
+
+body.home .why-word {
+  width: auto;
+  max-width: none;
+  color: #101216;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(7rem, 20vw, 19rem);
+  font-weight: 400;
+  letter-spacing: -0.12em;
+  line-height: 0.68;
+}
+
+body.home .why-intro-copy {
+  max-width: 54rem;
+  margin-left: clamp(0rem, 13vw, 13rem);
+}
+
+body.home .why-intro-copy h2 {
+  max-width: 16ch;
+  color: #101216;
+  font-size: clamp(2.2rem, 4.7vw, 5rem);
+  line-height: 0.98;
+}
+
+body.home .why-intro-copy > p:last-child {
+  max-width: 35rem;
+}
+
+body.home .why-project-list {
+  border: 0;
+}
+
+body.home .why-project-item,
+body.home .why-project-item:first-child {
+  border: 0;
+}
+
+body.home .why-project-link {
+  grid-template-columns: minmax(4rem, 0.12fr) minmax(0, 1fr) 2rem;
+  gap: clamp(1rem, 4vw, 4rem);
+  margin: 0;
+  padding: clamp(3.5rem, 8vw, 8rem) 0;
+  border-bottom: 1px solid rgba(16, 18, 22, 0.2);
+}
+
+body.home .why-project-link:hover,
+body.home .why-project-link:focus-visible {
+  color: #174ea6;
+}
+
+body.home .why-project-number {
+  align-self: start;
+  color: rgba(16, 18, 22, 0.28);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+body.home .why-project-copy {
+  gap: 1.4rem;
+}
+
+body.home .why-project-meta,
+body.home .why-project-status {
+  color: #5d6877;
+}
+
+body.home .why-project-question {
+  max-width: 17ch;
+  color: #101216;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 5.4vw, 6rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+}
+
+body.home .why-project-arrow {
+  color: #174ea6;
+}
+
+@media (max-width: 900px) {
+  .site-header-inner {
+    padding-left: calc(0.55rem + 15px);
+    padding-right: 0.55rem;
+  }
+
+  body.home .cinematic-home-hero {
+    margin-top: -7.2rem;
+    padding-top: 7.2rem;
+  }
+
+  body.home .cinematic-home-stage {
+    min-height: calc(100svh - 7.2rem);
+  }
+
+  body.home .why-intro-copy {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body.home .cinematic-home-hero {
+    padding-top: 7rem;
+  }
+
+  body.home .why-word {
+    font-size: clamp(6rem, 31vw, 11rem);
+  }
+
+  body.home .why-project-link {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 1rem;
+    gap: 1rem;
+    padding-block: 4rem;
+  }
+
+  body.home .why-project-question {
+    max-width: 14ch;
+    font-size: clamp(2rem, 10.5vw, 4rem);
+  }
+}
+
+/* Cinematic homepage v4 — bright road film, floating chrome, and readable type. */
+body.home .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  background: transparent;
+}
+
+body.home .site-header-inner {
+  padding-left: calc(0.75rem + 15px);
+  padding-right: 0.75rem;
+}
+
+body.home .cinematic-home-hero {
+  min-height: 100svh;
+  height: 100svh;
+  margin-top: 0;
+  padding: 0;
+  background: #09233e;
+}
+
+body.home .cinematic-home-stage {
+  display: block;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+body.home .cinematic-home-stage::before {
+  display: none;
+}
+
+body.home .cinematic-home-stage::after {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(7, 23, 42, 0.12) 0%, rgba(7, 23, 42, 0.02) 34%, rgba(7, 23, 42, 0.8) 100%);
+}
+
+body.home .cinematic-home-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(1.06) contrast(1.02) brightness(1.04);
+}
+
+body.home .cinematic-home-caption {
+  top: auto;
+  bottom: clamp(5.75rem, 13vh, 9.5rem);
+  left: clamp(1.25rem, 5vw, 5rem);
+  z-index: 3;
+  width: min(43rem, 54vw);
+}
+
+body.home .cinematic-home-caption .eyebrow,
+body.home .cinematic-home-caption h1,
+body.home .cinematic-home-caption > p:last-child {
+  color: #fff;
+  text-shadow: 0 0.08em 0.55em rgba(4, 14, 27, 0.8);
+}
+
+body.home .cinematic-home-caption .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+body.home .cinematic-home-caption h1 {
+  max-width: 19ch;
+  margin: 0.8rem 0 1.1rem;
+  font-size: clamp(2.2rem, 4.4vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+body.home .cinematic-home-caption > p:last-child {
+  max-width: 29rem;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.4;
+}
+
+body.home .cinematic-home-note {
+  right: clamp(1.25rem, 4vw, 4rem);
+  bottom: clamp(1.1rem, 3vw, 2.5rem);
+  z-index: 3;
+  padding: 0.62rem 0.82rem;
+  border-radius: 999px;
+  background: rgba(6, 18, 33, 0.78);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-shadow: none;
+}
+
+body.home .why-project-link {
+  border-bottom: 0;
+}
+
+body.home .site-footer {
+  border-top: 0;
+  background: #0a2c52;
+  color: #fff;
+  padding: clamp(5rem, 10vw, 9rem) 0 2rem;
+}
+
+body.home .site-footer p {
+  color: #fff;
+}
+
+body.home .site-footer .eyebrow {
+  color: #b8dbff;
+}
+
+body.home .site-footer .footer-grid {
+  align-items: end;
+  gap: clamp(3rem, 10vw, 11rem);
+}
+
+body.home .site-footer .footer-intro p:last-child {
+  max-width: 18ch;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3.3vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+body.home .site-footer .footer-contact {
+  padding-bottom: 0.35rem;
+}
+
+body.home .site-footer .footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body.home .site-footer .footer-contact a:hover,
+body.home .site-footer .footer-contact a:focus-visible {
+  color: #ffdf7a;
+}
+
+body.home .site-footer .footer-contact a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  body.home .cinematic-home-caption {
+    width: min(38rem, 70vw);
+  }
+}
+
+@media (max-width: 680px) {
+  body.home .site-header-inner {
+    padding-left: calc(1rem + 15px);
+    padding-right: 1rem;
+  }
+
+  body.home .cinematic-home-video {
+    object-position: 50% 50%;
+  }
+
+  body.home .cinematic-home-caption {
+    right: 1.25rem;
+    bottom: 5.5rem;
+    left: 1.25rem;
+    width: auto;
+  }
+
+  body.home .cinematic-home-caption h1 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 9vw, 3.4rem);
+  }
+
+  body.home .cinematic-home-note {
+    right: 1.25rem;
+    bottom: 1rem;
   }
 }

@@ -58,12 +58,13 @@ function renderFlood50CaseStudy(project, renderPage, escapeHtml) {
             </div>
           </div>
           <div class="flood-hero-mark">${renderFigure(media["final-logo"], escapeHtml)}</div>
-          <dl class="case-fact-bar glass-surface">
-            ${renderFact("Role", project.role, escapeHtml)}
-            ${renderFact("Timeframe", project.year, escapeHtml)}
-            ${renderFact("Client", project.client || project.context, escapeHtml)}
-            ${renderFact("Scope", study.conceptLabel, escapeHtml)}
-          </dl>
+          ${renderQuickFacts([
+            ["Role", project.role],
+            ["Team / client", `Team of 6 · ${project.client || "Madison County Library"}`],
+            ["Duration", project.year],
+            ["Methods", "Stakeholder interview · audience segmentation · concept exploration · client feedback"],
+            ["Outcome", "Final proposal; not launched or measured"]
+          ], escapeHtml)}
           ${project.clientUrl ? `<p class="flood-client-link"><span>Client website</span> <a href="${escapeHtml(project.clientUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.client || "Open client website")} <span aria-hidden="true">↗</span></a></p>` : ""}
         </div>
       </header>
@@ -289,12 +290,13 @@ function renderSnapshotCaseStudy(project, renderPage, escapeHtml) {
           <div class="snapshot-case-visual">
             ${renderFigure(media.hero, escapeHtml)}
           </div>
-          <dl class="case-fact-bar glass-surface">
-            ${renderFact("Role", project.role, escapeHtml)}
-            ${renderFact("Timeframe", project.year, escapeHtml)}
-            ${renderFact("Context", project.context, escapeHtml)}
-            ${renderFact("Scope", study.conceptLabel, escapeHtml)}
-          </dl>
+          ${renderQuickFacts([
+            ["Role", project.role],
+            ["Team / context", "Solo · UX Design class"],
+            ["Duration", project.year],
+            ["Methods", "Exploratory conversations · competitive review · paper prototype · informal usability feedback"],
+            ["Outcome", "Course concept; no measured outcome"]
+          ], escapeHtml)}
         </div>
       </header>
 
@@ -467,6 +469,13 @@ function renderProtectedCaseStudy(project, renderPage, escapeHtml) {
             <h2>Protected while approval is pending.</h2>
             <p>${escapeHtml(study.notice)}</p>
           </aside>
+          ${renderQuickFacts([
+            ["Role", project.role],
+            ["Team / context", project.context],
+            ["Duration", project.year],
+            ["Methods", "Withheld pending approval"],
+            ["Outcome", "Protected; no public outcome claimed"]
+          ], escapeHtml, "protected-quick-facts")}
         </div>
       </header>
       <section class="content-band">
@@ -525,12 +534,13 @@ function renderSsimCaseStudy(project, renderPage, escapeHtml) {
           <div class="ssim-cover-visual">
             ${renderSsimMedia(media.hero, escapeHtml, { eager: true, compactCaption: true })}
           </div>
-          <dl class="case-fact-bar ssim-fact-bar">
-            ${renderFact("Role", project.role, escapeHtml)}
-            ${renderFact("Timeframe", project.year, escapeHtml)}
-            ${renderFact("Context", project.context, escapeHtml)}
-            ${renderFact("Deliverable", study.conceptLabel, escapeHtml)}
-          </dl>
+          ${renderQuickFacts([
+            ["Role", project.role],
+            ["Team / context", "Solo · independent project"],
+            ["Duration", project.year],
+            ["Methods", "Desk research · affinity synthesis · paper and digital prototyping · formative critique"],
+            ["Outcome", "Figma concept; validation remains"]
+          ], escapeHtml, "ssim-fact-bar")}
         </div>
       </header>
 
@@ -810,12 +820,13 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
           <div class="case-cover-visual">
             ${renderDevicePreview(media["hero-cross-device"], escapeHtml)}
           </div>
-          <dl class="case-fact-bar glass-surface">
-            ${renderFact("Role", project.role, escapeHtml)}
-            ${renderFact("Timeframe", project.year, escapeHtml)}
-            ${renderFact("Project", project.context, escapeHtml)}
-            ${renderFact("Scope", study.conceptLabel, escapeHtml)}
-          </dl>
+          ${renderQuickFacts([
+            ["Role", project.role],
+            ["Team / context", "Solo · UX Design class"],
+            ["Duration", project.year],
+            ["Methods", "Competitive review · informal conversations · paper prototype · classroom critique"],
+            ["Outcome", "Exploratory concept; no measured outcome"]
+          ], escapeHtml, "glass-surface")}
         </div>
       </header>
 
@@ -1046,6 +1057,12 @@ function renderDevicePreview(item, escapeHtml) {
 
 function renderFact(label, value, escapeHtml) {
   return `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`;
+}
+
+function renderQuickFacts(facts, escapeHtml, extraClass = "") {
+  return `<dl class="case-fact-bar case-quick-facts ${extraClass}" aria-label="Quick project facts">
+    ${facts.map(([label, value]) => renderFact(label, value, escapeHtml)).join("")}
+  </dl>`;
 }
 
 function renderSectionHeading(number, title, escapeHtml) {

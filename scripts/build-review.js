@@ -72,6 +72,7 @@ function mimeType(filePath) {
   if (extension === ".png") return "image/png";
   if (extension === ".jpg" || extension === ".jpeg") return "image/jpeg";
   if (extension === ".webp") return "image/webp";
+  if (extension === ".mp4") return "video/mp4";
   throw new Error(`Unsupported review asset: ${filePath}`);
 }
 
@@ -89,6 +90,12 @@ function buildReview(review, css) {
     const filePath = path.join(dist, publicPath.replace(/^\//, ""));
     const base64 = fs.readFileSync(filePath).toString("base64");
     return `src="data:${mimeType(filePath)};base64,${base64}"`;
+  });
+
+  html = html.replace(/poster="(\/assets\/[^"]+)"/g, (_match, publicPath) => {
+    const filePath = path.join(dist, publicPath.replace(/^\//, ""));
+    const base64 = fs.readFileSync(filePath).toString("base64");
+    return `poster="data:${mimeType(filePath)};base64,${base64}"`;
   });
 
   for (const [route, output] of reviewByRoute) {

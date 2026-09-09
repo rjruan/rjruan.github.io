@@ -62,11 +62,11 @@ function renderContactLinks(lang = "en") {
     );
   }
   if (
-    typeof site.contact.github === "string" &&
-    /^https?:\/\//.test(site.contact.github)
+    typeof site.contact.behance === "string" &&
+    /^https?:\/\//.test(site.contact.behance)
   ) {
     links.push(
-      `<a href="${escapeHtml(site.contact.github)}" target="_blank" rel="noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>`
+      `<a href="${escapeHtml(site.contact.behance)}" target="_blank" rel="noreferrer"><span>Behance</span><span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>`
     );
   }
   return links.length
@@ -157,7 +157,7 @@ function renderPage({ path, title, description, main, bodyClass = "", lang = "en
     <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${canonical}">
     ${alternateLinks}
-    <link rel="stylesheet" href="/assets/styles.css?v=20260907-research-review-1">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260908-cinematic-review-4">
   </head>
   <body${classes}>
     <a class="skip-link" href="#main">${lang === "zh" ? "跳到主要內容" : "Skip to main content"}</a>
@@ -441,18 +441,49 @@ function renderHomePathways(lang = "en") {
 }
 
 function renderWhyHome(lang = "en") {
+  const cinematicHero = lang === "zh"
+    ? `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
+      <div class="cinematic-home-stage">
+        <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
+          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4">
+          <p>Silent road-trip video unavailable in this browser.</p>
+        </video>
+        <div class="cinematic-home-wash" aria-hidden="true"></div>
+        <div class="cinematic-home-caption">
+          <p class="eyebrow">Ruby Ruan · Cinematic Research Studio</p>
+          <h1 id="cinematic-home-title">我一直提問，直到我理解系統裡的人。</h1>
+          <p>觀察人、系統與那些還沒有被回答的問題。</p>
+        </div>
+        <p class="cinematic-home-note" aria-hidden="true">A field note / Rexburg</p>
+      </div>
+    </section>`
+    : `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
+      <div class="cinematic-home-stage">
+        <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
+          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4">
+          <p>Silent road-trip video unavailable in this browser.</p>
+        </video>
+        <div class="cinematic-home-wash" aria-hidden="true"></div>
+        <div class="cinematic-home-caption">
+          <p class="eyebrow">Ruby Ruan · Cinematic Research Studio</p>
+          <h1 id="cinematic-home-title">I keep asking questions until I understand the people inside the system.</h1>
+          <p>I observe people, systems, and the questions that remain unresolved.</p>
+        </div>
+        <p class="cinematic-home-note" aria-hidden="true">A field note / Rexburg</p>
+      </div>
+    </section>`;
+
   if (lang === "zh") {
-    return `<section class="why-home" aria-labelledby="why-title">
+    return `${cinematicHero}<section class="why-home" aria-labelledby="why-title">
       <div class="section-inner why-home-inner">
         <header class="why-intro">
           <p class="why-word" aria-hidden="true">WHY?</p>
           <div class="why-intro-copy">
             <p class="eyebrow">${escapeHtml(zhHome.eyebrow)}</p>
-            <h1 id="why-title">${escapeHtml(zhHome.title)}</h1>
+            <h2 id="why-title">${escapeHtml(zhHome.title)}</h2>
             <p>${escapeHtml(zhHome.lede)}</p>
           </div>
         </header>
-        ${renderHomePathways("zh")}
         <ol class="why-project-list" aria-label="精選案例">
           ${zhHome.projects
             .map(
@@ -477,24 +508,22 @@ function renderWhyHome(lang = "en") {
   const homeOrder = [
     "health-monitoring",
     "ssim",
-    "professional-systems-placeholder"
+    "flood-50"
   ];
   const homeProjects = homeOrder
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter(Boolean);
 
-  return `<section class="why-home" aria-labelledby="why-title">
+  return `${cinematicHero}<section class="why-home" aria-labelledby="why-title">
     <div class="section-inner why-home-inner">
       <header class="why-intro">
         <p class="why-word" aria-hidden="true">WHY?</p>
         <div class="why-intro-copy">
           <p class="eyebrow">Ruby Ruan · UX Designer & Emerging Researcher</p>
-          <h1 id="why-title">Every case study begins with a question I couldn’t leave alone.</h1>
+          <h2 id="why-title">Every case study begins with a question I couldn’t leave alone.</h2>
           <p>I follow each question through evidence, design decisions, uncertainty, and the human consequences of the systems we build.</p>
         </div>
       </header>
-
-      ${renderHomePathways("en")}
 
       <ol class="why-project-list" aria-label="Selected case studies">
         ${homeProjects

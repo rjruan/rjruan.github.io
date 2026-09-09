@@ -5,9 +5,9 @@ const site = {
   description:
     "A coded UX portfolio for Ruby Ruan, an emerging researcher exploring how people understand, navigate, and maintain agency within complex systems.",
   contact: {
-    email: null,
-    linkedin: null,
-    github: "https://github.com/rjruan",
+    email: "rjruan2000@gmail.com",
+    linkedin: "https://www.linkedin.com/in/rubyyyy/",
+    behance: "https://www.behance.net/rubyruan1",
     resumePdf: null
   }
 };
