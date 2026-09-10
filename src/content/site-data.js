@@ -120,10 +120,6 @@ const projects = [
         {
           label: "View presentation",
           url: "https://www.figma.com/slides/gMDM2OerKufD8sL4DWkexR/FamilyPulse-App"
-        },
-        {
-          label: "View original published case study",
-          url: "https://rubyruan.framer.website/familypulse"
         }
       ],
       stat: {
@@ -400,9 +396,9 @@ const projects = [
             "The original competitive review looked across dedicated medical-alert services before I reframed the opportunity around a familiar smartwatch.",
           alt:
             "Logos of medical-alert products included in the original FamilyPulse competitive review.",
-          src: "/assets/familypulse/source/competitive-review.png",
-          width: 1147,
-          height: 442
+          src: "/assets/familypulse/source/competitive-review@2x.png",
+          width: 2294,
+          height: 884
         },
         {
           id: "dignity-framing",
@@ -422,9 +418,9 @@ const projects = [
             "This early artifact explored how Vivi, respectful care, status review, and an advisor might relate within the concept.",
           alt:
             "Early FamilyPulse concept map with the Vivi character and circles labeled Respectful Care, Medical Advisor, and Analysis Health.",
-          src: "/assets/familypulse/source/outcomes-map.png",
-          width: 1500,
-          height: 1500
+          src: "/assets/familypulse/source/outcomes-map-trimmed.png",
+          width: 1089,
+          height: 1084
         },
         {
           id: "paper-prototype",
@@ -433,9 +429,9 @@ const projects = [
             "I used paper screens to map the first watch and phone paths before committing to visual detail.",
           alt:
             "FamilyPulse paper prototype sheets showing early phone navigation and messaging ideas.",
-          src: "/assets/familypulse/source/paper-prototype.png",
-          width: 1561,
-          height: 1076
+          src: "/assets/familypulse/source/paper-prototype-trimmed.png",
+          width: 1546,
+          height: 1063
         },
         {
           id: "lowfi-watch",
@@ -466,9 +462,9 @@ const projects = [
             "The watch direction emphasized strong contrast, restrained controls, and compact components.",
           alt:
             "FamilyPulse watch design-system board with colors, typography, icons, buttons, and components.",
-          src: "/assets/familypulse/source/design-system-watch.png",
-          width: 3476,
-          height: 1569
+          src: "/assets/familypulse/source/design-system-watch-trimmed.png",
+          width: 3157,
+          height: 1553
         },
         {
           id: "phone-design-system",
@@ -754,7 +750,7 @@ const projects = [
     year: "Not published",
     status: "Protected until sharing approval",
     availability: "Unavailable until public-sharing permission is confirmed",
-    detailPath: "/expeditions/church-professional-work/",
+    detailPath: null,
     themes: [
       "Shared systems",
       "Accessibility",
@@ -787,7 +783,7 @@ const projects = [
     context: "School project commissioned by Madison County Library",
     year: "Jan–Apr 2025",
     status: "Case study",
-    availability: "Review draft",
+    availability: "Published case study",
     detailPath: "/expeditions/flood-50/",
     themes: [
       "Community memory",
@@ -1190,10 +1186,6 @@ const projects = [
           url: "https://www.figma.com/design/bN2EFLzQMgoTnCxXabHeI5/Echo-PenPal-App?node-id=0-1&t=H2ZBTetVrqH4YFnB-1"
         },
         {
-          label: "View original case study",
-          url: "https://rubyruan.framer.website/echo-pen-pal-app"
-        },
-        {
           label: "View paper prototype motion",
           url: "https://giphy.com/embed/SM4VbcYlLIVdVRnohT"
         }
@@ -1525,10 +1517,10 @@ const resume = {
       title: "Experience",
       items: [
         {
-          heading: "UX Design Internship",
+          heading: "UX Design Intern — The Church of Jesus Christ of Latter-day Saints",
           meta: "2025–2026",
           detail:
-            "Professional UX experience is being prepared for public sharing; employer and project details remain withheld until permission is confirmed."
+            "Contributing to enterprise product and design-system work with accessibility, consistency, and clarity across shared systems as recurring concerns."
         }
       ]
     },

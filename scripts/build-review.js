@@ -28,11 +28,6 @@ const reviews = [
     output: "portfolio-ssim-research-review-v1.html"
   },
   {
-    route: "/expeditions/church-professional-work/",
-    source: "expeditions/church-professional-work/index.html",
-    output: "portfolio-church-protected-research-review-v1.html"
-  },
-  {
     route: "/expeditions/pen-pal/",
     source: "expeditions/pen-pal/index.html",
     output: "portfolio-echo-penpal-research-review-v1.html"
@@ -76,6 +71,17 @@ function mimeType(filePath) {
   throw new Error(`Unsupported review asset: ${filePath}`);
 }
 
+function inlineCssAssets(css) {
+  return css.replace(
+    /url\((['"]?)(\/assets\/[^)'"\s]+)\1\)/g,
+    (_match, _quote, publicPath) => {
+      const filePath = path.join(dist, publicPath.replace(/^\//, ""));
+      const base64 = fs.readFileSync(filePath).toString("base64");
+      return `url("data:${mimeType(filePath)};base64,${base64}")`;
+    }
+  );
+}
+
 function buildReview(review, css) {
   const sourcePath = path.join(dist, review.source);
   const outputPath = path.join(dist, review.output);
@@ -106,5 +112,5 @@ function buildReview(review, css) {
   console.log(`Built self-contained review page at ${path.relative(root, outputPath)}`);
 }
 
-const css = fs.readFileSync(cssPath, "utf8");
+const css = inlineCssAssets(fs.readFileSync(cssPath, "utf8"));
 reviews.forEach((review) => buildReview(review, css));

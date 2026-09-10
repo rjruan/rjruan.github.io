@@ -5,7 +5,15 @@ const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
 
 const generatedFiles = ["404.html", "index.html", "robots.txt", "sitemap.xml"];
-const generatedDirectories = ["about", "expeditions", "field-notes", "resume", "assets"];
+const generatedDirectories = [
+  "about",
+  "research",
+  "expeditions",
+  "field-notes",
+  "resume",
+  "zh",
+  "assets"
+];
 
 if (!fs.existsSync(path.join(dist, "index.html"))) {
   throw new Error("dist/index.html is missing. Run npm run build first.");
@@ -19,7 +27,7 @@ for (const file of generatedFiles) {
   fs.copyFileSync(path.join(dist, file), path.join(root, file));
 }
 
-for (const directory of ["about", "expeditions", "field-notes", "resume"]) {
+for (const directory of ["about", "research", "expeditions", "field-notes", "resume", "zh"]) {
   fs.cpSync(path.join(dist, directory), path.join(root, directory), {
     recursive: true
   });

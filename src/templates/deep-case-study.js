@@ -652,11 +652,12 @@ ${study.research.stats.length
               <span aria-hidden="true">↳</span> The most useful moment was not “they liked it.” It was watching someone look for a door I had failed to draw.
             </aside>
             <p>${escapeHtml(study.prototype.intro)}</p>
-            <div class="ssim-process-media">
-              ${renderSsimMedia(media.paper, escapeHtml)}
-              ${renderSsimMedia(media.digital, escapeHtml)}
-            </div>
-            <p class="evidence-note">${escapeHtml(study.prototype.testingNote)}</p>
+            ${media.paper?.src || media.digital?.src
+              ? `<div class="ssim-process-media">
+                  ${media.paper?.src ? renderSsimMedia(media.paper, escapeHtml) : ""}
+                  ${media.digital?.src ? renderSsimMedia(media.digital, escapeHtml) : ""}
+                </div>`
+              : ""}<p class="evidence-note">${escapeHtml(study.prototype.testingNote)}</p>
             <div class="ssim-testing-grid" aria-label="Usability observations and design responses">
               ${study.prototype.findings
                 .map(
@@ -877,10 +878,13 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
                 )
                 .join("")}
             </div>
-            <div class="artifact-grid two-up family-research-artifacts">
-              ${[media["competitive-review"], media["dignity-framing"]]
-                .map((item) => renderFigure(item, escapeHtml))
-                .join("")}
+            <div class="family-research-evidence" aria-label="Research framing artifacts">
+              <div class="family-competitive-landscape">
+                ${renderFigure(media["competitive-review"], escapeHtml)}
+              </div>
+              <div class="family-vivi-evidence">
+                ${renderFigure(media["dignity-framing"], escapeHtml)}
+              </div>
             </div>
             <aside class="boundary-callout" aria-label="Research limitation">
               <p class="eyebrow">Evidence boundary</p>
@@ -911,7 +915,9 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
                 <blockquote class="insight-quote"><p>${escapeHtml(study.insight.statement)}</p></blockquote>
                 <p>${escapeHtml(study.insight.body)}</p>
               </div>
-              ${renderFigure(media["concept-map"], escapeHtml)}
+              <div class="family-concept-map-wide">
+                ${renderFigure(media["concept-map"], escapeHtml)}
+              </div>
             </div>
           </section>
 
@@ -960,11 +966,13 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
             <div class="flow-grid">
               ${study.flows.map((flow) => renderFlow(flow, escapeHtml)).join("")}
             </div>
-            <div class="artifact-grid two-up">
-              ${[media["status-home"], media["analysis-history"], media["family-chat"], media["reminder-setup"]]
-                .map((item) => renderFigure(item, escapeHtml))
-                .join("")}
-            </div>
+            ${renderFigureSet(
+              [media["status-home"], media["analysis-history"], media["family-chat"], media["reminder-setup"]],
+              "Companion-phone prototype set",
+              "Recent-status review, family communication, and reminder setup shown as one connected interface family.",
+              escapeHtml,
+              "family-figure-set--prototype"
+            )}
           </section>
 
           <section id="iteration" class="case-section">
@@ -980,22 +988,26 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
               </article>
             </div>
             <p class="evidence-note">${escapeHtml(study.iteration.caveat)}</p>
-            <div class="artifact-grid family-process-grid">
-              ${[media["paper-prototype"], media["lowfi-watch"], media["lowfi-phone"]]
-                .map((item) => renderFigure(item, escapeHtml))
-                .join("")}
-            </div>
+            ${renderFigureSet(
+              [media["paper-prototype"], media["lowfi-watch"], media["lowfi-phone"]],
+              "Prototype progression",
+              "Paper, watch, and phone explorations are kept together so the change in hierarchy can be read as one sequence.",
+              escapeHtml,
+              "family-figure-set--stacked"
+            )}
           </section>
 
           <section id="language" class="case-section">
             ${renderSectionHeading("09", "A cross-device design language", escapeHtml)}
             <p>${escapeHtml(study.designSystem.body)}</p>
             <p class="principle-line">${escapeHtml(study.designSystem.principle)}</p>
-            <div class="artifact-grid two-up">
-              ${[media["watch-design-system"], media["phone-design-system"]]
-                .map((item) => renderFigure(item, escapeHtml))
-                .join("")}
-            </div>
+            ${renderFigureSet(
+              [media["watch-design-system"], media["phone-design-system"]],
+              "Cross-device design system",
+              "The watch and phone systems are shown at full readable width as one related set.",
+              escapeHtml,
+              "family-figure-set--stacked family-figure-set--design-system"
+            )}
           </section>
 
           <section id="boundaries" class="case-section">
@@ -1018,7 +1030,7 @@ function renderFeaturedCaseStudy(project, renderPage, escapeHtml) {
 
           <section id="reflection" class="case-section case-reflection">
             ${renderSectionHeading("12", "Reflection", escapeHtml)}
-            <p>${escapeHtml(study.reflection)}</p>
+            ${renderFamilyReflection(study.reflection, escapeHtml)}
           </section>
         </div>
       </div>
@@ -1078,6 +1090,28 @@ function renderFlow(flow, escapeHtml) {
   </article>`;
 }
 
+function renderFigureSet(items, title, caption, escapeHtml, className = "") {
+  const readyItems = items.filter((item) => item && item.src);
+
+  if (!readyItems.length) return "";
+
+  return `<figure class="family-figure-set ${className}">
+    <div class="family-figure-set-grid">
+      ${readyItems
+        .map(
+          (item) => `<div class="family-figure-set-item" data-asset-id="${escapeHtml(item.id)}">
+            <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" width="${escapeHtml(
+              item.width || 780
+            )}" height="${escapeHtml(item.height || 1688)}">
+            <p><strong>${escapeHtml(item.title)}</strong>${escapeHtml(item.caption)}</p>
+          </div>`
+        )
+        .join("")}
+    </div>
+    <figcaption><strong>${escapeHtml(title)}</strong>${escapeHtml(caption)}</figcaption>
+  </figure>`;
+}
+
 function renderFigure(item, escapeHtml) {
   const visual = item.src
     ? `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" width="${escapeHtml(
@@ -1095,6 +1129,25 @@ function renderFigure(item, escapeHtml) {
     ${visual}
     <figcaption><strong>${escapeHtml(item.title)}</strong>${escapeHtml(item.caption)}</figcaption>
   </figure>`;
+}
+
+function renderFamilyReflection(text, escapeHtml) {
+  const emphasis = "how to help someone without making them feel reduced to a person who needs help.";
+  const marker = `—${emphasis}`;
+  const markerIndex = text.indexOf(marker);
+
+  if (markerIndex === -1) {
+    return `<p class="family-reflection-copy">${escapeHtml(text)}</p>`;
+  }
+
+  const before = text.slice(0, markerIndex);
+  const after = text.slice(markerIndex + marker.length);
+
+  return `<p class="family-reflection-copy">
+    <span>${escapeHtml(before)}</span>
+    <strong>—${escapeHtml(emphasis)}</strong>
+    <span>${escapeHtml(after)}</span>
+  </p>`;
 }
 
 function renderScaffoldCaseStudy(project, renderPage, escapeHtml) {

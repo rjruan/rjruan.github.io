@@ -81,6 +81,7 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
   outline: 3px solid #b45309;
   outline-offset: 4px;
@@ -6785,6 +6786,431 @@ body.pen-pal-case .case-content .case-figure {
   }
 }
 
+/* FamilyPulse V6 refinement — editorial evidence, not a gallery of cards. */
+.family-pulse-case .case-cover h1 {
+  max-width: 100%;
+  font-size: clamp(3.6rem, 7vw, 7.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  word-spacing: 0.04em;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.family-pulse-case .case-cover-figure,
+.family-pulse-case .case-content .case-figure {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.family-pulse-case .case-cover-figure img,
+.family-pulse-case .case-content .case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+.family-pulse-case .case-cover-figure figcaption,
+.family-pulse-case .case-content .case-figure figcaption {
+  max-width: 38rem;
+  min-height: 0;
+  margin-top: 0.8rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+}
+
+.family-pulse-case .case-cover-visual {
+  align-self: center;
+  transform: translateX(2vw);
+}
+
+.family-pulse-case .case-content > .case-section > .artifact-grid {
+  width: calc(100% + 6rem);
+  margin-left: -3rem;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.family-pulse-case .family-research-artifacts,
+.family-pulse-case .family-process-grid,
+.family-pulse-case #flows .artifact-grid,
+.family-pulse-case #language .artifact-grid {
+  align-items: start;
+}
+
+.family-pulse-case .family-research-artifacts .case-figure,
+.family-pulse-case .family-process-grid .case-figure,
+.family-pulse-case #flows .artifact-grid .case-figure,
+.family-pulse-case #language .artifact-grid .case-figure {
+  width: 100%;
+}
+
+.family-pulse-case .research-finding-list {
+  max-width: none;
+  margin-block: clamp(3rem, 7vw, 6rem);
+  border-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.family-pulse-case .research-finding-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.2rem;
+  border: 0;
+  padding: 0;
+}
+
+.family-pulse-case .research-finding-list span {
+  color: var(--accent-strong);
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.family-pulse-case .research-finding-list p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.family-pulse-case .audience-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 7vw, 7rem);
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+
+.family-pulse-case .audience-grid article,
+.family-pulse-case .design-goals {
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  padding: 1.3rem 0 0;
+}
+
+.family-pulse-case .audience-grid article h3 {
+  margin: 0.5rem 0 0.7rem;
+  color: var(--ink);
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 520;
+  line-height: 1;
+}
+
+.family-pulse-case .audience-grid ul {
+  margin-top: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.family-pulse-case .audience-grid li {
+  border-top: 1px solid var(--line);
+  padding: 0.8rem 0;
+}
+
+.family-pulse-case .design-goals {
+  max-width: none;
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+
+.family-pulse-case .design-goals ol {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: family-goal;
+}
+
+.family-pulse-case .design-goals li {
+  counter-increment: family-goal;
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 1.2rem 1rem 0;
+}
+
+.family-pulse-case .design-goals li::before {
+  content: counter(family-goal, decimal-leading-zero);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 780;
+}
+
+.family-pulse-case .boundary-callout ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.family-pulse-case .boundary-callout li {
+  border-top: 1px solid var(--line);
+  padding: 1rem 1.5rem 1rem 0;
+}
+
+@media (max-width: 760px) {
+  .family-pulse-case .case-cover h1 {
+    font-size: clamp(2.6rem, 12vw, 4.5rem);
+    letter-spacing: -0.025em;
+  }
+
+  .family-pulse-case .case-cover-visual {
+    transform: none;
+  }
+
+  .family-pulse-case .case-content > .case-section > .artifact-grid {
+    width: 100%;
+    margin-left: 0;
+    gap: 3.5rem;
+  }
+
+  .family-pulse-case .research-finding-list,
+  .family-pulse-case .audience-grid,
+  .family-pulse-case .design-goals ol,
+  .family-pulse-case .boundary-callout ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FamilyPulse V3 — open editorial canvas with evidence sets. */
+body.family-pulse-case,
+.family-pulse-case .case-cover,
+.family-pulse-case .case-shell {
+  background: #f9fcfb;
+}
+
+.family-pulse-case .case-cover::before {
+  display: none;
+}
+
+.family-pulse-case .case-shell {
+  width: min(94rem, 100%);
+  padding-inline: clamp(1.25rem, 3vw, 3rem);
+}
+
+.family-pulse-case .case-nav {
+  margin-left: 0;
+}
+
+.family-pulse-case .case-section {
+  padding-block: clamp(6rem, 11vw, 11rem);
+  border-bottom: 0;
+}
+
+.family-pulse-case .case-section:first-child {
+  padding-top: clamp(4rem, 8vw, 8rem);
+}
+
+.family-pulse-case .case-cover h1 {
+  letter-spacing: 0;
+}
+
+.family-pulse-case .family-figure-set {
+  position: relative;
+  left: 50%;
+  width: min(82rem, calc(100vw - 4rem));
+  margin: clamp(4rem, 9vw, 8rem) 0;
+  transform: translateX(-50%);
+}
+
+.family-pulse-case .family-figure-set-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 6vw, 7rem);
+  align-items: start;
+}
+
+.family-pulse-case .family-figure-set--prototype .family-figure-set-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.family-pulse-case .family-figure-set--stacked .family-figure-set-grid {
+  grid-template-columns: 1fr;
+  gap: clamp(4rem, 9vw, 9rem);
+}
+
+.family-pulse-case .family-figure-set-item {
+  min-width: 0;
+}
+
+.family-pulse-case .family-figure-set-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.family-pulse-case .family-figure-set-item p,
+.family-pulse-case .family-figure-set > figcaption {
+  display: grid;
+  gap: 0.3rem;
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.family-pulse-case .family-figure-set-item p strong,
+.family-pulse-case .family-figure-set > figcaption strong {
+  color: var(--ink);
+}
+
+.family-pulse-case .family-figure-set > figcaption {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.family-pulse-case .family-figure-set--design-system {
+  width: min(90rem, calc(100vw - 2.5rem));
+}
+
+.family-pulse-case .family-figure-set--design-system .family-figure-set-item p {
+  max-width: 45rem;
+}
+
+.family-pulse-case .case-content .case-figure,
+.family-pulse-case .case-content .case-figure img,
+.family-pulse-case .case-cover-figure,
+.family-pulse-case .case-cover-figure img {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.family-pulse-case .case-content .case-figure figcaption,
+.family-pulse-case .case-cover-figure figcaption {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.family-pulse-case .site-footer {
+  border-top: 0;
+  background: #075749;
+  color: #fff;
+  padding: clamp(5rem, 10vw, 9rem) 0 2rem;
+}
+
+body.family-pulse-case .site-footer p,
+body.family-pulse-case .site-footer .footer-contact a {
+  color: #fff;
+}
+
+body.family-pulse-case .site-footer .eyebrow {
+  color: #d9fff4;
+}
+
+body.family-pulse-case .site-footer .footer-grid {
+  align-items: end;
+  gap: clamp(3rem, 10vw, 11rem);
+}
+
+body.family-pulse-case .site-footer .footer-intro p:last-child {
+  max-width: 18ch;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3.3vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+body.family-pulse-case .site-footer .footer-contact a {
+  text-decoration: none;
+}
+
+body.family-pulse-case .site-footer .footer-contact a:hover,
+body.family-pulse-case .site-footer .footer-contact a:focus-visible {
+  color: #ffdf7a;
+}
+
+body.family-pulse-case .site-footer .footer-contact a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 980px) {
+  .family-pulse-case .case-shell {
+    padding-inline: 1.25rem;
+  }
+
+  .family-pulse-case .case-nav {
+    margin-inline: 0;
+  }
+
+  .family-pulse-case .family-figure-set {
+    width: min(100%, calc(100vw - 2.5rem));
+  }
+}
+
+@media (max-width: 760px) {
+  .family-pulse-case .case-cover h1 {
+    letter-spacing: 0;
+  }
+
+  .family-pulse-case .case-section {
+    padding-block: clamp(4.5rem, 18vw, 7rem);
+  }
+
+  .family-pulse-case .family-figure-set-grid,
+  .family-pulse-case .family-figure-set--prototype .family-figure-set-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .family-pulse-case .family-figure-set,
+  .family-pulse-case .family-figure-set--design-system {
+    width: 100%;
+    margin-block: 3.5rem;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body.family-pulse-case .site-footer {
+    background: #043f35;
+  }
+
+  body.family-pulse-case .site-footer .eyebrow,
+  body.family-pulse-case .site-footer .footer-contact a:hover,
+  body.family-pulse-case .site-footer .footer-contact a:focus-visible {
+    color: #fff;
+  }
+}
+
+@media (forced-colors: active) {
+  body.family-pulse-case .site-footer {
+    border-top: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  body.family-pulse-case .site-footer p,
+  body.family-pulse-case .site-footer .eyebrow,
+  body.family-pulse-case .site-footer .footer-contact a {
+    color: LinkText;
+  }
+}
+
 /* Research path + bilingual architecture (review branch).
    Glass remains limited to navigation and other functional chrome. */
 .desktop-header-actions {
@@ -8693,5 +9119,742 @@ body.home .site-footer .footer-contact a:focus-visible {
   body.home .cinematic-home-note {
     right: 1.25rem;
     bottom: 1rem;
+  }
+}
+
+/* FamilyPulse V6 final layer — image-led, spacious, and frame-breaking. */
+.family-pulse-case .case-cover h1 {
+  max-width: 100%;
+  font-size: clamp(3.6rem, 7vw, 7.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  word-spacing: 0.04em;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.family-pulse-case .case-cover-figure,
+.family-pulse-case .case-content .case-figure {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.family-pulse-case .case-cover-figure img,
+.family-pulse-case .case-content .case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+.family-pulse-case .case-cover-figure figcaption,
+.family-pulse-case .case-content .case-figure figcaption {
+  max-width: 38rem;
+  min-height: 0;
+  margin-top: 0.8rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+}
+
+.family-pulse-case .case-cover-visual {
+  align-self: center;
+  transform: translateX(2vw);
+}
+
+.family-pulse-case .case-content > .case-section > .artifact-grid {
+  width: calc(100% + 6rem);
+  margin-left: -3rem;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.family-pulse-case .research-finding-list {
+  max-width: none;
+  margin-block: clamp(3rem, 7vw, 6rem);
+  border-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.family-pulse-case .research-finding-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.2rem;
+  border: 0;
+  padding: 0;
+}
+
+.family-pulse-case .research-finding-list span {
+  color: var(--accent-strong);
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.family-pulse-case .research-finding-list p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.family-pulse-case .audience-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 7vw, 7rem);
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+
+.family-pulse-case .audience-grid article,
+.family-pulse-case .design-goals {
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  padding: 1.3rem 0 0;
+}
+
+.family-pulse-case .audience-grid article h3 {
+  margin: 0.5rem 0 0.7rem;
+  color: var(--ink);
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 520;
+  line-height: 1;
+}
+
+.family-pulse-case .audience-grid ul {
+  margin-top: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.family-pulse-case .audience-grid li {
+  border-top: 1px solid var(--line);
+  padding: 0.8rem 0;
+}
+
+.family-pulse-case .design-goals {
+  max-width: none;
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+
+.family-pulse-case .design-goals ol {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: family-goal;
+}
+
+.family-pulse-case .design-goals li {
+  counter-increment: family-goal;
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 1.2rem 1rem 0;
+}
+
+.family-pulse-case .design-goals li::before {
+  content: counter(family-goal, decimal-leading-zero);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 780;
+}
+
+@media (max-width: 760px) {
+  .family-pulse-case .case-cover h1 {
+    font-size: clamp(2.6rem, 12vw, 4.5rem);
+    letter-spacing: -0.025em;
+  }
+
+  .family-pulse-case .case-cover-visual {
+    transform: none;
+  }
+
+  .family-pulse-case .case-content > .case-section > .artifact-grid {
+    width: 100%;
+    margin-left: 0;
+    gap: 3.5rem;
+  }
+
+  .family-pulse-case .research-finding-list,
+  .family-pulse-case .audience-grid,
+  .family-pulse-case .design-goals ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FamilyPulse V3.2 — open editorial evidence without crossing the sticky index. */
+@media (min-width: 981px) {
+  .family-pulse-case .case-nav {
+    margin-left: 0.75rem;
+  }
+
+  .family-pulse-case .family-figure-set {
+    left: auto;
+    width: calc(100% + (2 * clamp(1rem, 4vw, 4rem)));
+    max-width: none;
+    margin-left: calc(-1 * clamp(1rem, 4vw, 4rem));
+    transform: none;
+  }
+
+  .family-pulse-case .family-figure-set--design-system {
+    width: calc(100% + (2 * clamp(1rem, 4vw, 4rem)));
+  }
+
+  .family-pulse-case .case-question > blockquote {
+    width: calc(100% + (2 * clamp(1rem, 4vw, 4rem)));
+    max-width: none;
+    margin-left: calc(-1 * clamp(1rem, 4vw, 4rem));
+  }
+}
+
+@media (max-width: 980px) {
+  .family-pulse-case .family-figure-set,
+  .family-pulse-case .family-figure-set--design-system {
+    left: auto;
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+}
+
+.family-pulse-case .case-cover h1 {
+  max-width: 100%;
+  font-size: clamp(2.25rem, 7vw, 7.2rem);
+  letter-spacing: -0.035em;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: nowrap;
+}
+
+body.family-pulse-case .case-content figure,
+body.family-pulse-case .case-cover figure,
+body.family-pulse-case .case-content figure img,
+body.family-pulse-case .case-cover figure img,
+body.family-pulse-case .case-content figure figcaption,
+body.family-pulse-case .case-cover figure figcaption {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.family-pulse-case .case-content .case-figure,
+body.family-pulse-case .case-cover .case-cover-figure {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.family-pulse-case .case-content figure,
+body.family-pulse-case .case-cover figure {
+  overflow: visible;
+}
+
+body.family-pulse-case .case-content .case-question > blockquote {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.family-pulse-case .case-question > blockquote p {
+  max-width: 19ch;
+  margin: 0;
+  color: #075749;
+  font-size: clamp(2.1rem, 4.4vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.family-pulse-case .family-origin-artifact {
+  width: 100%;
+  max-width: none;
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+body.family-pulse-case .case-content .family-origin-artifact .case-figure {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+body.family-pulse-case .case-content .family-origin-artifact .case-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+body.family-pulse-case .case-content .family-origin-artifact .case-figure figcaption {
+  align-self: center;
+  max-width: 30rem;
+  margin: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .family-pulse-case .case-cover h1 {
+    font-size: clamp(2.25rem, 10vw, 3.8rem);
+  }
+
+  .family-pulse-case .case-question > blockquote {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .family-pulse-case .case-question > blockquote p {
+    max-width: 100%;
+    font-size: clamp(1.9rem, 8.5vw, 3rem);
+  }
+
+  .family-pulse-case .family-origin-artifact .case-figure {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Faculty-review pass — open FamilyPulse evidence, preserve the index rail,
+   and keep the mobile home static and readable. */
+.family-pulse-case .case-section-heading h2,
+.family-pulse-case .case-cover h1,
+body.home .cinematic-home-caption h1,
+body.home .why-project-question {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.family-pulse-case .stat-callout .stat-value {
+  margin: 0;
+  color: #075749;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  font-weight: 520;
+  letter-spacing: -0.08em;
+  line-height: 0.72;
+}
+
+.family-pulse-case .stat-callout > div {
+  max-width: 38rem;
+  padding-bottom: 0.25rem;
+}
+
+.family-pulse-case .stat-callout > div p {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.55vw, 1.28rem);
+  line-height: 1.55;
+}
+
+.family-pulse-case .family-research-evidence {
+  display: grid;
+  gap: clamp(5rem, 11vw, 10rem);
+  margin-block: clamp(5rem, 10vw, 9rem);
+}
+
+body.family-pulse-case .case-content .family-competitive-landscape .case-figure,
+body.family-pulse-case .case-content .family-concept-map-wide .case-figure {
+  width: 100%;
+  max-width: none;
+}
+
+.family-pulse-case .family-competitive-landscape .case-figure img,
+.family-pulse-case .family-concept-map-wide .case-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+body.family-pulse-case .case-content .family-vivi-evidence .case-figure {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1.25fr) minmax(14rem, 0.75fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  max-width: 70rem;
+  margin-left: auto;
+}
+
+.family-pulse-case .family-vivi-evidence .case-figure img {
+  width: 100%;
+  height: auto;
+}
+
+body.family-pulse-case .case-content .family-vivi-evidence .case-figure figcaption {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.family-pulse-case .family-insight-layout > div:first-child {
+  max-width: 62rem;
+}
+
+body.family-pulse-case .case-content .family-insight-layout .insight-quote {
+  max-width: none;
+  margin: 0 0 clamp(2rem, 5vw, 4rem);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.family-pulse-case .family-insight-layout .insight-quote p {
+  max-width: 18ch;
+  margin: 0;
+  color: #075749;
+  font-size: clamp(2.6rem, 6vw, 6.4rem);
+  font-weight: 520;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.family-pulse-case .family-concept-map-wide {
+  margin-top: clamp(5rem, 11vw, 10rem);
+}
+
+body.family-pulse-case .case-content .case-reflection > .family-reflection-copy {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 58rem;
+  margin: 0 0 0 auto;
+  color: #075749;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(0.98rem, 1.1vw, 1.16rem);
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.65;
+}
+
+body.family-pulse-case .case-content .family-reflection-copy strong {
+  display: block;
+  max-width: 31ch;
+  margin-block: 0.15rem;
+  color: #075749;
+  font-size: clamp(1.8rem, 3.25vw, 3.35rem);
+  font-weight: 520;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+@media (min-width: 981px) {
+  body.family-pulse-case .case-content .stat-callout,
+  .family-pulse-case .family-research-evidence,
+  .family-pulse-case .family-concept-map-wide {
+    width: calc(100% + (2 * clamp(1rem, 4vw, 4rem)));
+    max-width: none;
+    margin-left: calc(-1 * clamp(1rem, 4vw, 4rem));
+  }
+}
+
+/* Faculty-review cascade lock. Keep these after the legacy case-study layers. */
+body.family-pulse-case .case-content .stat-callout {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.42fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 5vw, 5rem);
+  align-items: end;
+  width: 100%;
+  max-width: none;
+  margin: clamp(4rem, 8vw, 7rem) 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.family-pulse-case .family-insight-layout {
+  display: block;
+}
+
+body.family-pulse-case .case-content .case-reflection {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+@media (max-width: 680px) {
+  body.home .cinematic-home-video {
+    display: none;
+  }
+
+  body.home .cinematic-home-stage {
+    min-height: 100svh;
+    background:
+      linear-gradient(180deg, rgba(7, 23, 42, 0.36), rgba(7, 23, 42, 0.84)),
+      url("/assets/home/home-roadtrip-poster.jpg") center / cover no-repeat;
+  }
+
+  body.home .cinematic-home-caption {
+    top: auto;
+    right: 1.25rem;
+    bottom: 5.25rem;
+    left: 1.25rem;
+    width: auto;
+  }
+
+  body.home .cinematic-home-caption h1 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 8.2vw, 3.15rem);
+    line-height: 1;
+  }
+
+  body.family-pulse-case .case-content .stat-callout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-block: 4rem;
+  }
+
+  .family-pulse-case .stat-callout .stat-value {
+    font-size: clamp(5.5rem, 29vw, 8rem);
+  }
+
+  .family-pulse-case .family-research-evidence,
+  .family-pulse-case .family-concept-map-wide {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  body.family-pulse-case .case-content .family-vivi-evidence .case-figure {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-left: 0;
+  }
+
+  .family-pulse-case .family-insight-layout .insight-quote p {
+    max-width: 100%;
+    font-size: clamp(2.3rem, 11vw, 3.8rem);
+  }
+
+  .family-pulse-case .family-figure-set--prototype .family-figure-set-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 1.1rem;
+    overflow-x: auto;
+    padding: 0 1.25rem 1.25rem 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #6d8f86 transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .family-pulse-case .family-figure-set--prototype .family-figure-set-item {
+    flex: 0 0 min(78vw, 21rem);
+    scroll-snap-align: start;
+  }
+
+  body.family-pulse-case .case-content .case-reflection {
+    padding-block: clamp(4.5rem, 18vw, 7rem);
+  }
+
+  body.family-pulse-case .case-content .case-reflection > .family-reflection-copy {
+    max-width: 100%;
+    margin-left: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  body.family-pulse-case .case-content .family-reflection-copy strong {
+    max-width: 22ch;
+    font-size: clamp(1.6rem, 7.2vw, 2.45rem);
+  }
+}
+
+@media (min-width: 981px) {
+  body.family-pulse-case .case-content .stat-callout {
+    width: calc(100% + (2 * clamp(1rem, 4vw, 4rem)));
+    margin-left: calc(-1 * clamp(1rem, 4vw, 4rem));
+  }
+}
+
+/* Chinese FamilyPulse review — mirror the approved open editorial treatment. */
+body.zh-family-case .zh-case-hero {
+  margin-top: -4.8rem;
+  padding-top: clamp(9.5rem, 12vw, 11rem);
+  background: #f9fcfb;
+}
+
+body.zh-family-case .zh-case-hero-grid > *,
+body.zh-family-case .zh-case-content,
+body.zh-family-case .zh-case-content .case-section,
+body.zh-family-case .zh-case-content .case-section-heading > div {
+  min-width: 0;
+}
+
+body.zh-family-case .zh-case-hero-copy h1 {
+  max-width: 13ch;
+  font-size: clamp(2.7rem, 5vw, 5.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+body.zh-family-case .zh-case-content {
+  max-width: 72rem;
+  padding: 0 0 8rem;
+}
+
+body.zh-family-case .zh-case-content .case-section {
+  border-bottom: 0;
+}
+
+body.zh-family-case .zh-case-hero .zh-family-hero-figure,
+body.zh-family-case .zh-case-hero .zh-family-hero-figure img,
+body.zh-family-case .zh-case-hero .zh-family-hero-figure figcaption {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding-inline: 0;
+}
+
+body.zh-family-case .zh-case-hero .zh-family-hero-figure figcaption {
+  margin-top: 0.8rem;
+}
+
+body.zh-family-case .zh-case-content .case-question > blockquote p {
+  max-width: 17em;
+  margin: 0;
+  font-size: clamp(1.8rem, 3.4vw, 3.6rem);
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+}
+
+body.zh-family-case .zh-case-content .case-question > blockquote {
+  width: 100%;
+  max-width: 58rem;
+  margin: clamp(4.5rem, 8vw, 7rem) 0;
+}
+
+body.zh-family-case .zh-case-content .family-concept-map-wide {
+  width: min(54rem, 100%);
+  max-width: 100%;
+  margin: clamp(4rem, 8vw, 7rem) auto 0;
+}
+
+body.zh-family-case .zh-case-content :is(.boundary-callout, .decision-card, .next-step-list li) {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.zh-family-case .zh-case-content .boundary-callout {
+  max-width: var(--reading);
+  margin-top: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line-strong);
+  padding: 1.25rem 0 0;
+}
+
+body.zh-family-case .zh-case-content .decision-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+body.zh-family-case .zh-case-content .decision-card {
+  min-height: 0;
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+}
+
+body.zh-family-case .zh-case-content .next-step-list {
+  display: block;
+  max-width: var(--reading);
+  margin-top: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+body.zh-family-case .zh-case-content .next-step-list li {
+  min-height: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 1.2rem 0 1.2rem 2.7rem;
+}
+
+body.zh-family-case .zh-case-content .case-reflection > .family-reflection-copy {
+  margin-left: 0;
+}
+
+@media (max-width: 760px) {
+  body.zh-family-case .zh-case-hero {
+    margin-top: -5.2rem;
+    padding-top: 10rem;
+  }
+
+  body.zh-family-case .zh-case-hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 9.3vw, 4rem);
+    line-height: 1.18;
+  }
+
+  body.zh-family-case .zh-case-content .decision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.zh-family-case .zh-case-content .case-question > blockquote p {
+    max-width: 100%;
+    font-size: clamp(1.8rem, 8.4vw, 2.8rem);
+  }
+
+  body.zh-family-case .zh-case-content .case-question > blockquote {
+    margin-block: 3.75rem;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body.zh-family-case .zh-case-content :is(.boundary-callout, .decision-grid, .decision-card, .next-step-list, .next-step-list li) {
+    border-color: currentColor;
+  }
+}
+
+@media (forced-colors: active) {
+  body.zh-family-case .zh-case-hero .zh-family-hero-figure,
+  body.zh-family-case .zh-case-content .zh-case-figure {
+    border: 0;
   }
 }

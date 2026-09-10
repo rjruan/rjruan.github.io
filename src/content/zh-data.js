@@ -44,12 +44,12 @@ const zhHome = {
     },
     {
       number: "03",
-      title: "專業系統案例",
-      meta: "需取得公開分享許可的專業工作",
-      question: "為什麼共享系統在規模擴大後，容易失去清晰度？",
-      status: "目前為保護頁面",
-      path: "/expeditions/church-professional-work/",
-      style: "professional"
+      title: "We Are Flood 50",
+      meta: "Madison County Library 委託的課堂專案",
+      question: "一個快速變動的大學城，如何透過共同記憶建立歸屬感？",
+      status: "完整英文案例",
+      path: "/expeditions/flood-50/",
+      style: "flood"
     }
   ]
 };
@@ -175,15 +175,15 @@ const zhProjects = [
     themes: ["人際連結", "社交互動", "互動設計", "概念發展"]
   },
   {
-    title: "專業系統案例",
-    type: "受保護案例預告",
-    question: "為什麼共享系統在規模擴大後，容易失去清晰度？",
-    summary: "這個位置保留給需取得公開分享許可的專業工作；雇主、產品、畫面、內部流程與數據目前皆不公開。",
-    role: "未公開",
-    year: "未公開",
-    status: "目前為保護頁面",
-    path: "/expeditions/church-professional-work/",
-    themes: ["共享系統", "無障礙", "保密"]
+    title: "We Are Flood 50",
+    type: "真實客戶提案",
+    question: "一個快速變動的大學城，如何透過共同記憶建立歸屬感？",
+    summary: "為 Madison County Library 建立的課堂提案，以品牌、網站與活動設計連結 Teton Dam flood 的記憶、地方傳承與當代社群。",
+    role: "平面設計、網站設計、專案管理與團隊協調",
+    year: "2025 年 1–4 月",
+    status: "閱讀完整英文案例",
+    path: "/expeditions/flood-50/",
+    themes: ["社群記憶", "地方傳承", "品牌系統", "數位體驗"]
   }
 ];
 

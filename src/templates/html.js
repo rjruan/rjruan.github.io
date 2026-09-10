@@ -106,7 +106,7 @@ function renderLanguageSwitch(path, lang) {
   const directAlternate = directLanguageAlternates[path];
   const englishPath = lang === "zh" ? directAlternate || "/" : path;
   const chinesePath = lang === "zh" ? path : directAlternate || "/zh/";
-  const chineseLabel = directAlternate || lang === "zh" ? "中文" : "中文首頁";
+  const chineseLabel = "中文";
 
   return `<div class="language-switch" aria-label="${lang === "zh" ? "語言切換" : "Language switcher"}">
     <a href="${escapeHtml(englishPath)}" lang="en"${lang === "en" ? ' aria-current="true"' : ""}>EN</a>
@@ -136,6 +136,9 @@ function renderHeaderNavigation(path, lang) {
 function renderPage({ path, title, description, main, bodyClass = "", lang = "en" }) {
   const bodyClasses = [bodyClass, lang === "zh" ? "lang-zh" : ""].filter(Boolean).join(" ");
   const classes = bodyClasses ? ` class="${bodyClasses}"` : "";
+  const stylesheetVersion = bodyClass.split(/\s+/).includes("zh-family-case")
+    ? "20260910-zh-family-publish-1"
+    : "20260910-faculty-review-1";
   const directAlternate = directLanguageAlternates[path];
   const canonical = `${site.url}${path === "/" ? "/" : path}`;
   const alternateLinks = directAlternate
@@ -157,7 +160,7 @@ function renderPage({ path, title, description, main, bodyClass = "", lang = "en
     <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${canonical}">
     ${alternateLinks}
-    <link rel="stylesheet" href="/assets/styles.css?v=20260908-cinematic-review-4">
+    <link rel="stylesheet" href="/assets/styles.css?v=${stylesheetVersion}">
   </head>
   <body${classes}>
     <a class="skip-link" href="#main">${lang === "zh" ? "跳到主要內容" : "Skip to main content"}</a>
@@ -445,7 +448,7 @@ function renderWhyHome(lang = "en") {
     ? `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
       <div class="cinematic-home-stage">
         <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
-          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4">
+          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4" media="(min-width: 681px)">
           <p>Silent road-trip video unavailable in this browser.</p>
         </video>
         <div class="cinematic-home-wash" aria-hidden="true"></div>
@@ -460,7 +463,7 @@ function renderWhyHome(lang = "en") {
     : `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
       <div class="cinematic-home-stage">
         <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
-          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4">
+          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4" media="(min-width: 681px)">
           <p>Silent road-trip video unavailable in this browser.</p>
         </video>
         <div class="cinematic-home-wash" aria-hidden="true"></div>
@@ -572,13 +575,11 @@ function renderExpeditionsPage() {
     "health-monitoring",
     "ssim",
     "pen-pal",
-    "flood-50",
-    "professional-systems-placeholder"
+    "flood-50"
   ];
   const deep = featuredOrder
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter(Boolean);
-  const medium = projects.filter((project) => project.type === "Medium project");
   return renderPage({
     path: "/expeditions/",
     title: "Expeditions - Projects and Case Studies",
@@ -600,17 +601,6 @@ function renderExpeditionsPage() {
           </div>
           <div class="project-grid">
             ${deep.map((project) => projectCard(project)).join("")}
-          </div>
-        </div>
-      </section>
-      <section class="content-band alternate">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="eyebrow">Medium Projects and Experiments</p>
-            <h2>Smaller investigations can live here without becoming full case studies.</h2>
-          </div>
-          <div class="project-grid two">
-            ${medium.map((project) => projectCard(project, { compact: true })).join("")}
           </div>
         </div>
       </section>`
@@ -675,8 +665,7 @@ function renderResearchThemes(items, lang = "en") {
             <p>${escapeHtml(theme.body)}</p>
             <p class="research-evidence"><strong>${lang === "zh" ? "目前來源：" : "Current source:"}</strong> ${escapeHtml(theme.evidence)}</p>
             <p class="research-boundary"><strong>${lang === "zh" ? "證據邊界：" : "Evidence boundary:"}</strong> ${escapeHtml(theme.boundary)}</p>
-            ${theme.path ? `<a class="text-link" href="${escapeHtml(theme.path)}">${lang === "zh" ? "查看相關證據" : "View related evidence"}</a>` : ""}
-          </div>
+            ${theme.path ? `<a class="text-link" href="${escapeHtml(theme.path)}">${lang === "zh" ? "查看相關證據" : "View related evidence"}</a>` : ""}</div>
         </article>`
       )
       .join("")}
@@ -1064,9 +1053,29 @@ function renderZhResumePage() {
 function renderZhCaseFigure(item, title, caption, alt, options = {}) {
   if (!item || !item.src) return "";
   const priority = options.eager ? ' fetchpriority="high"' : ' loading="lazy"';
-  return `<figure class="case-figure zh-case-figure">
+  const extraClass = options.className ? ` ${escapeHtml(options.className)}` : "";
+  return `<figure class="case-figure zh-case-figure${extraClass}" data-asset-id="${escapeHtml(item.id)}" data-asset-state="ready">
     <img src="${escapeHtml(item.src)}" alt="${escapeHtml(alt)}"${item.width ? ` width="${escapeHtml(item.width)}"` : ""}${item.height ? ` height="${escapeHtml(item.height)}"` : ""}${priority}>
     <figcaption><strong>${escapeHtml(title)}</strong><span>${escapeHtml(caption)}</span></figcaption>
+  </figure>`;
+}
+
+function renderZhFamilyFigureSet(entries, title, caption, className = "") {
+  const readyEntries = entries.filter((entry) => entry && entry.item && entry.item.src);
+  if (!readyEntries.length) return "";
+
+  return `<figure class="family-figure-set ${escapeHtml(className)}">
+    <div class="family-figure-set-grid">
+      ${readyEntries
+        .map(
+          ({ item, title: itemTitle, caption: itemCaption, alt }) => `<div class="family-figure-set-item" data-asset-id="${escapeHtml(item.id)}" data-asset-state="ready">
+            <img src="${escapeHtml(item.src)}" alt="${escapeHtml(alt)}" loading="lazy"${item.width ? ` width="${escapeHtml(item.width)}"` : ""}${item.height ? ` height="${escapeHtml(item.height)}"` : ""}>
+            <p><strong>${escapeHtml(itemTitle)}</strong>${escapeHtml(itemCaption)}</p>
+          </div>`
+        )
+        .join("")}
+    </div>
+    <figcaption><strong>${escapeHtml(title)}</strong>${escapeHtml(caption)}</figcaption>
   </figure>`;
 }
 
@@ -1094,7 +1103,7 @@ function renderZhFamilyPulsePage() {
               <a class="button secondary" href="/expeditions/health-monitoring/">閱讀完整英文案例</a>
             </div>
           </div>
-          ${renderZhCaseFigure(media["hero-cross-device"], "跨裝置概念", "手錶承擔貼近身體的短操作，手機則提供查看、溝通與設定空間。", "FamilyPulse 手機與智慧手錶概念畫面，手錶顯示緊急呼叫。", { eager: true })}
+          ${renderZhCaseFigure(media["hero-cross-device"], "跨裝置概念", "手錶承擔貼近身體的短操作，手機則提供查看、溝通與設定空間。", "FamilyPulse 手機與智慧手錶概念畫面，手錶顯示緊急呼叫。", { eager: true, className: "zh-family-hero-figure" })}
           <dl class="case-fact-bar">
             <div><dt>角色</dt><dd>獨立 UX 研究與設計</dd></div>
             <div><dt>時間</dt><dd>2024 年 9–12 月</dd></div>
@@ -1108,11 +1117,14 @@ function renderZhFamilyPulsePage() {
         <a href="#zh-origin">起點</a><a href="#zh-research">研究</a><a href="#zh-insight">核心觀察</a><a href="#zh-design">設計回應</a><a href="#zh-prototype">原型</a><a href="#zh-gaps">證據缺口</a><a href="#zh-reflection">反思</a>
       </nav>
 
-      <div class="section-inner zh-case-content">
-        <section id="zh-origin" class="case-section">
+      <div class="section-inner case-content zh-case-content">
+        <section id="zh-origin" class="case-section case-question">
           <div class="case-section-heading"><span aria-hidden="true">01</span><div><p class="eyebrow">起點</p><h2>這個問題來自我對阿嬤的記憶。</h2></div></div>
           <p>當我在想這份自選問題的課堂作業時，我想到台灣的阿嬤。她曾在浴室跌倒，手術後精神狀態變得很不好。那段記憶讓我想理解：當身體逐漸不如以前，科技能不能在提供幫助的同時，不把一個人定義成「需要被照顧的老人」？</p>
           <blockquote><p>我如何設計一個讓人被幫助，卻不因此覺得自己「正在被幫助」的系統？</p></blockquote>
+          <div class="family-origin-artifact">
+            ${renderZhCaseFigure(media["vivi-character"], "Vivi 支持角色", "Vivi 被設計成共同幫手，而不是代表家人持續監控所愛的人。", "FamilyPulse 概念中的橘色 Vivi 角色。")}
+          </div>
         </section>
 
         <section id="zh-research" class="case-section">
@@ -1124,17 +1136,23 @@ function renderZhFamilyPulsePage() {
             <li><span aria-hidden="true">03</span>與 50–60 多歲父母的對話</li>
             <li><span aria-hidden="true">04</span>紙本原型、任務情境與課堂回饋</li>
           </ul>
-          <aside class="boundary-callout"><p class="eyebrow">證據邊界</p><p>我沒有保留準確參與人數、完整訪談稿或正式分析紀錄。參與者也不是目標年齡的高齡者，因此這些只能視為設計探索線索，不是具代表性的研究發現。</p></aside>
-          <div class="zh-case-media-wide">${renderZhCaseFigure(media["competitive-review"], "醫療警示產品競品查看", "原始專案比較了專用醫療警示服務，後來讓我將機會點轉向更日常的智慧手錶。", "FamilyPulse 原始競品分析中的醫療警示產品標誌。")}</div>
+          <div class="family-research-evidence" aria-label="研究框架素材">
+            <div class="family-competitive-landscape">
+              ${renderZhCaseFigure(media["competitive-review"], "醫療警示產品競品查看", "原始專案比較了專用醫療警示服務，後來讓我將機會點轉向更日常的智慧手錶。", "FamilyPulse 原始競品分析中的醫療警示產品標誌。")}
+            </div>
+            <div class="family-vivi-evidence">
+              ${renderZhCaseFigure(media["dignity-framing"], "健康與尊重", "早期框架把健康支持與這個專案最重要的關切連在一起：尊重。", "早期 FamilyPulse 研究看板，Vivi 角色位於健康與尊重之間。")}
+            </div>
+          </div>
+          <aside class="boundary-callout" aria-label="研究限制"><p class="eyebrow">證據邊界</p><p>我沒有保留準確參與人數、完整訪談稿或正式分析紀錄。參與者也不是目標年齡的高齡者，因此這些只能視為設計探索線索，不是具代表性的研究發現。</p></aside>
         </section>
 
         <section id="zh-insight" class="case-section">
           <div class="case-section-heading"><span aria-hidden="true">03</span><div><p class="eyebrow">觀察與詮釋</p><h2>安全工具即使功能正常，也可能在它傷害自我認同時失敗。</h2></div></div>
           <p>在這些非正式對話中，我最常問「你們對老後最擔心什麼？」跌倒是反覆出現的顧慮。但競品查看也讓我注意到，專用醫療警示裝置可能將使用者標記為脆弱或需要別人幫助。這不是要否定支持，而是詢問支持可否不奪走一個人的驕傲與日常身分。</p>
           <p class="evidence-note">「跌倒是重要顧慮」來自本專案的非正式談話；它不代表台灣高齡人口的普遍結論。</p>
-          <div class="zh-case-media-pair">
-            ${renderZhCaseFigure(media["dignity-framing"], "健康與尊重", "早期框架把健康支持與這個專案最重要的關切連在一起：尊重。", "早期 FamilyPulse 研究看板，Vivi 角色位於健康與尊重之間。")}
-            ${renderZhCaseFigure(media["vivi-character"], "Vivi 支持角色", "Vivi 負責報告健康脈絡，減少家人感覺自己必須不斷監控所愛的人。", "FamilyPulse 概念中的橘色 Vivi 角色。")}
+          <div class="family-concept-map-wide">
+            ${renderZhCaseFigure(media["concept-map"], "早期概念圖", "這份早期素材探索 Vivi、尊重照護、狀態查看與顧問在概念中可能如何互相連結。", "FamilyPulse 早期概念圖，包含 Vivi、尊重照護、醫療顧問與健康分析。")}
           </div>
         </section>
 
@@ -1146,21 +1164,41 @@ function renderZhFamilyPulsePage() {
             <article class="decision-card"><p class="decision-number">03</p><h3>用對比與 Vivi 區分體驗</h3><p>手錶方向使用更高的色彩對比，考量高齡使用情境；家人端則以 Vivi 作為共同幫手，嘗試減輕照顧者的心理壓力。</p></article>
             <article class="decision-card"><p class="decision-number">04</p><h3>用短路徑支持重要任務</h3><p>早期畫面不夠直觀後，我以約兩到三次點擊到達重要功能作為設計目標。這是設計準則，不是實測成果。</p></article>
           </div>
-          <div class="zh-case-media-pair">
-            ${renderZhCaseFigure(media["watch-design-system"], "手錶設計系統", "手錶強調高對比、精簡控制與適合小尺寸畫面的元件。", "FamilyPulse 手錶設計系統看板。")}
-            ${renderZhCaseFigure(media["phone-design-system"], "手機設計系統", "手機端延伸同一產品語言，同時容納更多資訊與 Vivi 角色。", "FamilyPulse 手機設計系統看板。")}
-          </div>
+          ${renderZhFamilyFigureSet(
+            [
+              { item: media["analysis-history"], title: "近期狀態查看", caption: "手機端提供日期篩選，並在需要尋求建議時分享相關脈絡。", alt: "FamilyPulse 健康分析畫面，包含近期狀態與日期控制。" },
+              { item: media["family-chat"], title: "日常聯繫", caption: "訊息與通話讓系統不只在發生問題時才出現。", alt: "FamilyPulse 家庭聊天畫面。" },
+              { item: media["reminder-setup"], title: "提醒設定", caption: "家人可以準備配合高齡者日常生活的重複提醒。", alt: "FamilyPulse 提醒設定畫面，包含時間與重複選項。" }
+            ],
+            "手機端概念畫面",
+            "近期狀態查看、家庭溝通與提醒設定以同一組介面呈現。",
+            "family-figure-set--prototype"
+          )}
+          ${renderZhFamilyFigureSet(
+            [
+              { item: media["watch-design-system"], title: "手錶設計系統", caption: "手錶強調高對比、精簡控制與適合小尺寸畫面的元件。", alt: "FamilyPulse 手錶設計系統看板。" },
+              { item: media["phone-design-system"], title: "手機設計系統", caption: "手機端延伸同一產品語言，同時容納更多資訊與 Vivi 角色。", alt: "FamilyPulse 手機設計系統看板。" }
+            ],
+            "跨裝置設計系統",
+            "手錶與手機畫面以可閱讀的完整寬度呈現，作為同一個產品語言來查看。",
+            "family-figure-set--stacked family-figure-set--design-system"
+          )}
         </section>
 
         <section id="zh-prototype" class="case-section">
           <div class="case-section-heading"><span aria-hidden="true">05</span><div><p class="eyebrow">原型與任務</p><h2>用紙本與低保真原型把跨裝置概念變成可以討論的任務。</h2></div></div>
           <p>我請同學嘗試查看近三天狀態、將健康脈絡提供給顧問，以及用文字、語音或照片聯繫家人。紙本畫面也包含緊急呼叫、家人溝通、快速諮詢與提醒設定。</p>
-          <div class="zh-case-media-wide">${renderZhCaseFigure(media["paper-prototype"], "紙本原型", "在加入視覺細節前，先畫出手錶與手機的基本路徑。", "FamilyPulse 早期手機導覽與訊息紙本原型。")}</div>
-          <div class="zh-case-media-pair">
-            ${renderZhCaseFigure(media["lowfi-watch"], "低保真手錶流程", "探索緊急呼叫、家人聯繫、顧問、提醒與狀態。", "FamilyPulse 低保真智慧手錶畫面流程。")}
-            ${renderZhCaseFigure(media["lowfi-phone"], "低保真手機流程", "提供狀態查看、溝通與設定的空間。", "FamilyPulse 低保真手機畫面流程。")}
-          </div>
-          <aside class="boundary-callout"><p class="eyebrow">評估邊界</p><p>測試來自同學與教授課堂評論，沒有正式可用性計畫、任務數據、量表或後續縱向結果。因此本案例只描述設計變化，不聲稱已證明可用性。</p></aside>
+          ${renderZhFamilyFigureSet(
+            [
+              { item: media["paper-prototype"], title: "紙本原型", caption: "在加入視覺細節前，先畫出手錶與手機的基本路徑。", alt: "FamilyPulse 早期手機導覽與訊息紙本原型。" },
+              { item: media["lowfi-watch"], title: "低保真手錶流程", caption: "探索緊急呼叫、家人聯繫、顧問、提醒與狀態。", alt: "FamilyPulse 低保真智慧手錶畫面流程。" },
+              { item: media["lowfi-phone"], title: "低保真手機流程", caption: "提供狀態查看、溝通與設定的空間。", alt: "FamilyPulse 低保真手機畫面流程。" }
+            ],
+            "原型演進",
+            "紙本、手錶與手機探索放在同一組中，以便閱讀層級與流程如何逐步成形。",
+            "family-figure-set--stacked"
+          )}
+          <aside class="boundary-callout" aria-label="評估限制"><p class="eyebrow">評估邊界</p><p>測試來自同學與教授課堂評論，沒有正式可用性計畫、任務數據、量表或後續縱向結果。因此本案例只描述設計變化，不聲稱已證明可用性。</p></aside>
         </section>
 
         <section id="zh-gaps" class="case-section">
@@ -1175,8 +1213,12 @@ function renderZhFamilyPulsePage() {
         </section>
 
         <section id="zh-reflection" class="case-section case-reflection">
-          <div class="case-section-heading"><span aria-hidden="true">07</span><div><p class="eyebrow">反思</p><h2>人可能需要幫助，同時仍然需要被當成一個有驕傲、選擇與尊嚴的人。</h2></div></div>
-          <p>FamilyPulse 讓我開始更深地關心：設計可否幫到一個人，卻不讓幫助成為他的身分。如果繼續這個專案，我會先邀請高齡者共同定義什麼叫做「被支持但仍有自主」，再進入功能與界面設計。</p>
+          <div class="case-section-heading"><span aria-hidden="true">07</span><div><p class="eyebrow">反思</p><h2>反思</h2></div></div>
+          <p class="family-reflection-copy">
+            <span>FamilyPulse 讓我開始更深地關心：</span>
+            <strong>設計可否幫到一個人，卻不讓幫助成為他的身分。</strong>
+            <span>人可能需要幫助，同時仍然需要被當成一個有驕傲、選擇與尊嚴的人。如果繼續這個專案，我會先邀請高齡者共同定義什麼叫做「被支持但仍有自主」，再進入功能與界面設計。</span>
+          </p>
         </section>
       </div>
     </article>`
