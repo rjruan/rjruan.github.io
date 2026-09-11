@@ -39,7 +39,7 @@ fs.copyFileSync(
   path.join(root, "assets", "styles.css")
 );
 
-for (const directory of ["familypulse", "penpal", "ssim", "flood-50", "home"]) {
+for (const directory of ["familypulse", "penpal", "ssim", "flood-50", "home", "fonts"]) {
   fs.cpSync(
     path.join(dist, "assets", directory),
     path.join(root, "assets", directory),

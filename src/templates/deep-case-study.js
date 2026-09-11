@@ -517,7 +517,7 @@ function renderSsimCaseStudy(project, renderPage, escapeHtml) {
               <span class="ssim-wordmark-face ssim-wordmark-front" aria-hidden="true">MISS</span>
               <span class="ssim-wordmark-face ssim-wordmark-back" aria-hidden="true">SSIM</span>
             </button>
-            <p class="ssim-flip-hint"><span aria-hidden="true">↻</span> Turn missing around</p>
+            <p class="ssim-flip-hint"><span aria-hidden="true">→</span> Turn missing around</p>
             <h1>${escapeHtml(study.headline)}</h1>
             <p class="case-lede">${escapeHtml(study.lede)}</p>
             <div class="case-actions">
@@ -566,7 +566,7 @@ function renderSsimCaseStudy(project, renderPage, escapeHtml) {
           <section id="discovery" class="case-section">
             ${renderSectionHeading("02", "When objects disappear, what happens to the memories inside them?", escapeHtml)}
             <aside class="ssim-margin-note note-right" aria-label="Ruby's margin note">
-              <span aria-hidden="true">↳</span> I wasn’t trying to build a better archive. I was trying to understand what still feels alive.
+              <span aria-hidden="true">→</span> I wasn’t trying to build a better archive. I was trying to understand what still feels alive.
             </aside>
             ${study.discovery.body
               .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
@@ -649,7 +649,7 @@ ${study.research.stats.length
           <section id="prototype" class="case-section">
             ${renderSectionHeading("05", "Prototype early enough to expose the starting problem", escapeHtml)}
             <aside class="ssim-margin-note note-left" aria-label="Ruby's margin note">
-              <span aria-hidden="true">↳</span> The most useful moment was not “they liked it.” It was watching someone look for a door I had failed to draw.
+              <span aria-hidden="true">→</span> The most useful moment was not “they liked it.” It was watching someone look for a door I had failed to draw.
             </aside>
             <p>${escapeHtml(study.prototype.intro)}</p>
             ${media.paper?.src || media.digital?.src

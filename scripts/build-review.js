@@ -33,6 +33,11 @@ const reviews = [
     output: "portfolio-echo-penpal-research-review-v1.html"
   },
   {
+    route: "/expeditions/flood-50/",
+    source: "expeditions/flood-50/index.html",
+    output: "portfolio-flood-50-research-review-v1.html"
+  },
+  {
     route: "/field-notes/",
     source: "field-notes/index.html",
     output: "portfolio-field-notes-research-review-v1.html"
@@ -68,6 +73,7 @@ function mimeType(filePath) {
   if (extension === ".jpg" || extension === ".jpeg") return "image/jpeg";
   if (extension === ".webp") return "image/webp";
   if (extension === ".mp4") return "video/mp4";
+  if (extension === ".woff2") return "font/woff2";
   throw new Error(`Unsupported review asset: ${filePath}`);
 }
 
@@ -92,6 +98,9 @@ function buildReview(review, css) {
     `<style>\n${css}\n</style>`
   );
 
+  // Font files are already embedded in the inlined stylesheet.
+  html = html.replace(/\s*<link rel="preload" href="\/assets\/fonts\/[^"]+" as="font"[^>]*>/g, "");
+
   html = html.replace(/src="(\/assets\/[^"]+)"/g, (_match, publicPath) => {
     const filePath = path.join(dist, publicPath.replace(/^\//, ""));
     const base64 = fs.readFileSync(filePath).toString("base64");
@@ -102,6 +111,12 @@ function buildReview(review, css) {
     const filePath = path.join(dist, publicPath.replace(/^\//, ""));
     const base64 = fs.readFileSync(filePath).toString("base64");
     return `poster="data:${mimeType(filePath)};base64,${base64}"`;
+  });
+
+  html = html.replace(/data-video-src="(\/assets\/[^"]+)"/g, (_match, publicPath) => {
+    const filePath = path.join(dist, publicPath.replace(/^\//, ""));
+    const base64 = fs.readFileSync(filePath).toString("base64");
+    return `data-video-src="data:${mimeType(filePath)};base64,${base64}"`;
   });
 
   for (const [route, output] of reviewByRoute) {

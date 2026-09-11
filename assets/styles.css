@@ -1,3 +1,43 @@
+@font-face {
+  font-family: "Ruby Source Sans";
+  src: url("/assets/fonts/source-sans-3-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ruby Source Serif";
+  src: url("/assets/fonts/source-serif-4-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ruby Source Serif";
+  src: url("/assets/fonts/source-serif-4-italic-variable.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ruby Noto Sans TC";
+  src: url("/assets/fonts/noto-sans-tc-variable-subset.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ruby Noto Serif TC";
+  src: url("/assets/fonts/noto-serif-tc-variable-subset.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --canvas: #f4f7fb;
@@ -29,7 +69,7 @@
   --content: 72rem;
   --reading: 46rem;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  font-family: "Ruby Source Sans", "Ruby Noto Sans TC", sans-serif;
 }
 
 * {
@@ -9856,5 +9896,363 @@ body.zh-family-case .zh-case-content .case-reflection > .family-reflection-copy 
   body.zh-family-case .zh-case-hero .zh-family-hero-figure,
   body.zh-family-case .zh-case-content .zh-case-figure {
     border: 0;
+  }
+}
+
+/* Portfolio typography and editorial-layout lock — homepage is the source of truth. */
+:root {
+  --font-home-sans: "Ruby Source Sans", "Ruby Noto Sans TC", sans-serif;
+  --font-home-serif: "Ruby Source Serif", "Ruby Noto Serif TC", serif;
+  --type-h1: clamp(2.2rem, 4.4vw, 5.8rem);
+  --type-h2: clamp(2.2rem, 4.7vw, 5rem);
+  --type-h3: clamp(1.35rem, 2.2vw, 2.15rem);
+  --type-body-1: clamp(1.05rem, 1.35vw, 1.2rem);
+  --type-body-2: 1rem;
+  --type-body-3: 0.9rem;
+  --type-caption: 0.72rem;
+  --editorial-canvas: #fbfcff;
+  --editorial-blue: #0a2c52;
+}
+
+body.lang-zh {
+  --font-home-sans: "Ruby Noto Sans TC", "Ruby Source Sans", sans-serif;
+  --font-home-serif: "Ruby Noto Serif TC", "Ruby Source Serif", serif;
+}
+
+body,
+body * {
+  font-family: var(--font-home-sans) !important;
+}
+
+body :is(
+  h1,
+  h2,
+  h3,
+  blockquote,
+  blockquote p,
+  .why-word,
+  .why-project-number,
+  .why-project-question,
+  .stat-value,
+  .case-section-heading > span,
+  .insight-quote,
+  .principle-line,
+  .family-reflection-copy,
+  .ssim-wordmark,
+  .ssim-wordmark-face,
+  .ssim-whisper,
+  .flood-concept-tagline,
+  .flood-theme-line
+) {
+  font-family: var(--font-home-serif) !important;
+}
+
+body h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 500 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.05em !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+body h2 {
+  font-size: var(--type-h2) !important;
+  font-weight: 500 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.045em !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+body h3 {
+  font-size: var(--type-h3) !important;
+  font-weight: 550 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: pretty;
+}
+
+body :is(p, li, dd) {
+  font-size: var(--type-body-2);
+  line-height: 1.7;
+}
+
+body :is(.hero-lede, .case-lede, .case-headline, .case-subheading, .research-question, .page-hero > .section-inner > p:last-child) {
+  font-size: var(--type-body-1) !important;
+  line-height: 1.55 !important;
+}
+
+body :is(.meta-text, .meta-row, figcaption, .why-project-meta, .why-project-status, .method-status, .evidence-note) {
+  font-size: var(--type-body-3) !important;
+  line-height: 1.55 !important;
+}
+
+body :is(.eyebrow, dt, .site-mark-kicker, .cinematic-home-note) {
+  font-size: var(--type-caption) !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.12em !important;
+}
+
+body:not(.home) {
+  background: var(--editorial-canvas);
+}
+
+body:not(.home)::before {
+  display: none;
+}
+
+body :is(.page-hero, .case-hero, .case-cover, .ssim-cover, .snapshot-case-hero, .protected-case-hero, .research-hero, .zh-case-hero) {
+  min-height: 0;
+  margin-top: -4.8rem;
+  padding-top: clamp(10rem, 14vw, 13rem);
+  padding-bottom: clamp(6rem, 10vw, 9rem);
+  border: 0;
+  background: transparent;
+}
+
+body:not(.home) .page-hero::before {
+  display: none !important;
+}
+
+body :is(.content-band, .content-band.alternate) {
+  padding-block: clamp(6rem, 10vw, 10rem);
+  border: 0;
+  background: transparent;
+}
+
+body .section-heading {
+  max-width: 58rem;
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+body .case-section {
+  padding-block: clamp(5rem, 9vw, 9rem);
+  border: 0;
+}
+
+body .case-section-heading {
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+body :is(
+  .project-card,
+  .inquiry-card,
+  .method-item,
+  .method-evidence-item,
+  .field-note-card,
+  .gallery-item,
+  .resume-section,
+  .resume-access,
+  .template-panel,
+  .note-panel,
+  .decision-card,
+  .flow-card,
+  .boundary-callout,
+  .research-theme,
+  .research-work-item,
+  .case-summary,
+  .ssim-observation,
+  .ssim-brief,
+  .ssim-margin-note,
+  .ssim-home-reflection,
+  .ssim-reflection-note
+) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body :is(.case-figure, .case-figure img, .case-figure figcaption, .project-visual, .project-visual img, .gallery-item img) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body :is(.case-fact-bar, .case-quick-facts) {
+  border-block: 1px solid rgba(16, 18, 22, 0.2);
+  border-inline: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body .tag-list li {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+body .site-header-inner {
+  padding-left: calc(0.75rem + 15px) !important;
+  padding-right: 0.75rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.92) !important;
+  border-radius: var(--radius-pill) !important;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.54)),
+    rgba(240, 246, 253, 0.68) !important;
+  box-shadow: 0 14px 44px rgba(17, 42, 76, 0.11), inset 0 1px rgba(255, 255, 255, 0.96) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(155%) !important;
+  backdrop-filter: blur(30px) saturate(155%) !important;
+}
+
+body .site-mark-dot {
+  display: none !important;
+}
+
+body .nav-link {
+  border-radius: var(--radius-pill) !important;
+}
+
+body .site-footer {
+  padding: clamp(5rem, 10vw, 9rem) 0 2rem !important;
+  border-top: 0 !important;
+  background: var(--editorial-blue) !important;
+  color: #fff !important;
+}
+
+body .site-footer :is(p, a) {
+  color: #fff !important;
+}
+
+body .site-footer .eyebrow {
+  color: #b8dbff !important;
+}
+
+body .site-footer .footer-grid {
+  align-items: end;
+  gap: clamp(3rem, 10vw, 11rem);
+}
+
+body .site-footer .footer-intro p:last-child {
+  max-width: 18ch;
+  font-family: var(--font-home-serif) !important;
+  font-size: clamp(1.8rem, 3.3vw, 3.8rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.04em;
+}
+
+body .site-footer a:hover,
+body .site-footer a:focus-visible {
+  color: #ffdf7a !important;
+}
+
+body .site-footer a:focus-visible {
+  outline-color: #fff;
+}
+
+body.home .cinematic-home-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #09233e;
+}
+
+body.home :is(.cinematic-home-poster, .cinematic-home-video) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+body.home .cinematic-home-poster {
+  z-index: 0;
+}
+
+body.home .cinematic-home-video {
+  z-index: 1;
+}
+
+.expeditions-page .project-grid {
+  grid-template-columns: 1fr;
+  gap: clamp(7rem, 13vw, 13rem);
+}
+
+.expeditions-page .project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(20rem, 0.55fr);
+  grid-template-rows: auto;
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  min-height: 0;
+  overflow: visible;
+}
+
+.expeditions-page .project-card-body {
+  padding: 0;
+}
+
+.expeditions-page .project-visual-image {
+  display: block;
+  width: calc(100% + clamp(0rem, 4vw, 4rem));
+  min-height: 0;
+  margin: 0 0 0 calc(-1 * clamp(0rem, 4vw, 4rem));
+  overflow: visible;
+}
+
+.expeditions-page .project-visual-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 760px) {
+  body h1 {
+    font-size: clamp(2.15rem, 10vw, 3.7rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  body h2 {
+    font-size: clamp(2rem, 8.8vw, 3.35rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  body h3 {
+    font-size: clamp(1.4rem, 6.6vw, 2rem) !important;
+  }
+
+  body :is(.page-hero, .case-hero, .case-cover, .ssim-cover, .snapshot-case-hero, .protected-case-hero, .research-hero, .zh-case-hero) {
+    margin-top: -5.2rem;
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+  }
+
+  body .site-header-inner {
+    padding-left: calc(1rem + 15px) !important;
+    padding-right: 1rem !important;
+  }
+
+  body.home .cinematic-home-video {
+    display: none !important;
+  }
+
+  .expeditions-page .project-grid {
+    gap: 7rem;
+  }
+
+  .expeditions-page .project-card {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .expeditions-page .project-visual-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  body .site-footer .footer-grid {
+    align-items: start;
   }
 }
