@@ -142,6 +142,7 @@ const zhResearch = {
 
 const zhProjects = [
   {
+    slug: "health-monitoring",
     title: "FamilyPulse",
     type: "深入案例研究",
     question: "健康科技如何在支持安全的同時，保留高齡者的尊嚴與自主？",
@@ -153,6 +154,7 @@ const zhProjects = [
     themes: ["尊嚴", "高齡與自主", "跨裝置 UX", "健康科技"]
   },
   {
+    slug: "ssim",
     title: "SSIM",
     type: "深入案例研究",
     question: "當實體物件消失時，科技可以如何協助保存家庭記憶？",
@@ -164,6 +166,7 @@ const zhProjects = [
     themes: ["記憶", "文化保存", "隱私", "互動設計"]
   },
   {
+    slug: "pen-pal",
     title: "Echo PenPal",
     type: "UX 案例研究",
     question: "當科技讓聯繫變得更容易，為什麼關係仍可能缺少用心？",
@@ -175,6 +178,7 @@ const zhProjects = [
     themes: ["人際連結", "社交互動", "互動設計", "概念發展"]
   },
   {
+    slug: "flood-50",
     title: "We Are Flood 50",
     type: "真實客戶提案",
     question: "一個快速變動的大學城，如何透過共同記憶建立歸屬感？",

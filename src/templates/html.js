@@ -136,9 +136,12 @@ function renderHeaderNavigation(path, lang) {
 function renderPage({ path, title, description, main, bodyClass = "", lang = "en" }) {
   const bodyClasses = [bodyClass, lang === "zh" ? "lang-zh" : ""].filter(Boolean).join(" ");
   const classes = bodyClasses ? ` class="${bodyClasses}"` : "";
-  const stylesheetVersion = bodyClass.split(/\s+/).includes("zh-family-case")
-    ? "20260910-zh-family-publish-1"
-    : "20260910-faculty-review-1";
+  const stylesheetVersion = "20260910-fixed-type-publish-1";
+  const fontPreloads = lang === "zh"
+    ? `<link rel="preload" href="/assets/fonts/noto-sans-tc-variable-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/noto-serif-tc-variable-subset.woff2" as="font" type="font/woff2" crossorigin>`
+    : `<link rel="preload" href="/assets/fonts/source-sans-3-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/source-serif-4-variable.woff2" as="font" type="font/woff2" crossorigin>`;
   const directAlternate = directLanguageAlternates[path];
   const canonical = `${site.url}${path === "/" ? "/" : path}`;
   const alternateLinks = directAlternate
@@ -160,6 +163,7 @@ function renderPage({ path, title, description, main, bodyClass = "", lang = "en
     <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${canonical}">
     ${alternateLinks}
+    ${fontPreloads}
     <link rel="stylesheet" href="/assets/styles.css?v=${stylesheetVersion}">
   </head>
   <body${classes}>
@@ -292,52 +296,16 @@ function projectCard(project, options = {}) {
 }
 
 function renderProjectVisual(project) {
-  if (project.visualStyle === "family-pulse") {
-    return `<div class="project-visual family-pulse-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <div class="mini-phone"><span>82</span></div>
-      <div class="mini-watch"><span>SOS</span></div>
-      <p>${escapeHtml(project.visualLabel)}</p>
-    </div>`;
-  }
+  if (!project.cardImage) return "";
 
-  if (project.visualStyle === "ssim") {
-    return `<div class="project-visual ssim-project-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <div class="ssim-card-wordmark">
-        <span>SSIM</span>
-        <span aria-hidden="true">MISS</span>
-      </div>
-      <p>${escapeHtml(project.visualLabel)}</p>
-    </div>`;
-  }
-
-  if (project.visualStyle === "pen-pal") {
-    return `<div class="project-visual pen-pal-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <div class="pen-pal-card-wordmark" aria-hidden="true">
-        <span>Echo</span><span>PenPal</span>
-      </div>
-      <p>${escapeHtml(project.visualLabel)}</p>
-    </div>`;
-  }
-
-  if (project.visualStyle === "flood-50") {
-    return `<div class="project-visual flood-50-visual" role="img" aria-label="${escapeHtml(
-      project.visualLabel
-    )}">
-      <div class="flood-50-wordmark" aria-hidden="true"><span>WE ARE</span><strong>FLOOD 50</strong></div>
-      <div class="flood-50-waterline" aria-hidden="true"></div>
-      <p>${escapeHtml(project.visualLabel)}</p>
-    </div>`;
-  }
-
-  return `<div class="project-visual" role="img" aria-label="${escapeHtml(
-    project.visualLabel
-  )}"><span>${escapeHtml(project.visualLabel)}</span></div>`;
+  return `<figure class="project-visual project-visual-image" data-asset-source="ruby-provided">
+    <img src="${escapeHtml(project.cardImage.src)}" alt="${escapeHtml(
+      project.cardImage.alt
+    )}" width="${escapeHtml(project.cardImage.width)}" height="${escapeHtml(
+      project.cardImage.height
+    )}" loading="lazy">
+    <figcaption class="visually-hidden">${escapeHtml(project.visualLabel)}</figcaption>
+  </figure>`;
 }
 
 function renderSelectedExpeditions() {
@@ -443,38 +411,63 @@ function renderHomePathways(lang = "en") {
   </nav>`;
 }
 
+function renderCinematicHomeHero(lang = "en") {
+  const title = lang === "zh"
+    ? "我一直提問，直到我理解系統裡的人。"
+    : "I keep asking questions until I understand the people inside the system.";
+  const lede = lang === "zh"
+    ? "觀察人、系統與那些還沒有被回答的問題。"
+    : "I observe people, systems, and the questions that remain unresolved.";
+
+  return `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
+    <div class="cinematic-home-stage">
+      <div class="cinematic-home-media" data-home-film data-video-src="/assets/home/home-roadtrip.mp4">
+        <img class="cinematic-home-poster" src="/assets/home/home-roadtrip-poster.jpg" alt="" width="1128" height="634" fetchpriority="high" aria-hidden="true">
+      </div>
+      <div class="cinematic-home-wash" aria-hidden="true"></div>
+      <div class="cinematic-home-caption">
+        <p class="eyebrow">Ruby Ruan · Cinematic Research Studio</p>
+        <h1 id="cinematic-home-title">${title}</h1>
+        <p>${lede}</p>
+      </div>
+      <p class="cinematic-home-note" aria-hidden="true">A field note / Rexburg</p>
+    </div>
+    <script>
+      (() => {
+        const container = document.querySelector("[data-home-film]");
+        const motionQuery = window.matchMedia("(min-width: 681px) and (prefers-reduced-motion: no-preference)");
+        if (!container) return;
+        const syncFilm = () => {
+          const existing = container.querySelector("video");
+          if (!motionQuery.matches) {
+            existing?.remove();
+            return;
+          }
+          if (existing) return;
+          const video = document.createElement("video");
+          video.className = "cinematic-home-video";
+          video.width = 1128;
+          video.height = 634;
+          video.autoplay = true;
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.preload = "metadata";
+          video.poster = container.querySelector("img")?.currentSrc || "/assets/home/home-roadtrip-poster.jpg";
+          video.src = container.dataset.videoSrc;
+          video.setAttribute("aria-hidden", "true");
+          container.append(video);
+          video.play().catch(() => {});
+        };
+        syncFilm();
+        motionQuery.addEventListener?.("change", syncFilm);
+      })();
+    </script>
+  </section>`;
+}
+
 function renderWhyHome(lang = "en") {
-  const cinematicHero = lang === "zh"
-    ? `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
-      <div class="cinematic-home-stage">
-        <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
-          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4" media="(min-width: 681px)">
-          <p>Silent road-trip video unavailable in this browser.</p>
-        </video>
-        <div class="cinematic-home-wash" aria-hidden="true"></div>
-        <div class="cinematic-home-caption">
-          <p class="eyebrow">Ruby Ruan · Cinematic Research Studio</p>
-          <h1 id="cinematic-home-title">我一直提問，直到我理解系統裡的人。</h1>
-          <p>觀察人、系統與那些還沒有被回答的問題。</p>
-        </div>
-        <p class="cinematic-home-note" aria-hidden="true">A field note / Rexburg</p>
-      </div>
-    </section>`
-    : `<section class="cinematic-home-hero" aria-labelledby="cinematic-home-title">
-      <div class="cinematic-home-stage">
-        <video class="cinematic-home-video" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/home/home-roadtrip-poster.jpg" aria-label="A silent horizontal road-trip video recorded by Ruby Ruan.">
-          <source src="/assets/home/home-roadtrip.mp4" type="video/mp4" media="(min-width: 681px)">
-          <p>Silent road-trip video unavailable in this browser.</p>
-        </video>
-        <div class="cinematic-home-wash" aria-hidden="true"></div>
-        <div class="cinematic-home-caption">
-          <p class="eyebrow">Ruby Ruan · Cinematic Research Studio</p>
-          <h1 id="cinematic-home-title">I keep asking questions until I understand the people inside the system.</h1>
-          <p>I observe people, systems, and the questions that remain unresolved.</p>
-        </div>
-        <p class="cinematic-home-note" aria-hidden="true">A field note / Rexburg</p>
-      </div>
-    </section>`;
+  const cinematicHero = renderCinematicHomeHero(lang);
 
   if (lang === "zh") {
     return `${cinematicHero}<section class="why-home" aria-labelledby="why-title">
@@ -608,7 +601,9 @@ function renderExpeditionsPage() {
 }
 
 function localizedProjectCard(project) {
+  const sourceProject = projects.find((item) => item.slug === project.slug);
   return `<article class="project-card">
+    ${sourceProject ? renderProjectVisual(sourceProject) : ""}
     <div class="project-card-body">
       <div class="meta-row"><span>${escapeHtml(project.type)}</span><span>${escapeHtml(project.status)}</span></div>
       <h3>${escapeHtml(project.title)}</h3>
@@ -1099,8 +1094,7 @@ function renderZhFamilyPulsePage() {
             <p class="case-lede">FamilyPulse 是一個獨立完成的跨手錶與手機概念，探索高齡者與他們信任的人如何分享健康脈絡、聯繫，並在緊急時刻反應，同時保留尊嚴與自主。</p>
             <p class="evidence-note">課堂概念，不是醫療器材，也沒有上線、臨床驗證或量化成效。</p>
             <div class="case-actions">
-              <a class="button primary" href="https://www.figma.com/proto/VbzeWWmS8IEhteLz8vr9SK?node-id=1-13" target="_blank" rel="noreferrer">查看 Figma 互動原型</a>
-              <a class="button secondary" href="/expeditions/health-monitoring/">閱讀完整英文案例</a>
+              <a class="button primary" href="/expeditions/health-monitoring/">閱讀完整英文案例</a>
             </div>
           </div>
           ${renderZhCaseFigure(media["hero-cross-device"], "跨裝置概念", "手錶承擔貼近身體的短操作，手機則提供查看、溝通與設定空間。", "FamilyPulse 手機與智慧手錶概念畫面，手錶顯示緊急呼叫。", { eager: true, className: "zh-family-hero-figure" })}

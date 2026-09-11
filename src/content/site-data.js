@@ -105,6 +105,12 @@ const projects = [
     ],
     summary:
       "A cross-device concept exploring how older adults living independently and the people they trust could stay informed, connected, and ready to respond while preserving dignity and autonomy.",
+    cardImage: {
+      src: "/assets/familypulse/hero-cross-device.png",
+      alt: "Ruby Ruan's FamilyPulse phone and smartwatch interface compositions.",
+      width: 2048,
+      height: 1306
+    },
     visualLabel: "Watch + phone support system",
     visualStyle: "family-pulse",
     caseStudy: {
@@ -112,16 +118,7 @@ const projects = [
       lede:
         "FamilyPulse began with a memory of my grandparent falling in a bathroom in Taiwan. It explores how an older adult and the people they trust might share health context, communicate, and respond to urgent moments without making care feel conspicuous or controlling.",
       conceptLabel: "Course concept — not a medical device",
-      sourceLinks: [
-        {
-          label: "View interactive prototype",
-          url: "https://www.figma.com/proto/VbzeWWmS8IEhteLz8vr9SK?node-id=1-13"
-        },
-        {
-          label: "View presentation",
-          url: "https://www.figma.com/slides/gMDM2OerKufD8sL4DWkexR/FamilyPulse-App"
-        }
-      ],
+      sourceLinks: [],
       stat: {
         value: "28%",
         body:
@@ -504,6 +501,12 @@ const projects = [
     ],
     summary:
       "SSIM is MISS reversed: a mobile-app concept exploring what families might reach for when they miss someone, and how memory can be revisited through stories, recipes, places, images, and repeatable acts.",
+    cardImage: {
+      src: "/assets/ssim/page-15.jpg",
+      alt: "Ruby Ruan's SSIM presentation board with the wordmark and two mobile interface mockups.",
+      width: 1920,
+      height: 1080
+    },
     visualLabel: "Something to reach for when you miss someone",
     visualStyle: "ssim",
     caseStudy: {
@@ -511,17 +514,8 @@ const projects = [
       headline: "Something to reach for when you miss someone",
       lede:
         "SSIM is MISS reversed: an independent mobile-app concept exploring how families might preserve and revisit stories, recipes, photographs, places, and emotional context across generations.",
-      conceptLabel: "Figma concept — not coded or launched",
-      sourceLinks: [
-        {
-          label: "View Figma design",
-          url: "https://www.figma.com/design/3tTR7suhNtcOZILBTiqsMc/Ssim?node-id=0-1&p=f&t=H2ZBTetVrqH4YFnB-0"
-        },
-        {
-          label: "View FigJam process",
-          url: "https://www.figma.com/board/UgPDlIWBP6JRRlbrrp2XV2/Ssim?t=H2ZBTetVrqH4YFnB-0"
-        }
-      ],
+      conceptLabel: "Course concept — not coded or launched",
+      sourceLinks: [],
       brief: [
         "Family memories rarely live in one place. A recipe may be written on paper, a photograph stored on a phone, a voice message buried in LINE, and the story connecting them remembered by only one person.",
         "SSIM explores a more connected way to preserve these fragments. Rather than treating family history as names and dates alone, the project asks how food, people, place, language, images, and emotion might become part of the same memory—and what someone might reach for in the moment they miss another person."
@@ -794,13 +788,15 @@ const projects = [
     ],
     summary:
       "We Are Flood 50 is a proposal for a local digital experience connected to the Teton Dam Flood commemoration, exploring how memory and heritage might strengthen belonging in the Rexburg area.",
+    cardImage: {
+      src: "/assets/flood-50/final-posters.png",
+      alt: "Ruby Ruan's Flood 50 event poster designs displayed outdoors against a brick wall.",
+      width: 1600,
+      height: 900
+    },
     visualLabel: "Memory, heritage, and local belonging",
     visualStyle: "flood-50",
     sourceLinks: [
-      {
-        label: "View proposal design",
-        url: "https://www.figma.com/design/PIlpV5VtglkRqPDnuHjeSf/We-Are-Flood-50?node-id=934-1416&t=afAqdgtgi64DX32c-1"
-      },
       {
         label: "View public Flood 50 context",
         url: "https://www.madisonlib.org/flood-50/"
@@ -815,10 +811,6 @@ const projects = [
       conceptLabel: "Team proposal — not a launched product",
       team: "Natalie, Abby, Kelsey, William, Anna, and Ruby",
       sourceLinks: [
-        {
-          label: "Figma proposal",
-          url: "https://www.figma.com/design/PIlpV5VtglkRqPDnuHjeSf/We-Are-Flood-50?node-id=934-1416&t=afAqdgtgi64DX32c-1"
-        },
         {
           label: "Client brief deck",
           url: "https://docs.google.com/presentation/d/1yBq7_q5sdmxtNsMRHSRFlVCI0cl9xpA5_EnUCrkdA0I/edit"
@@ -1171,6 +1163,12 @@ const projects = [
     ],
     summary:
       "Echo PenPal explores how a digital product might help people form more intentional international relationships—and carry those relationships beyond the screen through physical letters.",
+    cardImage: {
+      src: "/assets/penpal/hero.png",
+      alt: "Ruby Ruan's Echo Pen Pal mobile interface screens shown together.",
+      width: 1024,
+      height: 507
+    },
     visualLabel: "A connection that continues beyond the screen",
     visualStyle: "pen-pal",
     caseStudy: {
@@ -1181,10 +1179,6 @@ const projects = [
         "Echo PenPal is an individual UX Design class project for people who feel lonely or disconnected and want more genuine human contact. The concept uses technology as a bridge: people can find a pen pal, write across languages, and continue the exchange through a physical letter.",
       conceptLabel: "Course concept — not a released product",
       sourceLinks: [
-        {
-          label: "View Figma design",
-          url: "https://www.figma.com/design/bN2EFLzQMgoTnCxXabHeI5/Echo-PenPal-App?node-id=0-1&t=H2ZBTetVrqH4YFnB-1"
-        },
         {
           label: "View paper prototype motion",
           url: "https://giphy.com/embed/SM4VbcYlLIVdVRnohT"
