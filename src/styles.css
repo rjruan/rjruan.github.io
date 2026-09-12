@@ -1,43 +1,3 @@
-@font-face {
-  font-family: "Ruby Source Sans";
-  src: url("/assets/fonts/source-sans-3-variable.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ruby Source Serif";
-  src: url("/assets/fonts/source-serif-4-variable.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ruby Source Serif";
-  src: url("/assets/fonts/source-serif-4-italic-variable.woff2") format("woff2");
-  font-style: italic;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ruby Noto Sans TC";
-  src: url("/assets/fonts/noto-sans-tc-variable-subset.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ruby Noto Serif TC";
-  src: url("/assets/fonts/noto-serif-tc-variable-subset.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
 :root {
   color-scheme: light;
   --canvas: #f4f7fb;
@@ -69,7 +29,7 @@
   --content: 72rem;
   --reading: 46rem;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  font-family: "Ruby Source Sans", "Ruby Noto Sans TC", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
 * {
@@ -9901,8 +9861,8 @@ body.zh-family-case .zh-case-content .case-reflection > .family-reflection-copy 
 
 /* Portfolio typography and editorial-layout lock — homepage is the source of truth. */
 :root {
-  --font-home-sans: "Ruby Source Sans", "Ruby Noto Sans TC", sans-serif;
-  --font-home-serif: "Ruby Source Serif", "Ruby Noto Serif TC", serif;
+  --font-home-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  --font-home-serif: ui-serif, Georgia, "Times New Roman", serif;
   --type-h1: clamp(2.2rem, 4.4vw, 5.8rem);
   --type-h2: clamp(2.2rem, 4.7vw, 5rem);
   --type-h3: clamp(1.35rem, 2.2vw, 2.15rem);
@@ -9915,8 +9875,8 @@ body.zh-family-case .zh-case-content .case-reflection > .family-reflection-copy 
 }
 
 body.lang-zh {
-  --font-home-sans: "Ruby Noto Sans TC", "Ruby Source Sans", sans-serif;
-  --font-home-serif: "Ruby Noto Serif TC", "Ruby Source Serif", serif;
+  --font-home-sans: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --font-home-serif: ui-serif, "Noto Serif TC", "Songti TC", Georgia, serif;
 }
 
 body,

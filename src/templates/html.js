@@ -136,12 +136,7 @@ function renderHeaderNavigation(path, lang) {
 function renderPage({ path, title, description, main, bodyClass = "", lang = "en" }) {
   const bodyClasses = [bodyClass, lang === "zh" ? "lang-zh" : ""].filter(Boolean).join(" ");
   const classes = bodyClasses ? ` class="${bodyClasses}"` : "";
-  const stylesheetVersion = "20260910-fixed-type-publish-1";
-  const fontPreloads = lang === "zh"
-    ? `<link rel="preload" href="/assets/fonts/noto-sans-tc-variable-subset.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/noto-serif-tc-variable-subset.woff2" as="font" type="font/woff2" crossorigin>`
-    : `<link rel="preload" href="/assets/fonts/source-sans-3-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/source-serif-4-variable.woff2" as="font" type="font/woff2" crossorigin>`;
+  const stylesheetVersion = "20260912-home-type-restore-1";
   const directAlternate = directLanguageAlternates[path];
   const canonical = `${site.url}${path === "/" ? "/" : path}`;
   const alternateLinks = directAlternate
@@ -163,7 +158,6 @@ function renderPage({ path, title, description, main, bodyClass = "", lang = "en
     <meta name="theme-color" content="#f4f7fb">
     <link rel="canonical" href="${canonical}">
     ${alternateLinks}
-    ${fontPreloads}
     <link rel="stylesheet" href="/assets/styles.css?v=${stylesheetVersion}">
   </head>
   <body${classes}>
