@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ruby Portfolio"
+  short_description: "Route portfolio work with minimal context and safe QA"
+  default_prompt: "Use $ruby-portfolio to update one portfolio case study with only the necessary context."
+policy:
+  allow_implicit_invocation: true
