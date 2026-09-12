@@ -8,6 +8,8 @@
 - Evidence boundary: exploratory classroom work, not clinical or representative research. Older adults were not directly involved. Do not claim proven usability, accessibility, health outcomes, launch, or quantitative impact.
 - Public participant counts and individual responses remain omitted.
 - Approved cover: `/assets/familypulse/hero-cross-device.png`.
+- Case footer: use FamilyPulse's approved green project theme rather than the default blue; verify the exact value and AA text/link contrast from the project source before implementation.
+- Source inventory should cover the Canvas course/assignment submission, the FamilyPulse Figma/FigJam source, and Ruby-supplied local/repository project files. Record what was actually accessible; do not publish Canvas or Figma links.
 - Use only existing FamilyPulse assets under `/assets/familypulse/` and corresponding source assets. The optional `Status at a glance` screen stays omitted unless Ruby supplies the exact export.
 - The 28% statistic must retain its official ACL source link.
 - If the Medical Alarm Landscape still appears soft, request an original vector/high-resolution export; do not imply that upscaling created new detail.

@@ -16,6 +16,7 @@ Use the project skill at `.codex/skills/ruby-portfolio/SKILL.md` for portfolio c
 - Never merge, push to `master`, publish, delete material, or expose a private link without Ruby's explicit instruction for that action.
 - Never invent research facts, participant counts, outcomes, metrics, medical claims, project images, quotes, or implementation status.
 - Use only Ruby-supplied or repository-verified project assets. Do not generate or redraw evidence imagery.
+- For each case, check its available Canvas submission, Figma/FigJam file, and Ruby-supplied local/project files as the three expected source groups. State clearly which sources were actually accessible and inspected. Do not imply access to files that remain only on Ruby's personal computer.
 - Never publish Figma URLs. The only approved public presentation links are the three Flood 50 Google Slides already recorded in source.
 - Every completed case study ultimately needs a full English version and a full Traditional Chinese version, with aligned facts and evidence boundaries rather than a summary-only translation.
 - Protected professional work stays outside public source and history unless written sharing scope and the selected access-control workflow explicitly permit it.

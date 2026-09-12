@@ -24,7 +24,10 @@ Ruby rejected the temporary self-hosted Source/Noto webfont treatment. Do not re
 
 ## Layout and shell
 
-- Use the shared floating header and blue editorial footer from `src/templates/html.js` and the final stylesheet lock.
+- Use the shared floating header and editorial footer structure from `src/templates/html.js` and the final stylesheet lock.
+- Homepage and non-case pages keep the approved blue footer. Each case-study page uses that project's approved theme color as its footer background; its English and Traditional Chinese versions use the same project color.
+- Do not guess a project color. Derive it from Ruby's approved Figma/project source or ask Ruby for the exact value. Adjust footer text/link colors only as needed to preserve WCAG 2.2 AA contrast.
+- FamilyPulse uses its approved green theme for the case-study footer. Exact colors for other cases remain source-derived until recorded in their case context.
 - Favor simple, elegant composition, large breathing room, flat surfaces, and meaningful break-the-frame imagery.
 - Avoid generic cards, decorative borders, shadows, blobs, and fake project visuals.
 - Break-the-frame elements must not create document-level horizontal overflow, clipped text, sticky-navigation collisions, or broken words.

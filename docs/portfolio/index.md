@@ -22,4 +22,6 @@ Source locations:
 - Effective visual system: final `Portfolio typography and editorial-layout lock` block in `src/styles.css`
 - Generated `dist/` and root HTML/CSS are build outputs, not primary authoring locations.
 
+For each case, the expected evidence inventory has three groups: Canvas course/assignment submissions, Figma/FigJam working files, and Ruby-supplied local/project files. A source is not considered inspected until it is actually accessible in the current chat/workspace. These source links are for internal verification and are not automatically suitable for the public page.
+
 The full `Ruby_Portfolio_Master_Handoff.md` remains the historical archive outside the public repository. Consult it only when these compact files and repository history cannot resolve a prior decision.

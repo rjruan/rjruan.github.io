@@ -15,10 +15,17 @@ Route each task through the repository's compact context instead of loading the 
 
 ## Choose the workflow
 
-- Content or case layout: preserve the shared shell and edit only the routed case.
+- Content or case layout: preserve the shared shell and edit only the routed case. Begin with the case's available Canvas submission, Figma file, and user-supplied/local project files; distinguish unavailable sources from sources actually inspected.
 - Shared typography, header, footer, or global layout: use the design-system file and treat the approved homepage as the visual baseline.
 - Review, push, merge, or publication: use the publishing file and require Ruby's explicit approval for each external mutation.
 - Protected work: follow the generic protected-review security document and keep all private facts and assets out of public source/history.
+
+## Handle case sources safely
+
+- A case may use three source groups: its Canvas course/assignment submission, its Figma/FigJam files, and project files Ruby uploads or makes available in the working repository/workspace.
+- Inventory and compare the available groups before rewriting the narrative. Record which source was actually inspected and which still needs access.
+- A path on Ruby's personal computer is not accessible unless the file is uploaded or otherwise present in the workspace. Ask for the needed file instead of claiming to have read it.
+- Treat Canvas and Figma as research evidence, not automatically public links. Never publish a Canvas URL or Figma/FigJam URL. The only approved public presentation links remain the three existing Flood 50 Google Slides.
 
 ## Decide about subagents automatically
 
