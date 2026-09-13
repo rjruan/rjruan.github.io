@@ -7107,7 +7107,7 @@ body.family-pulse-case,
 
 body.family-pulse-case .site-footer {
   border-top: 0;
-  background: #075749;
+  background: #196e5d !important;
   color: #fff;
   padding: clamp(5rem, 10vw, 9rem) 0 2rem;
 }
@@ -7118,7 +7118,7 @@ body.family-pulse-case .site-footer .footer-contact a {
 }
 
 body.family-pulse-case .site-footer .eyebrow {
-  color: #d9fff4;
+  color: #d9fff4 !important;
 }
 
 body.family-pulse-case .site-footer .footer-grid {
