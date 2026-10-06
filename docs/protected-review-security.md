@@ -14,6 +14,21 @@ This repository supports generating a self-contained encrypted review artifact w
 
 ## Hosting decision
 
+The owner selected an encrypted no-account review route on the existing portfolio
+domain. `church/index.html` contains ciphertext and a generic password gate only;
+there is no protected plaintext or passphrase in this repository. The normal build
+copies it to `dist/church/index.html` without adding it to public navigation or the
+sitemap. Adding this route on a review branch does not authorize merge or deployment.
+
+To adapt a previously verified encrypted artifact to the current portfolio shell,
+set `PRIVATE_REVIEW_FILE` to its absolute path and run
+`node scripts/prepare-protected-route.js`. This step requires no password and preserves
+the ciphertext. It uses the shared header/footer templates and current homepage CSS,
+removing the old artifact's embedded replacement fonts. Run the protected verifier
+again on the resulting route with a separately supplied passphrase before sharing.
+This route supports complete English and Traditional Chinese content through
+`?lang=en` and `?lang=zh`, and relocks after refresh, page return, or inactivity.
+
 For true reviewer-level access control, use private hosting with revocable authentication. Cloudflare Access is a possible later route, but it requires an active domain on Cloudflare and a protected origin; it is not something GitHub Pages supplies by itself. Until that hosting path is configured and the reviewer identities are authorized, the encrypted self-contained artifact is the safer review prototype.
 
 ## Build
