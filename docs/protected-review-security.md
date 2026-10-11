@@ -14,11 +14,18 @@ This repository supports generating a self-contained encrypted review artifact w
 
 ## Hosting decision
 
-The owner selected an encrypted no-account review route on the existing portfolio
-domain. `church/index.html` contains ciphertext and a generic password gate only;
-there is no protected plaintext or passphrase in this repository. The normal build
-copies it to `dist/church/index.html` without adding it to public navigation or the
-sitemap. Adding this route on a review branch does not authorize merge or deployment.
+Restricted review hosting is paused pending formal written permission. The proposed
+hold removes `church/index.html` from the current tree and excludes protected review
+artifacts from the public build. Other portfolio pages remain available. This change
+does not remove artifacts from earlier Git history, downloaded copies, or caches.
+
+Owner or supervisor support and encryption are not substitutes for work-product/IP
+permission. Before any review artifact is hosted again, confirm in writing the exact
+approved content, recipients, public or private review mode, and hosting platforms.
+Confirm permission for external AI and consumer-cloud handling separately. Do not
+export, upload, decrypt for further processing, or share restricted working material
+while these permissions remain unresolved. Do not add protected sources or passwords
+to permission-status records.
 
 To adapt a previously verified encrypted artifact to the current portfolio shell,
 set `PRIVATE_REVIEW_FILE` to its absolute path and run
@@ -26,10 +33,12 @@ set `PRIVATE_REVIEW_FILE` to its absolute path and run
 the ciphertext. It uses the shared header/footer templates and current homepage CSS,
 removing the old artifact's embedded replacement fonts. Run the protected verifier
 again on the resulting route with a separately supplied passphrase before sharing.
-This route supports complete English and Traditional Chinese content through
+The adapter supports complete English and Traditional Chinese content through
 `?lang=en` and `?lang=zh`, and relocks after refresh, page return, or inactivity.
 
-For true reviewer-level access control, use private hosting with revocable authentication. Cloudflare Access is a possible later route, but it requires an active domain on Cloudflare and a protected origin; it is not something GitHub Pages supplies by itself. Until that hosting path is configured and the reviewer identities are authorized, the encrypted self-contained artifact is the safer review prototype.
+If authorized review later requires revocable per-reviewer access, choose hosting
+with authentication appropriate to the approved sharing method. Encryption and
+authentication do not establish permission to use or distribute the work.
 
 ## Build
 

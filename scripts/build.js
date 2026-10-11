@@ -78,15 +78,8 @@ function build() {
     writeFile(routeToFile(route), html);
   }
 
-  // Keep the encrypted reviewer route outside public navigation and sitemap.
-  const protectedRoute = path.join(root, "church", "index.html");
-  if (fs.existsSync(protectedRoute)) {
-    const html = fs.readFileSync(protectedRoute, "utf8");
-    if (!html.includes('id="encrypted-payload"') || !html.includes('"algorithm":"AES-256-GCM"')) {
-      throw new Error("The protected route must contain an encrypted payload.");
-    }
-    writeFile(routeToFile("/church/"), html);
-  }
+  // Restricted review artifacts are not copied into public output.
+  // Re-enable hosting only after written work-product and platform permission.
 
   writeFile(
     path.join(dist, "robots.txt"),
